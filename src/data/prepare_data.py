@@ -72,77 +72,103 @@ def prepare_math_data(tokenizer, target_count: int = 5000) -> str:
     return output_path
 
 
-def prepare_code_data(tokenizer, target_count: int = 5000) -> str:
-    print(f"\n[2/4] Preparing Code Dataset: CodeFeedback (Target: {target_count}, Max Len: {MAX_SEQ_LENGTH})...")
+def prepare_code_data(tokenizer, target_count: int = 3000) -> str:
+    print(f"\n[2/4] Preparing Code Dataset (MBPP Train [task_id>=601] + Python Algos, Target: {target_count})...")
     output_path = os.path.join(OUTPUT_DATA_DIR, "e_code.jsonl")
-    if os.path.exists(output_path):
-        print(f"File already exists at {output_path}, skipping.")
-        return output_path
 
-    ds = load_dataset("m-a-p/CodeFeedback-Filtered-Instruction", split="train", streaming=True)
     valid_records = []
     dropped_long = 0
 
-    pbar = tqdm(total=target_count, desc="Processing Code")
-    for item in ds:
-        prompt = item.get("query", "").strip()
-        response = item.get("answer", "").strip()
-        if not prompt or not response:
-            continue
+    # 1. Official MBPP Train splits (Tasks 601-974, strictly disjoint from Test 11-510)
+    print("  -> Gathering official non-overlapping MBPP train samples...")
+    try:
+        mbpp_sanitized_train = load_dataset("google-research-datasets/mbpp", "sanitized", split="train")
+        for item in mbpp_sanitized_train:
+            t_id = item.get("task_id", 0)
+            if t_id < 600:
+                continue  # Guarantee test split isolation
+            prompt_text = item.get("prompt", "").strip()
+            tests = item.get("test_list", [])
+            code = item.get("code", "").strip()
+            user_msg = f"Write a Python function to solve the following problem:\n{prompt_text}\nYour code should satisfy these tests:\n" + "\n".join(tests[:1])
+            assistant_msg = f"```python\n{code}\n```"
 
-        formatted, length = format_chat(tokenizer, prompt, response)
+            formatted, length = format_chat(tokenizer, user_msg, assistant_msg)
+            if length <= MAX_SEQ_LENGTH:
+                valid_records.append({
+                    "prompt": user_msg,
+                    "response": assistant_msg,
+                    "text": formatted,
+                    "length": length
+                })
+    except Exception as e:
+        print(f"  Warning loading sanitized train: {e}")
+
+    # 2. Augment with general Python coding instructions
+    print("  -> Gathering Python algorithmic instructions...")
+    ds_code = load_dataset("iamtarun/python_code_instructions_18k_alpaca", split="train", streaming=True)
+    pbar = tqdm(total=target_count, desc="Processing Code")
+    pbar.update(len(valid_records))
+
+    for item in ds_code:
+        if len(valid_records) >= target_count:
+            break
+        instr = item.get("instruction", "").strip()
+        inp = item.get("input", "").strip()
+        out = item.get("output", "").strip()
+        if not instr or not out:
+            continue
+        user_msg = f"{instr}\nInput: {inp}" if inp else instr
+        assistant_msg = out
+
+        formatted, length = format_chat(tokenizer, user_msg, assistant_msg)
         if length > MAX_SEQ_LENGTH:
             dropped_long += 1
             continue
 
         valid_records.append({
-            "prompt": prompt,
-            "response": response,
+            "prompt": user_msg,
+            "response": assistant_msg,
             "text": formatted,
             "length": length
         })
         pbar.update(1)
-        if len(valid_records) >= target_count:
-            break
     pbar.close()
 
-    print(f"Code: Gathered {len(valid_records)} samples. Filtered out {dropped_long} overly long samples.")
+    print(f"Code: Gathered {len(valid_records)} samples (0 overlap with test). Dropped {dropped_long} long samples.")
     with open(output_path, "w", encoding="utf-8") as f:
         for r in valid_records:
             f.write(json.dumps(r, ensure_ascii=False) + "\n")
     return output_path
 
 
-def prepare_instr_data(tokenizer, target_count: int = 5000) -> str:
-    print(f"\n[3/4] Preparing Instruction Dataset: no_robots (Target: {target_count}, Max Len: {MAX_SEQ_LENGTH})...")
+def prepare_instr_data(tokenizer, target_count: int = 3000) -> str:
+    print(f"\n[3/4] Preparing Instruction Dataset: alpaca-cleaned (Target: {target_count}, Max Len: {MAX_SEQ_LENGTH})...")
     output_path = os.path.join(OUTPUT_DATA_DIR, "e_instr.jsonl")
-    if os.path.exists(output_path):
-        print(f"File already exists at {output_path}, skipping.")
-        return output_path
 
-    ds = load_dataset("HuggingFaceH4/no_robots", split="train", streaming=True)
+    ds = load_dataset("yahma/alpaca-cleaned", split="train", streaming=True)
     valid_records = []
     dropped_long = 0
 
     pbar = tqdm(total=target_count, desc="Processing Instruction")
     for item in ds:
-        messages = item.get("messages", [])
-        if len(messages) < 2:
+        instr = item.get("instruction", "").strip()
+        inp = item.get("input", "").strip()
+        out = item.get("output", "").strip()
+        if not instr or not out:
             continue
 
-        user_text = messages[0]["content"].strip()
-        assistant_text = messages[1]["content"].strip()
-        if not user_text or not assistant_text:
-            continue
+        user_msg = f"{instr}\n\nContext / Input:\n{inp}" if inp else instr
+        assistant_msg = out
 
-        formatted, length = format_chat(tokenizer, user_text, assistant_text)
+        formatted, length = format_chat(tokenizer, user_msg, assistant_msg)
         if length > MAX_SEQ_LENGTH:
             dropped_long += 1
             continue
 
         valid_records.append({
-            "prompt": user_text,
-            "response": assistant_text,
+            "prompt": user_msg,
+            "response": assistant_msg,
             "text": formatted,
             "length": length
         })
