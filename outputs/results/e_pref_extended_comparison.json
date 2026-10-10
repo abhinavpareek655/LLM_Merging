@@ -1,0 +1,13 @@
+{
+  "benchmark": "UltraFeedback (Held-out Test)",
+  "total_pairs": 200,
+  "beta": 0.1,
+  "B0_raw_win_rate": 51.5,
+  "B0_raw_wins": 103,
+  "E_pref_raw_win_rate": 54.50000000000001,
+  "E_pref_raw_wins": 109,
+  "raw_win_delta": 3.000000000000007,
+  "mean_dpo_reward_margin": 0.3148926086425781,
+  "dpo_margin_win_rate": 60.0,
+  "dpo_margin_wins": 120
+}

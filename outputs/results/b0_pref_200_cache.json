@@ -1,0 +1,802 @@
+[
+  {
+    "chosen": -56.5,
+    "rejected": -712.0
+  },
+  {
+    "chosen": -132.0,
+    "rejected": -0.01519775390625
+  },
+  {
+    "chosen": -528.0,
+    "rejected": -386.0
+  },
+  {
+    "chosen": -46.0,
+    "rejected": -22.0
+  },
+  {
+    "chosen": -284.0,
+    "rejected": -249.0
+  },
+  {
+    "chosen": -720.0,
+    "rejected": -1376.0
+  },
+  {
+    "chosen": -2.140625,
+    "rejected": -2.140625
+  },
+  {
+    "chosen": -540.0,
+    "rejected": -266.0
+  },
+  {
+    "chosen": -52.0,
+    "rejected": -44.5
+  },
+  {
+    "chosen": -604.0,
+    "rejected": -69.5
+  },
+  {
+    "chosen": -14.375,
+    "rejected": -88.5
+  },
+  {
+    "chosen": -108.5,
+    "rejected": -300.0
+  },
+  {
+    "chosen": -442.0,
+    "rejected": -173.0
+  },
+  {
+    "chosen": -800.0,
+    "rejected": -968.0
+  },
+  {
+    "chosen": -396.0,
+    "rejected": -286.0
+  },
+  {
+    "chosen": -764.0,
+    "rejected": -264.0
+  },
+  {
+    "chosen": -199.0,
+    "rejected": -422.0
+  },
+  {
+    "chosen": -482.0,
+    "rejected": -264.0
+  },
+  {
+    "chosen": -438.0,
+    "rejected": -223.0
+  },
+  {
+    "chosen": -198.0,
+    "rejected": -41.0
+  },
+  {
+    "chosen": -592.0,
+    "rejected": -716.0
+  },
+  {
+    "chosen": -496.0,
+    "rejected": -81.5
+  },
+  {
+    "chosen": -22.875,
+    "rejected": -51.25
+  },
+  {
+    "chosen": -41.25,
+    "rejected": -9.5625
+  },
+  {
+    "chosen": -0.0830078125,
+    "rejected": -56.25
+  },
+  {
+    "chosen": -47.75,
+    "rejected": -38.75
+  },
+  {
+    "chosen": -71.0,
+    "rejected": -78.0
+  },
+  {
+    "chosen": -85.5,
+    "rejected": -26.75
+  },
+  {
+    "chosen": -528.0,
+    "rejected": -10.5
+  },
+  {
+    "chosen": -772.0,
+    "rejected": -672.0
+  },
+  {
+    "chosen": -172.0,
+    "rejected": -205.0
+  },
+  {
+    "chosen": -306.0,
+    "rejected": -21.5
+  },
+  {
+    "chosen": -143.0,
+    "rejected": -227.0
+  },
+  {
+    "chosen": -1120.0,
+    "rejected": -704.0
+  },
+  {
+    "chosen": -16.625,
+    "rejected": -10.3125
+  },
+  {
+    "chosen": -78.0,
+    "rejected": -24.0
+  },
+  {
+    "chosen": -736.0,
+    "rejected": -490.0
+  },
+  {
+    "chosen": -362.0,
+    "rejected": -560.0
+  },
+  {
+    "chosen": -704.0,
+    "rejected": -378.0
+  },
+  {
+    "chosen": -26.625,
+    "rejected": -19.125
+  },
+  {
+    "chosen": -360.0,
+    "rejected": -288.0
+  },
+  {
+    "chosen": -274.0,
+    "rejected": -482.0
+  },
+  {
+    "chosen": -92.0,
+    "rejected": -11.3125
+  },
+  {
+    "chosen": -89.0,
+    "rejected": -92.0
+  },
+  {
+    "chosen": -29.625,
+    "rejected": -47.5
+  },
+  {
+    "chosen": -228.0,
+    "rejected": -310.0
+  },
+  {
+    "chosen": -0.7734375,
+    "rejected": -32.75
+  },
+  {
+    "chosen": -302.0,
+    "rejected": -524.0
+  },
+  {
+    "chosen": -1112.0,
+    "rejected": -912.0
+  },
+  {
+    "chosen": -592.0,
+    "rejected": -556.0
+  },
+  {
+    "chosen": -358.0,
+    "rejected": -334.0
+  },
+  {
+    "chosen": -568.0,
+    "rejected": -264.0
+  },
+  {
+    "chosen": -856.0,
+    "rejected": -119.5
+  },
+  {
+    "chosen": -298.0,
+    "rejected": -69.0
+  },
+  {
+    "chosen": -26.5,
+    "rejected": -97.0
+  },
+  {
+    "chosen": -164.0,
+    "rejected": -214.0
+  },
+  {
+    "chosen": -190.0,
+    "rejected": -221.0
+  },
+  {
+    "chosen": -404.0,
+    "rejected": -314.0
+  },
+  {
+    "chosen": -117.5,
+    "rejected": -290.0
+  },
+  {
+    "chosen": -448.0,
+    "rejected": -524.0
+  },
+  {
+    "chosen": -74.5,
+    "rejected": -69.5
+  },
+  {
+    "chosen": -328.0,
+    "rejected": -233.0
+  },
+  {
+    "chosen": -34.25,
+    "rejected": -103.5
+  },
+  {
+    "chosen": -101.0,
+    "rejected": -142.0
+  },
+  {
+    "chosen": -832.0,
+    "rejected": -478.0
+  },
+  {
+    "chosen": -0.54296875,
+    "rejected": -125.5
+  },
+  {
+    "chosen": -330.0,
+    "rejected": -25.5
+  },
+  {
+    "chosen": -336.0,
+    "rejected": -99.5
+  },
+  {
+    "chosen": -1128.0,
+    "rejected": -996.0
+  },
+  {
+    "chosen": -348.0,
+    "rejected": -61.5
+  },
+  {
+    "chosen": -13.25,
+    "rejected": -26.75
+  },
+  {
+    "chosen": -450.0,
+    "rejected": -39.75
+  },
+  {
+    "chosen": -452.0,
+    "rejected": -316.0
+  },
+  {
+    "chosen": -234.0,
+    "rejected": -17.25
+  },
+  {
+    "chosen": -308.0,
+    "rejected": -206.0
+  },
+  {
+    "chosen": -844.0,
+    "rejected": -556.0
+  },
+  {
+    "chosen": -680.0,
+    "rejected": -716.0
+  },
+  {
+    "chosen": -338.0,
+    "rejected": -236.0
+  },
+  {
+    "chosen": -155.0,
+    "rejected": -348.0
+  },
+  {
+    "chosen": -900.0,
+    "rejected": -450.0
+  },
+  {
+    "chosen": -29.5,
+    "rejected": -56.25
+  },
+  {
+    "chosen": -486.0,
+    "rejected": -426.0
+  },
+  {
+    "chosen": -796.0,
+    "rejected": -800.0
+  },
+  {
+    "chosen": -556.0,
+    "rejected": -480.0
+  },
+  {
+    "chosen": -804.0,
+    "rejected": -436.0
+  },
+  {
+    "chosen": -336.0,
+    "rejected": -230.0
+  },
+  {
+    "chosen": -1328.0,
+    "rejected": -768.0
+  },
+  {
+    "chosen": -628.0,
+    "rejected": -392.0
+  },
+  {
+    "chosen": -1256.0,
+    "rejected": -820.0
+  },
+  {
+    "chosen": -832.0,
+    "rejected": -1576.0
+  },
+  {
+    "chosen": -1008.0,
+    "rejected": -948.0
+  },
+  {
+    "chosen": -308.0,
+    "rejected": -114.5
+  },
+  {
+    "chosen": -213.0,
+    "rejected": -218.0
+  },
+  {
+    "chosen": -9.8125,
+    "rejected": -179.0
+  },
+  {
+    "chosen": -294.0,
+    "rejected": -306.0
+  },
+  {
+    "chosen": -484.0,
+    "rejected": -308.0
+  },
+  {
+    "chosen": -177.0,
+    "rejected": -300.0
+  },
+  {
+    "chosen": -14.25,
+    "rejected": -41.75
+  },
+  {
+    "chosen": -18.125,
+    "rejected": -174.0
+  },
+  {
+    "chosen": -89.5,
+    "rejected": -153.0
+  },
+  {
+    "chosen": -208.0,
+    "rejected": -137.0
+  },
+  {
+    "chosen": -502.0,
+    "rejected": -624.0
+  },
+  {
+    "chosen": -322.0,
+    "rejected": -199.0
+  },
+  {
+    "chosen": -120.0,
+    "rejected": -188.0
+  },
+  {
+    "chosen": -600.0,
+    "rejected": -298.0
+  },
+  {
+    "chosen": -72.0,
+    "rejected": -33.75
+  },
+  {
+    "chosen": -87.0,
+    "rejected": -197.0
+  },
+  {
+    "chosen": -852.0,
+    "rejected": -195.0
+  },
+  {
+    "chosen": -130.0,
+    "rejected": -70.0
+  },
+  {
+    "chosen": -520.0,
+    "rejected": -227.0
+  },
+  {
+    "chosen": -93.5,
+    "rejected": -60.25
+  },
+  {
+    "chosen": -3.046875,
+    "rejected": -31.0
+  },
+  {
+    "chosen": -624.0,
+    "rejected": -171.0
+  },
+  {
+    "chosen": -24.5,
+    "rejected": -318.0
+  },
+  {
+    "chosen": -282.0,
+    "rejected": -322.0
+  },
+  {
+    "chosen": -198.0,
+    "rejected": -185.0
+  },
+  {
+    "chosen": -888.0,
+    "rejected": -470.0
+  },
+  {
+    "chosen": -65.5,
+    "rejected": -43.5
+  },
+  {
+    "chosen": -732.0,
+    "rejected": -310.0
+  },
+  {
+    "chosen": -368.0,
+    "rejected": -242.0
+  },
+  {
+    "chosen": -494.0,
+    "rejected": -276.0
+  },
+  {
+    "chosen": -53.0,
+    "rejected": -184.0
+  },
+  {
+    "chosen": -33.5,
+    "rejected": -75.5
+  },
+  {
+    "chosen": -169.0,
+    "rejected": -118.0
+  },
+  {
+    "chosen": -163.0,
+    "rejected": -338.0
+  },
+  {
+    "chosen": -892.0,
+    "rejected": -512.0
+  },
+  {
+    "chosen": -270.0,
+    "rejected": -290.0
+  },
+  {
+    "chosen": -108.0,
+    "rejected": -85.5
+  },
+  {
+    "chosen": -231.0,
+    "rejected": -30.0
+  },
+  {
+    "chosen": -246.0,
+    "rejected": -392.0
+  },
+  {
+    "chosen": -90.5,
+    "rejected": -191.0
+  },
+  {
+    "chosen": -114.0,
+    "rejected": -7.65625
+  },
+  {
+    "chosen": -828.0,
+    "rejected": -62.75
+  },
+  {
+    "chosen": -197.0,
+    "rejected": -400.0
+  },
+  {
+    "chosen": -348.0,
+    "rejected": -215.0
+  },
+  {
+    "chosen": -109.0,
+    "rejected": -97.0
+  },
+  {
+    "chosen": -158.0,
+    "rejected": -137.0
+  },
+  {
+    "chosen": -466.0,
+    "rejected": -736.0
+  },
+  {
+    "chosen": -1072.0,
+    "rejected": -466.0
+  },
+  {
+    "chosen": -1208.0,
+    "rejected": -386.0
+  },
+  {
+    "chosen": -43.75,
+    "rejected": -245.0
+  },
+  {
+    "chosen": -247.0,
+    "rejected": -272.0
+  },
+  {
+    "chosen": -0.12451171875,
+    "rejected": -92.5
+  },
+  {
+    "chosen": -171.0,
+    "rejected": -360.0
+  },
+  {
+    "chosen": -237.0,
+    "rejected": -125.0
+  },
+  {
+    "chosen": -13.875,
+    "rejected": -9.75
+  },
+  {
+    "chosen": -54.5,
+    "rejected": -1.1328125
+  },
+  {
+    "chosen": -386.0,
+    "rejected": -72.5
+  },
+  {
+    "chosen": -67.5,
+    "rejected": -588.0
+  },
+  {
+    "chosen": -202.0,
+    "rejected": -188.0
+  },
+  {
+    "chosen": -474.0,
+    "rejected": -792.0
+  },
+  {
+    "chosen": -788.0,
+    "rejected": -1112.0
+  },
+  {
+    "chosen": -648.0,
+    "rejected": -544.0
+  },
+  {
+    "chosen": -1200.0,
+    "rejected": -708.0
+  },
+  {
+    "chosen": -138.0,
+    "rejected": -246.0
+  },
+  {
+    "chosen": -468.0,
+    "rejected": -372.0
+  },
+  {
+    "chosen": -175.0,
+    "rejected": -227.0
+  },
+  {
+    "chosen": -372.0,
+    "rejected": -764.0
+  },
+  {
+    "chosen": -302.0,
+    "rejected": -255.0
+  },
+  {
+    "chosen": -9.625,
+    "rejected": -62.5
+  },
+  {
+    "chosen": -836.0,
+    "rejected": -1016.0
+  },
+  {
+    "chosen": -286.0,
+    "rejected": -145.0
+  },
+  {
+    "chosen": -9.1875,
+    "rejected": -9.1875
+  },
+  {
+    "chosen": -65.0,
+    "rejected": -450.0
+  },
+  {
+    "chosen": -3.984375,
+    "rejected": -2.734375
+  },
+  {
+    "chosen": -64.0,
+    "rejected": -240.0
+  },
+  {
+    "chosen": -580.0,
+    "rejected": -438.0
+  },
+  {
+    "chosen": -708.0,
+    "rejected": -502.0
+  },
+  {
+    "chosen": -736.0,
+    "rejected": -676.0
+  },
+  {
+    "chosen": -1032.0,
+    "rejected": -712.0
+  },
+  {
+    "chosen": -484.0,
+    "rejected": -94.0
+  },
+  {
+    "chosen": -552.0,
+    "rejected": -1024.0
+  },
+  {
+    "chosen": -219.0,
+    "rejected": -18.25
+  },
+  {
+    "chosen": -796.0,
+    "rejected": -408.0
+  },
+  {
+    "chosen": -36.25,
+    "rejected": -58.5
+  },
+  {
+    "chosen": -138.0,
+    "rejected": -109.5
+  },
+  {
+    "chosen": -64.0,
+    "rejected": -93.0
+  },
+  {
+    "chosen": -260.0,
+    "rejected": -290.0
+  },
+  {
+    "chosen": -442.0,
+    "rejected": -154.0
+  },
+  {
+    "chosen": -458.0,
+    "rejected": -39.75
+  },
+  {
+    "chosen": -344.0,
+    "rejected": -620.0
+  },
+  {
+    "chosen": -400.0,
+    "rejected": -360.0
+  },
+  {
+    "chosen": -60.5,
+    "rejected": -23.75
+  },
+  {
+    "chosen": -370.0,
+    "rejected": -123.5
+  },
+  {
+    "chosen": -366.0,
+    "rejected": -632.0
+  },
+  {
+    "chosen": -23.875,
+    "rejected": -55.75
+  },
+  {
+    "chosen": -125.0,
+    "rejected": -294.0
+  },
+  {
+    "chosen": -446.0,
+    "rejected": -262.0
+  },
+  {
+    "chosen": -204.0,
+    "rejected": -99.5
+  },
+  {
+    "chosen": -6.03125,
+    "rejected": -6.03125
+  },
+  {
+    "chosen": -81.0,
+    "rejected": -20.875
+  },
+  {
+    "chosen": -736.0,
+    "rejected": -944.0
+  },
+  {
+    "chosen": -117.0,
+    "rejected": -26.75
+  },
+  {
+    "chosen": -366.0,
+    "rejected": -716.0
+  },
+  {
+    "chosen": -58.25,
+    "rejected": -67.0
+  },
+  {
+    "chosen": -900.0,
+    "rejected": -24.0
+  },
+  {
+    "chosen": -214.0,
+    "rejected": -486.0
+  },
+  {
+    "chosen": -4.0625,
+    "rejected": -203.0
+  },
+  {
+    "chosen": -446.0,
+    "rejected": -888.0
+  },
+  {
+    "chosen": -296.0,
+    "rejected": -142.0
+  }
+]

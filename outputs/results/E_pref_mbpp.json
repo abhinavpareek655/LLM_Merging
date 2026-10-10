@@ -1,0 +1,128 @@
+{
+  "model": "c:/Users/vedan/PythonWS/CS769/outputs/checkpoints\\e_pref",
+  "pass_at_1": 45.0,
+  "total": 20,
+  "passed": 9,
+  "details": [
+    {
+      "task_id": 11,
+      "prompt": "Write a python function to remove first and last occurrence of a given character from the string.",
+      "generated_code": "def remove_Occ(s, char):\n    # Remove the first occurrence of 'char'\n    s = s.replace(char[0], '')\n    \n    # Remove the last occurrence of 'char'\n    return s.replace(char[-1], '')\n\n# Test the function with the provided test case\nassert remove_Occ(\"hello\", \"l\") == \"heo\"",
+      "passed": true
+    },
+    {
+      "task_id": 12,
+      "prompt": "Write a function to sort a given matrix in ascending order according to the sum of its rows.",
+      "generated_code": "def sort_matrix(matrix):\n    \"\"\"\n    Sorts a given matrix in ascending order based on the sum of its rows.\n\n    :param matrix: List[List[int]]\n    :return: List[List[int]]\n    \"\"\"\n    # Calculate the sum of each row and store it in a list\n    sums = [sum(row) for row in matrix]\n    \n    # Sort the sums in descending order\n    sorted_sums = sorted(sums, reverse=True)\n    \n    # Create a new matrix with the sorted sums\n    sorted_matrix = [[0] * len(matrix[0]) for _ in range(len(matrix))]\n    for i in range(len(matrix)):\n        for j in range(len(matrix[i])):\n            sorted_matrix[i][j] = sorted_sums.pop(0)\n    \n    return sorted_matrix\n\n# Test the function\nprint(sort_matrix([[1, 2, 3], [2, 4, 5], [1, 1, 1]]))  # Expected output: [[1, 1, 1], [1, 2, 3], [2, 4, 5]]",
+      "passed": false
+    },
+    {
+      "task_id": 14,
+      "prompt": "Write a python function to find the volume of a triangular prism.",
+      "generated_code": "def find_Volume(base, height, length):\n    # Calculate the area of the base triangle\n    area = (base * height) / 2\n    \n    # Calculate the volume of the prism\n    volume = area * length\n    \n    return volume\n\n# Test the function with the provided test case\nprint(find_Volume(10, 8, 6))  # Expected output: 240",
+      "passed": true
+    },
+    {
+      "task_id": 16,
+      "prompt": "Write a function to that returns true if the input string contains sequences of lowercase letters joined with an underscore and false otherwise.",
+      "generated_code": "def is_text_lowercase_underscore(text):\n    \"\"\"\n    Check if the input string contains sequences of lowercase letters joined with an underscore.\n\n    Args:\n        text (str): The input string to check.\n\n    Returns:\n        bool: True if the string contains sequences of lowercase letters joined with an underscore, False otherwise.\n    \"\"\"\n    # Splitting the string by underscores and checking each part for lowercase letters\n    return all(char.islower() for char in text.split('_'))\n\n# Test the function\nassert is_text_lowercase_underscore(\"aab_cbbbc\") == True\nassert is_text_lowercase_underscore(\"aBc0d1e2f3g4h5i6j7k8l9m0n1o2p3q4r5s6t7u8v9w10x11y12z13A\") == True\nassert is_text_lowercase_underscore(\"hello_world\") == False\nassert is_text_lowercase_underscore(\"no_lowercase_letters\") == False",
+      "passed": false
+    },
+    {
+      "task_id": 17,
+      "prompt": "Write a function that returns the perimeter of a square given its side length as input.",
+      "generated_code": "def square_perimeter(side_length):\n    \"\"\"\n    Calculate and return the perimeter of a square.\n\n    Parameters:\n    side_length (int): The length of one side of the square.\n\n    Returns:\n    int: The perimeter of the square.\n    \"\"\"\n    return 4 * side_length\n\n# Test the function with the provided test case\nassert square_perimeter(10) == 40",
+      "passed": true
+    },
+    {
+      "task_id": 18,
+      "prompt": "Write a function to remove characters from the first string which are present in the second string.",
+      "generated_code": "def remove_dirty_chars(s1, s2):\n    # Convert both strings to sets for O(1) lookups\n    set_s1 = set(s1)\n    set_s2 = set(s2)\n\n    # Use set intersection to find common elements and filter out those from s1\n    result = [char for char in s1 if char not in set_s2]\n\n    return ''.join(result)\n\n# Test the function with the provided test case\nassert remove_dirty_chars(\"probasscurve\", \"pros\") == 'bacuve'",
+      "passed": true
+    },
+    {
+      "task_id": 19,
+      "prompt": "Write a function to find whether a given array of integers contains any duplicate element.",
+      "generated_code": "def test_duplicate(arr):\n    # Create a dictionary to count occurrences of each number in the array\n    num_count = {}\n    \n    # Iterate through the array and populate the dictionary with numbers as keys and their counts as values\n    for num in arr:\n        if num in num_count:\n            return True  # Found a duplicate\n        else:\n            num_count[num] = 0\n    \n    # If no duplicates were found, return False\n    return False\n\n# Test the function with the provided test case\nprint(test_duplicate([1,2,3,4,5]))  # Expected output: False",
+      "passed": true
+    },
+    {
+      "task_id": 20,
+      "prompt": "Write a function to check if the given number is woodball or not.",
+      "generated_code": "def is_woodall(n):\n    # Check if n is divisible by 7 and 11 without any remainder\n    return n % 7 == 0 and n % 11 == 0\n\n# Test the function with the provided test case\nassert is_woodall(383) == True",
+      "passed": false
+    },
+    {
+      "task_id": 56,
+      "prompt": "Write a python function to check if a given number is one less than twice its reverse.",
+      "generated_code": "def check(number):\n    # Calculate the reverse of the number\n    reversed_number = int(str(number)[::-1])\n    \n    # Check if the given number is one less than twice its reverse\n    return (number - 1) == 2 * reversed_number\n\n# Test the function with the provided test case\nassert check(70) == False",
+      "passed": false
+    },
+    {
+      "task_id": 57,
+      "prompt": "Write a python function to find the largest number that can be formed with the given list of digits.",
+      "generated_code": "def find_Max_Num(digits):\n    # Convert the list of digits into a string and sort it in descending order\n    sorted_digits = ''.join(sorted(str(digit), reverse=True))\n    \n    # If there's only one digit left, return it as it is\n    if len(sorted_digits) == 1:\n        return int(sorted_digits)\n    \n    # Otherwise, concatenate all digits from the end to the beginning\n    else:\n        return int(sorted_digits[::-1])\n\n# Test the function with the provided test case\nassert find_Max_Num([1,2,3]) == 321",
+      "passed": false
+    },
+    {
+      "task_id": 58,
+      "prompt": "Write a python function to check whether the given two integers have opposite sign or not.",
+      "generated_code": "def opposite_Signs(a, b):\n    # Check if both numbers are positive or negative and their signs are different\n    return (a > 0 and b < 0) or (a < 0 and b > 0)\n\n# Test the function with provided data points\nassert opposite_Signs(1, -2) == True\nassert opposite_Signs(-4, 5) == False\nassert opposite_Signs(0, 0) == True",
+      "passed": false
+    },
+    {
+      "task_id": 59,
+      "prompt": "Write a function to find the nth octagonal number.",
+      "generated_code": "def is_octagonal(n):\n    \"\"\"\n    Calculate the nth octagonal number.\n\n    An octagonal number is a figurate number that represents an octagon. The nth octagonal number is given by the formula:\n\n        O_n = n * (3n - 2)\n\n    Parameters:\n    n (int): The position in the sequence of octagonal numbers.\n\n    Returns:\n    int: The nth octagonal number.\n    \"\"\"\n    return n * (3 * n - 2)\n\n# Test the function\nassert is_octagonal(5) == 65",
+      "passed": true
+    },
+    {
+      "task_id": 61,
+      "prompt": "Write a python function to count the number of substrings with the sum of digits equal to their length.",
+      "generated_code": "def count_Substrings(s):\n    \"\"\"\n    Counts the number of substrings in 's' where the sum of the digits equals the length of the substring.\n\n    Parameters:\n    s (str): The input string consisting of digits.\n\n    Returns:\n    int: The count of substrings meeting the criteria.\n    \"\"\"\n    def is_valid_substring(substring):\n        \"\"\"Checks if the given substring has the same length as its digit sum.\"\"\"\n        return len(substring) == sum(int(digit) for digit in substring)\n\n    count = 0\n    for i in range(len(s)):\n        # Calculate the sum of digits from index i to end of the string\n        total_sum = sum(int(digit) for digit in s[i:])\n        # Check if the current substring meets the criteria\n        if is_valid_substring(s[i:i+total_sum]):\n            count += 1\n\n    return count\n\n# Test the function with the provided test case\nassert count_Substrings('112112') == 6",
+      "passed": false
+    },
+    {
+      "task_id": 62,
+      "prompt": "Write a python function to find smallest number in a list.",
+      "generated_code": "def smallest_num(nums):\n    # Initialize the minimum value with the first element of the list\n    min_value = nums[0]\n    \n    # Iterate through the list starting from the second element\n    for num in nums[1:]:\n        if num < min_value:\n            min_value = num\n    \n    return min_value\n\n# Test the function with the provided test case\nassert smallest_num([10, 20, 1, 45, 99]) == 1",
+      "passed": true
+    },
+    {
+      "task_id": 63,
+      "prompt": "Write a function to find the maximum difference between available pairs in the given tuple list.",
+      "generated_code": "def max_difference(tuples):\n    # Sort the tuples based on their first element\n    sorted_tuples = sorted(tuples)\n    \n    # Initialize variables to store the maximum difference and its index\n    max_diff = float('-inf')\n    max_index = -1\n    \n    for i, (a, b) in enumerate(sorted_tuples):\n        if i > 0 and a + b > max_diff:\n            max_diff = a + b\n            max_index = i\n    \n    return max_diff\n\n# Test the function with the provided test case\nassert max_difference([(3, 5), (1, 7), (10, 3), (1, 2)]) == 7",
+      "passed": false
+    },
+    {
+      "task_id": 64,
+      "prompt": "Write a function to sort a list of tuples using the second value of each tuple.",
+      "generated_code": "def sort_tuples_by_second_value(tuples):\n    # Sort the tuples based on the second element of each tuple\n    sorted_tuples = sorted(tuples, key=lambda x: x[1])\n    \n    return sorted_tuples\n\n# Test the function with the provided test case\nassert sort_tuples_by_second_value([('English', 88), ('Science', 90), ('Maths', 97), ('Social sciences', 82)]) == [('Social sciences', 82), ('English', 88), ('Science', 90), ('Maths', 97)]",
+      "passed": false
+    },
+    {
+      "task_id": 65,
+      "prompt": "Write a function to flatten a list and sum all of its elements.",
+      "generated_code": "def recursive_list_sum(lst):\n    \"\"\"\n    Flattens a list and sums all of its elements.\n\n    Args:\n    lst (list): The input list.\n\n    Returns:\n    int: The sum of all elements in the flattened list.\n    \"\"\"\n    return sum(sum(item) for item in lst)\n\n# Test the function with the provided test case\nassert recursive_list_sum(([1, 2, [3,4],[5,6]])) == 21",
+      "passed": false
+    },
+    {
+      "task_id": 66,
+      "prompt": "Write a python function to count the number of positive numbers in a list.",
+      "generated_code": "def pos_count(nums):\n    # Initialize a counter for positive numbers\n    count = 0\n    \n    # Iterate through each number in the list\n    for num in nums:\n        # If the number is positive, increment the counter\n        if num > 0:\n            count += 1\n            \n    return count\n\n# Test the function with the provided test case\nassert pos_count([1, -2, 3, -4]) == 2",
+      "passed": true
+    },
+    {
+      "task_id": 67,
+      "prompt": "Write a function to find the number of ways to partition a set of Bell numbers.",
+      "generated_code": "def bell_number(n):\n    \"\"\"\n    Calculate the nth Bell number.\n\n    The nth Bell number is defined as the sum of the product of binomial coefficients for all non-negative integers k,\n    such that 0 <= k <= n, and k * (n - k) = n! / (k + 1)!.\n\n    Parameters:\n    n (int): The index of the Bell number to calculate.\n\n    Returns:\n    int: The nth Bell number.\n    \"\"\"\n    if n == 0:\n        return 1\n    elif n == 1:\n        return 1\n\n    # Initialize the result array with zeros\n    bell = [0] * (n + 1)\n    bell[0], bell[1] = 1, 1\n\n    # Fill in the rest of the Bell number table\n    for i in range(2, n + 1):\n        for j in range(i):\n            bell[i] += bell[j] * bell[i - j - 1]\n\n    return bell[n]\n\n# Test the function\nprint(bell_number(2))  # Expected output: 2",
+      "passed": false
+    },
+    {
+      "task_id": 68,
+      "prompt": "Write a python function to check whether the given array is monotonic or not.",
+      "generated_code": "def is_Monotonic(arr):\n    \"\"\"\n    Check if the given array is monotonic (either entirely non-increasing or non-decreasing).\n    \n    Parameters:\n    arr (list): The input list of integers.\n    \n    Returns:\n    bool: True if the array is monotonic, False otherwise.\n    \"\"\"\n    increasing = decreasing = True\n    \n    for i in range(1, len(arr)):\n        if arr[i] > arr[i-1]:\n            decreasing = False\n        elif arr[i] < arr[i-1]:\n            increasing = False\n            \n    return increasing or decreasing\n\n# Test the function with the provided test case\nassert is_Monotonic([6, 5, 4, 4]) == True",
+      "passed": true
+    }
+  ]
+}

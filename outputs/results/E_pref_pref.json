@@ -1,0 +1,8 @@
+{
+  "model": "outputs/checkpoints/e_pref",
+  "total_pairs": 20,
+  "raw_accuracy": 70.0,
+  "raw_wins": 14,
+  "dpo_implicit_margin": 0.4274,
+  "dpo_implicit_accuracy": 60.0
+}

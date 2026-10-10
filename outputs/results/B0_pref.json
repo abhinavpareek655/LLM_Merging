@@ -1,0 +1,8 @@
+{
+  "model": "Qwen/Qwen2.5-0.5B-Instruct",
+  "total_pairs": 20,
+  "raw_accuracy": 65.0,
+  "raw_wins": 13,
+  "dpo_implicit_margin": 0.0,
+  "dpo_implicit_accuracy": 50.0
+}

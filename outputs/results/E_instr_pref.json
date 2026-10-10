@@ -1,0 +1,8 @@
+{
+  "model": "c:/Users/vedan/PythonWS/CS769/outputs/checkpoints\\e_instr",
+  "total_pairs": 20,
+  "raw_accuracy": 60.0,
+  "raw_wins": 12,
+  "dpo_implicit_margin": -1.1455739736557007,
+  "dpo_implicit_accuracy": 22.5
+}

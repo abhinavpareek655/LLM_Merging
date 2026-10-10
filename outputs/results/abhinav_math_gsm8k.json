@@ -1,0 +1,146 @@
+{
+  "model": "abhinav655/qwen25-math-expert",
+  "accuracy": 0.0,
+  "results": [
+    {
+      "idx": 1,
+      "gold": "18",
+      "pred": "320",
+      "correct": false,
+      "tail": "$320"
+    },
+    {
+      "idx": 2,
+      "gold": "3",
+      "pred": "4",
+      "correct": false,
+      "tail": "4"
+    },
+    {
+      "idx": 3,
+      "gold": "70000",
+      "pred": "35000",
+      "correct": false,
+      "tail": "$35,000"
+    },
+    {
+      "idx": 4,
+      "gold": "540",
+      "pred": "180",
+      "correct": false,
+      "tail": "180"
+    },
+    {
+      "idx": 5,
+      "gold": "20",
+      "pred": "40",
+      "correct": false,
+      "tail": "ens} = 2 \\times 20 = 40 \\text{ cups}    \\]  Thus, Wendi needs \\(\\boxed{40}\\) cups of feed for the final meal of the day."
+    },
+    {
+      "idx": 6,
+      "gold": "64",
+      "pred": "96",
+      "correct": false,
+      "tail": "$96"
+    },
+    {
+      "idx": 7,
+      "gold": "260",
+      "pred": "160",
+      "correct": false,
+      "tail": "160"
+    },
+    {
+      "idx": 8,
+      "gold": "160",
+      "pred": "15",
+      "correct": false,
+      "tail": "15 minutes"
+    },
+    {
+      "idx": 9,
+      "gold": "45",
+      "pred": "120",
+      "correct": false,
+      "tail": "120 miles"
+    },
+    {
+      "idx": 10,
+      "gold": "460",
+      "pred": "630",
+      "correct": false,
+      "tail": "$630"
+    },
+    {
+      "idx": 11,
+      "gold": "366",
+      "pred": "249",
+      "correct": false,
+      "tail": "249"
+    },
+    {
+      "idx": 12,
+      "gold": "694",
+      "pred": "1470",
+      "correct": false,
+      "tail": "$1470"
+    },
+    {
+      "idx": 13,
+      "gold": "13",
+      "pred": "24",
+      "correct": false,
+      "tail": "24"
+    },
+    {
+      "idx": 14,
+      "gold": "18",
+      "pred": "10",
+      "correct": false,
+      "tail": "10"
+    },
+    {
+      "idx": 15,
+      "gold": "60",
+      "pred": "10",
+      "correct": false,
+      "tail": "10%"
+    },
+    {
+      "idx": 16,
+      "gold": "125",
+      "pred": "-7",
+      "correct": false,
+      "tail": "text{Egads}) = (0.012 \\times 8000) + (0.988 \\times (-8000)) \\] \\[ E(\\text{Egads}) = 96 - 7840 \\] \\[ E(\\text{Egads}) = -7"
+    },
+    {
+      "idx": 17,
+      "gold": "230",
+      "pred": "625",
+      "correct": false,
+      "tail": "The first train covers 237.5 miles and the second one covers 625 miles."
+    },
+    {
+      "idx": 18,
+      "gold": "57500",
+      "pred": "46500",
+      "correct": false,
+      "tail": "$46,500"
+    },
+    {
+      "idx": 19,
+      "gold": "7",
+      "pred": "120",
+      "correct": false,
+      "tail": "120"
+    },
+    {
+      "idx": 20,
+      "gold": "6",
+      "pred": "4",
+      "correct": false,
+      "tail": "erage speed of 24 miles per hour for the remaining 8 miles of the trail to achieve an average speed of 4 miles per hour."
+    }
+  ]
+}

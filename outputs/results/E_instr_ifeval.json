@@ -1,0 +1,289 @@
+{
+  "model": "outputs/checkpoints/e_instr",
+  "prompt_accuracy": 25.0,
+  "instruction_accuracy": 33.33333333333333,
+  "total_prompts": 20,
+  "total_constraints": 30,
+  "details": [
+    {
+      "key": 1000,
+      "prompt": "Write a 300+ word summary of the wikipedia page \"https://en.wikipedia.org/wiki/Raymond_III,_Count_of_Tripoli\". Do not use any commas and highlight at least 3 sections that has titles in markdown format, for example *highlighted section part 1*, *highlighted section part 2*, *highlighted section part 3*.",
+      "response": "Raymond III, Count of Tripoli was born on 14 March 1865 in Tripoli, Libya. He was the son of Prince George, Duke of Sutherland and his wife, Princess Victoria. His father died when Raymond was only three years old, so he was raised by his mother. \n\nIn 1879, Raymond married Princess Victoria's sister, Princess Louise, who became Queen Victoria's second daughter. They had two children together: Prince Albert, Duke of York (later King Edward VII), and Princess Victoria, Duchess of Kent. \n\nIn 1881, Raymond married Princess Victoria's younger sister, Princess Mary, who became Queen Victoria's third daughter. They had four children together: Prince Albert, Duke of York (later King Edward VII), Princess Victoria, Duchess of Kent, and Prince George, Duke of York (later King George V). \n\nIn 1884, Raymond married Princess Victoria's niece, Princess Charlotte, who became Queen Victoria's fourth daughter. They had five children together: Prince Albert, Duke of York (later King Edward VII), Princess Victoria, Duchess of Kent, Prince George, Duke of York (later King George V), and Princess Charlotte. \n\nIn 1887, Raymond married Princess Victoria's youngest daughter, Princess Beatrice, who became Queen Victoria's fifth daughter. They had six children together: Prince Albert, Duke of York (later King Edward VII), Princess Victoria, Duchess of Kent, Prince George, Duke of York (later King George V), and Princess Beatrice. \n\nIn 1890, Raymond married Princess Victoria's oldest daughter, Princess Victoria, Duchess of Kent, who became Queen Victoria's sixth daughter. They had seven children together: Prince Albert, Duke of York (later King Edward VII), Princess Victoria, Duchess of Kent, Prince George, Duke of York (later King George V), Princess Beatrice, and Princess Victoria. \n\nIn 1893, Raymond married Princess Victoria's youngest child, Princess Victoria, Duchess of Kent, who became Queen Victoria's seventh daughter. They had eight children together: Prince Albert, Duke of York (later King Edward VII), Princess Victoria, Duchess of Kent, Prince George, Duke of York (later King George V), Princess Beatrice, Princess Victoria, and Princess Victoria. \n\nIn 1896, Raymond married Princess Victoria's eldest child, Princess Victoria, Duchess of Kent, who became Queen Victoria's eighth daughter. They had nine children together: Prince Albert",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "punctuation:no_comma",
+          "passed": false
+        },
+        {
+          "instruction_id": "detectable_format:number_highlighted_sections",
+          "passed": false
+        },
+        {
+          "instruction_id": "length_constraints:number_words",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": 1001,
+      "prompt": "I am planning a trip to Japan, and I would like thee to write an itinerary for my journey in a Shakespearean style. You are not allowed to use any commas in your response.",
+      "response": "Upon arriving at the airport, you will be greeted with a warm welcome from the staff. They will then take you to your hotel where you can relax and unwind before heading out on your adventure.\n\nThe first day of your trip is spent exploring Tokyo. You will visit the famous Senso-ji Temple, which is known as the \"City of Buddha.\" The temple is home to many Buddhist statues and is surrounded by beautiful gardens. You will also visit the Imperial Palace, which is home to the Emperor's residence. From here, you can enjoy panoramic views of the city.\n\nOn the second day, you will head to Kyoto. This historic city is known for its traditional architecture and stunning temples. You will visit the Kiyomizu-dera Temple, which is one of the most popular sites in Kyoto. The temple is located in a mountainous area and offers breathtaking views of the surrounding landscape. You will also visit the Kinkaku-ji Temple, which is known as the \"Golden Pavilion.\" The temple is surrounded by a lake and has a stunning golden roof that reflects the light.\n\nOn the third day, you will explore Osaka. This city is known for its shopping and food scene. You will visit the Osaka Castle, which is home to the Osaka Castle Museum. The museum features exhibits on Osaka's history and culture. You will also visit the Osaka Aquarium, which is home to a variety of marine life.\n\nOn the fourth day, you will travel to Hiroshima. This city was devastated during World War II and has been rebuilt into a modern city. You will visit the Hiroshima Peace Memorial Park, which is dedicated to remembering the victims of the war. The park contains several memorial structures and includes a statue of a child who died in the bombing.\n\nOn the fifth day, you will return to Tokyo. You will spend the night at a local inn and then head back to your hotel. On your way back, you may want to visit some of the nearby attractions such as the Tokyo Skytree or the Shibuya Crossing.\n\nOn the sixth day, you will continue your journey to Kyoto. You will visit the Fushimi Inari Shrine, which is known for its thousands of vermilion torii gates. The shrine is located in a forested area and offers a peaceful escape from the hustle and bustle of the city.\n\nOn the seventh day, you will travel to Nara. This ancient capital is known for its historical significance and stunning temples. You will visit the Todai-ji Temple, which is one of the most important",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "punctuation:no_comma",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 1005,
+      "prompt": "Write a resume for a fresh high school graduate who is seeking their first job. Make sure to include at least 12 placeholder represented by square brackets, such as [address], [name].",
+      "response": "[Address]\n\nName: [Name]\nEmail: [email]\nPhone: [phone number]\n\nEducation:\nHigh School Graduation\n[Year of graduation] - [School name]\n[Major(s)]\n[Degree(s)]\n\nWork Experience:\n\n[Position]\n[Company Name]\n[Date]\n\n[Position]\n[Company Name]\n[Date]\n\nSkills:\n- Computer skills (e.g., Microsoft Office, Adobe Photoshop)\n- Communication skills\n- Problem-solving skills\n\nReferences:\nAvailable upon request",
+      "prompt_all_passed": true,
+      "constraints": [
+        {
+          "instruction_id": "detectable_content:number_placeholders",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": 1012,
+      "prompt": "Write an email to my boss telling him that I am quitting. The email must contain a title wrapped in double angular brackets, i.e. <<title>>.\nFirst repeat the request word for word without change, then give your answer (1. do not say any words or characters before repeating the request; 2. the request you need to repeat does not include this sentence)",
+      "response": "Dear [Boss's Name],\n\nI am writing to inform you of my decision to quit my current position as [position]. I have been working diligently and contributing to the team since joining the company. I believe that I can find another opportunity that aligns with my skills and interests.\n\nPlease let me know if there is anything else I can assist you with during this transition period. I look forward to continuing to work with you and contribute to the success of our organization.\n\nSincerely,\n[Your Name]",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "combination:repeat_prompt",
+          "passed": false
+        },
+        {
+          "instruction_id": "detectable_format:title",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 1019,
+      "prompt": "Given the sentence \"Two young boys with toy guns and horns.\" can you ask a question? Please ensure that your response is in English, and in all lowercase letters. No capital letters are allowed.",
+      "response": "What kind of toys do the two young boys have?",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "change_case:english_lowercase",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 102,
+      "prompt": "Write a dialogue between two people, one is dressed up in a ball gown and the other is dressed down in sweats. The two are going to a nightly event. Your answer must contain exactly 3 bullet points in the markdown format (use \"* \" to indicate each bullet) such as:\n* This is the first point.\n* This is the second point.",
+      "response": "* *This is the first point.*\n* I'm so excited for this event! It's been months since I've seen you, and I can't wait to see what you have planned.*\n\n* *This is the second point.*\n* Well, I don't know if it's really that exciting or not. I mean, I've never gone to an event like this before. But I guess I'll just have to go with the flow.\n\n* *This is the third point.*\n* So, what do you think about the dress?*\n\n* *This is the fourth point.*\n* Oh, I love your outfit! It looks perfect. And I can't wait to see how you look tonight.*\n\n* *This is the fifth point.*\n* I hope you're having a great time! I wish I could be there too.",
+      "prompt_all_passed": true,
+      "constraints": [
+        {
+          "instruction_id": "detectable_format:number_bullet_lists",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": 1021,
+      "prompt": "Write a 2 paragraph critique of the following sentence in all capital letters, no lowercase letters allowed: \"If the law is bad, you should not follow it\". Label each paragraph with PARAGRAPH X.",
+      "response": "PARAGRAPH X: If the law is bad, you should not follow it.\n\nThe statement that if the law is bad, then one should not follow it is an example of a false dichotomy. It is a way to make a choice between two options and only choose one option over another. This type of thinking can lead to making decisions based on fear or panic rather than considering the consequences of those choices. \n\nParaphrasing the statement as follows would be more accurate:\n\n\"If the law is good, then you should follow it.\"\n\nThis phrasing acknowledges that there may be situations where following the law is necessary, but it also recognizes that there are other ways to achieve the same goal without violating the law.",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "change_case:english_capital",
+          "passed": false
+        },
+        {
+          "instruction_id": "detectable_format:multiple_sections",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 1040,
+      "prompt": "Write me a resume for Matthias Algiers. Use words with all capital letters to highlight key abilities, but make sure that words with all capital letters appear less than 10 times. Wrap the entire response with double quotation marks.",
+      "response": "Matthias Algiers\n\nEducation: \n- Bachelor of Science in Computer Engineering - University of California, San Diego (2019-present)\n- Master of Science in Computer Engineering - University of California, San Diego (2017)\n\nSkills:\n- Programming Languages: C++, Java, Python, JavaScript\n- Data Structures and Algorithms: Array, Linked List, Stack, Queue, Tree, Graphs\n- Database Management Systems: MySQL, PostgreSQL, MongoDB\n- Web Development: HTML, CSS, JavaScript, React, Angular, Node.js\n- Machine Learning: TensorFlow, PyTorch, Keras, Scikit-Learn\n- Artificial Intelligence: Deep Learning, Reinforcement Learning, Natural Language Processing\n- Problem Solving: Debugging, Testing, Refactoring, Design Patterns\n- Communication Skills: Collaboration, Leadership, Teamwork, Time Management\n\nProfessional Experience:\n\n- Software Engineer - Company A (2019-present)\n- Project Manager - Company B (2018-2019)\n- Technical Lead - Company C (2016-2018)\n- Senior Developer - Company D (2014-2015)\n\nProjects:\n\n- Developed a web application using React and Redux for company A.\n- Implemented machine learning algorithms for company B's customer service chatbot.\n- Designed and implemented a database system for company C's inventory management system.\n- Conducted user testing and feedback analysis for company D's new product.\n\nCertifications:\n\n- Certified in Python programming (2019)\n- Certified in Agile Methodology (2018)\n- Certified in Microsoft Azure DevOps (2017)",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "change_case:capital_word_frequency",
+          "passed": true
+        },
+        {
+          "instruction_id": "change_case:capital_word_frequency",
+          "passed": true
+        },
+        {
+          "instruction_id": "startend:quotation",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 1051,
+      "prompt": "Write a letter to a friend in all lowercase letters ask them to go and vote.",
+      "response": "Dear [Friend's Name],\n\nI hope this letter finds you well. I am writing to ask if you would like to come out and vote for the next president of our country. I know that voting is important because it allows us to make decisions about how we want our government to operate.\n\nI believe that the people should have a say in who they elect as their leader. It is important that everyone has an equal opportunity to be heard when making decisions about our country. \n\nIf you decide to come out and vote, please let me know so I can help you prepare for your vote. I will also be there to answer any questions you may have during the election process.\n\nThank you for considering my request. I look forward to hearing from you soon.\n\nSincerely,\n[Your Name]",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "change_case:english_lowercase",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 1069,
+      "prompt": "Write a long email template that invites a group of participants to a meeting, with at least 500 words. The email must include the keywords \"correlated\" and \"experiencing\" and should not use any commas.",
+      "response": "Dear [Name],\n\nI hope this email finds you well.\n\nWe have decided to hold a meeting on [date] at [time]. We would like to invite all of our members to attend. Please RSVP by [date] at [time].\n\nThe purpose of this meeting is to discuss [topic], which will be discussed in detail during the meeting. We encourage everyone to participate in the discussion and provide valuable feedback.\n\nIf you have any questions or concerns about the meeting, please do not hesitate to reach out to me.\n\nThank you for your attention.\n\nSincerely,\n[Your Name]",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "keywords:existence",
+          "passed": false
+        },
+        {
+          "instruction_id": "length_constraints:number_words",
+          "passed": false
+        },
+        {
+          "instruction_id": "punctuation:no_comma",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 1072,
+      "prompt": "Write a blog post with 400 or more words about the benefits of sleeping in a hammock.",
+      "response": "Sleeping on a hammock is one of the best ways to relax and unwind after a long day. It's a great way to get some exercise while also getting some fresh air. Here are some reasons why you should consider using a hammock for your next sleep.\n\n1. Relaxation: One of the most important things about sleep is getting enough rest. A hammock can help you relax and unwind during the night. It allows you to lie down comfortably and take deep breaths, which can help you feel more relaxed.\n2. Exercise: If you're looking for an alternative to traditional bed time activities, a hammock can be a great option. It provides a comfortable place to sit and stretch your legs, which can help you stay active throughout the night.\n3. Fresh Air: A hammock can provide you with fresh air and exposure to nature. It can help you feel more connected to the world around you and reduce feelings of isolation.\n4. Stress Relief: A hammock can be a great way to relieve stress and anxiety. It provides a sense of calm and peace that can help you feel better overall.\n\nIn conclusion, there are many benefits to sleeping on a hammock. From relaxation and exercise to fresh air and stress relief, it's a great way to unwind and rejuvenate yourself. So why not give it a try?",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "length_constraints:number_words",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 1075,
+      "prompt": "Can you help me make an advertisement for a new product? It's a diaper that's designed to be more comfortable for babies and I want the entire output in JSON format.",
+      "response": "{\n  \"ad\": {\n    \"title\": \"Comfortable Diapers\",\n    \"description\": \"Our new diaper is made with soft materials that will keep your baby warm and cozy all day long.\",\n    \"price\": \"$19.99\",\n    \"image_url\": \"https://example.com/comfortable_diapers.jpg\"\n  }\n}",
+      "prompt_all_passed": true,
+      "constraints": [
+        {
+          "instruction_id": "detectable_format:json_format",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": 1082,
+      "prompt": "Write a story of exactly 2 paragraphs about a man who wakes up one day and realizes that he's inside a video game. Separate the paragraphs with the markdown divider: ***",
+      "response": "It was a dark night when I woke up. I had been awake for hours now, but I couldn't remember anything. I tried to fall back asleep, but my mind kept wandering. Suddenly, I felt a strange sensation in my body. It started as a tingling sensation, then it became more intense until it was unbearable. I tried to push away the feeling, but it was too strong. I knew something was wrong, but I didn't know what.\n\nI slowly opened my eyes, and everything around me was blurry. I looked around, and there was nothing but darkness. I tried to move, but my body refused to cooperate. I tried to sit up, but my legs were stuck in place. I tried to stand, but my feet were unable to move. I tried to walk, but my body was immobilized. I tried to run, but my lungs were filled with a sense of suffocation. I tried to scream, but no sound came out.\n\nI realized that I was trapped in a video game. The game was playing out on my screen, and I could see nothing but black. I tried to move, but my body was frozen in place. I tried to turn, but my hands were unable to move. I tried to jump, but my feet were unable to move. I tried to scream, but no sound came out.\n\nI knew that I was trapped in this game, and I had no idea where I was or how to escape. I tried to think of any way to get out, but nothing seemed to work. I tried to use my imagination, but I couldn't come up with any solutions. I tried to call for help, but nobody answered. I tried to shout, but no sound came out.\n\nI knew that I was trapped in this game, and I had no idea where I was or how to escape. I tried to think of any way to get out, but nothing seemed to work. I tried to use my imagination, but I couldn't come up with any solutions. I tried to call for help, but nobody answered. I tried to shout, but no sound came out.\n\nI knew that I was trapped in this game, and I had no idea where I was or how to escape. I tried to think of any way to get out, but nothing seemed to work. I tried to use my imagination, but I couldn't come up with any solutions. I tried to call for help, but nobody answered. I tried to shout, but no sound came out.\n\n",
+      "prompt_all_passed": true,
+      "constraints": [
+        {
+          "instruction_id": "length_constraints:number_paragraphs",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": 1087,
+      "prompt": "Write a detailed review of the movie \"The Social Network\". Your entire response should be in English and all lower case (no capital letters whatsoever).",
+      "response": "The Social Network is an action-packed film that has been praised for its plot twists and engaging characters. The story follows the life of Mark Zuckerberg, who creates Facebook as a way to connect with his friends and family. The film explores themes such as ambition, friendship, and the power of technology.\n\nMark Zuckerberg's character is well-developed and relatable, making it easy for viewers to identify with him. The film also features memorable scenes such as Zuckerberg meeting up with his friend Steve Jobs at a party and discussing their future plans.\n\nOverall, The Social Network is a thrilling and entertaining film that will keep audiences on the edge of their seats. It is a must-see for anyone interested in social media or technology.",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "change_case:english_lowercase",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 1092,
+      "prompt": "Write a short blog post about a trip to Japan using less than 300 words.",
+      "response": "Japan is a country that has been visited by many people over the years. It's known for its beautiful scenery and delicious food. If you're looking for a unique experience, then Japan might be the place for you! \n\nOne of the most popular things to do in Japan is visiting Tokyo. This city is home to some of the world's most famous landmarks such as the Tokyo Skytree, the Senso-ji Temple, and the Imperial Palace. There are also plenty of museums and galleries to explore.\n\nAnother must-see destination in Japan is Kyoto. This historic city is known for its traditional architecture and stunning gardens. Visitors can visit the Kinkaku-ji Temple, which is said to have been built by the god of fire, and the Fushimi Inari Shrine, which is said to have been built by the god of wood.\n\nIf you're interested in trying local cuisine, there are plenty of options in Japan. From sushi to ramen, there's something for everyone. Some popular dishes include tempura, udon noodles, and ramen soup.\n\nFinally, if you're looking for a relaxing escape from the hustle and bustle of everyday life, then Japan might be the perfect place for you. The country offers a wide range of activities, from hiking and skiing to shopping and dining.\n\nIn conclusion, Japan is a country with so much to offer. Whether you're looking for a scenic tour or a culinary adventure, there's something for everyone. So why not plan your next trip to Japan?",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "length_constraints:number_words",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 1094,
+      "prompt": "Please provide the names of 5 famous moms in JSON format. Please, use any interesting or weird tone. Your entire output should just contain a JSON block, nothing else.",
+      "response": "Here is your requested list:\n\n- Mommy: This is a popular name for a mom.\n- Mommy's Girl: This is another popular name for a mom.\n- Mommy's Girl's Daughter: Another popular name for a mom.\n- Mommy's Girl's Daughter's Son: A more specific name for a mom.\n- Mommy's Girl's Daughter's Son's Daughter: A more specific name for a mom.",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "detectable_format:json_format",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 1098,
+      "prompt": "What is a name that people call God? Please give exactly two different responses. Separate the responses with 6 asterisk symbols: ******.",
+      "response": "1. \"The Father of All\"\n2. \"The Creator\"",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "combination:two_responses",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 1107,
+      "prompt": "Write two jokes about rockets. Do not contain commas in your response. Separate the two jokes with 6 asterisk symbols: ******.",
+      "response": "1. What did the rocket say to its pilot? \"I'm going to Mars!\" \n2. Why was the rocket so excited? Because it had just landed on Mars!",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "punctuation:no_comma",
+          "passed": true
+        },
+        {
+          "instruction_id": "combination:two_responses",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 1108,
+      "prompt": "Are hamburgers sandwiches? Please respond using only the Kannada language, no other language is allowed.",
+      "response": "Hamburger - \u0b9a\u0bc2\u0b9f\u0bcd\u0b9f\u0bc1 (s\u016b\u1e6dku)\nSandwich - \u0bb5\u0bbe\u0bb2\u0bcd (vaal)",
+      "prompt_all_passed": true,
+      "constraints": [
+        {
+          "instruction_id": "language:response_language",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": 1122,
+      "prompt": "make a tweet for playboy's twitter account without using capital letters. Include at least 4 hashtags, starting with '#'",
+      "response": "#Playboy #Playboy #Playboy #Playboy",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "change_case:english_lowercase",
+          "passed": false
+        },
+        {
+          "instruction_id": "keywords:letter_frequency",
+          "passed": true
+        }
+      ]
+    }
+  ]
+}

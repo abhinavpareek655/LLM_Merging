@@ -1,0 +1,36 @@
+# Python / PyTorch / HuggingFace
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.coverage
+htmlcov/
+*.log
+
+# Large Checkpoints and Model Weights (DO NOT COMMIT GIGABYTE FULL MODELS)
+outputs/checkpoints/
+outputs/models/
+outputs/adapters/**/checkpoint-*/
+*.bin
+*.pt
+*.pth
+
+# Ignore all safetensors EXCEPT the small LoRA adapters (<35MB)
+*.safetensors
+!outputs/adapters/*/adapter_model.safetensors
+
+
+# Large Archives and Zip bundles
+*.zip
+*.tar.gz
+*.tar
+
+# Scratch & Temporary Directories
+scratch/
+tmp_dpo_test/
+.ipynb_checkpoints/
+
+# System / OS
+.DS_Store
+Thumbs.db

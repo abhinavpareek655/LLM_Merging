@@ -1,0 +1,645 @@
+{
+  "model_base": "Qwen/Qwen2.5-0.5B-Instruct",
+  "expert1": {
+    "name": "math",
+    "path": "outputs/checkpoints/e_math"
+  },
+  "expert2": {
+    "name": "code",
+    "path": "outputs/checkpoints/e_code"
+  },
+  "global": {
+    "cosine_similarity": 0.0019294744124636054,
+    "sign_conflict_rate": 0.48892995715141296,
+    "norm_ratio": 0.832384821981882,
+    "norm1": 9.221694946289062,
+    "norm2": 11.078643798828125,
+    "num_params": 357826560
+  },
+  "layer_wise": {
+    "0": {
+      "attention": {
+        "cosine_similarity": 0.017829129472374916,
+        "sign_conflict_rate": 0.45032575726509094,
+        "norm_ratio": 1.687612350029908,
+        "norm1": 1.1209440231323242,
+        "norm2": 0.6642189025878906,
+        "num_params": 1835008
+      },
+      "mlp": {
+        "cosine_similarity": 0.0023811492137610912,
+        "sign_conflict_rate": 0.48571524024009705,
+        "norm_ratio": 0.8638032274766692,
+        "norm1": 1.6643741130828857,
+        "norm2": 1.9267977476119995,
+        "num_params": 13074432
+      },
+      "all": {
+        "cosine_similarity": 0.005118663422763348,
+        "sign_conflict_rate": 0.4811384677886963,
+        "norm_ratio": 0.9839467516613337,
+        "norm1": 2.0049030780792236,
+        "norm2": 2.0376133918762207,
+        "num_params": 14909440
+      }
+    },
+    "1": {
+      "attention": {
+        "cosine_similarity": 0.0011970787309110165,
+        "sign_conflict_rate": 0.48438015580177307,
+        "norm_ratio": 0.9457447691040047,
+        "norm1": 0.7107592225074768,
+        "norm2": 0.7515338659286499,
+        "num_params": 1835008
+      },
+      "mlp": {
+        "cosine_similarity": 9.514932753518224e-05,
+        "sign_conflict_rate": 0.4869091808795929,
+        "norm_ratio": 0.7999229371864174,
+        "norm1": 1.6479817628860474,
+        "norm2": 2.060175657272339,
+        "num_params": 13074432
+      },
+      "all": {
+        "cosine_similarity": 0.0002446956350468099,
+        "sign_conflict_rate": 0.48654577136039734,
+        "norm_ratio": 0.8181356402342039,
+        "norm1": 1.7938843965530396,
+        "norm2": 2.1926491260528564,
+        "num_params": 14909440
+      }
+    },
+    "2": {
+      "attention": {
+        "cosine_similarity": 0.0015181837370619178,
+        "sign_conflict_rate": 0.48687878251075745,
+        "norm_ratio": 0.9053105516857042,
+        "norm1": 0.6953370571136475,
+        "norm2": 0.7680646777153015,
+        "num_params": 1835008
+      },
+      "mlp": {
+        "cosine_similarity": 0.00024715636391192675,
+        "sign_conflict_rate": 0.48713135719299316,
+        "norm_ratio": 0.8072623189334535,
+        "norm1": 1.5877854824066162,
+        "norm2": 1.966876745223999,
+        "num_params": 13074432
+      },
+      "all": {
+        "cosine_similarity": 0.00043283135164529085,
+        "sign_conflict_rate": 0.4866577684879303,
+        "norm_ratio": 0.820896625915244,
+        "norm1": 1.7325278520584106,
+        "norm2": 2.1105310916900635,
+        "num_params": 14909440
+      }
+    },
+    "3": {
+      "attention": {
+        "cosine_similarity": 0.002379179233685136,
+        "sign_conflict_rate": 0.4876662492752075,
+        "norm_ratio": 0.9004624293015367,
+        "norm1": 0.6814277768135071,
+        "norm2": 0.756753146648407,
+        "num_params": 1835008
+      },
+      "mlp": {
+        "cosine_similarity": 0.0010505125392228365,
+        "sign_conflict_rate": 0.4868881404399872,
+        "norm_ratio": 0.8144932535398103,
+        "norm1": 1.5960026979446411,
+        "norm2": 1.9595038890838623,
+        "num_params": 13074432
+      },
+      "all": {
+        "cosine_similarity": 0.0012389348121359944,
+        "sign_conflict_rate": 0.48711052536964417,
+        "norm_ratio": 0.8260986052148197,
+        "norm1": 1.7345503568649292,
+        "norm2": 2.099689245223999,
+        "num_params": 14909440
+      }
+    },
+    "4": {
+      "attention": {
+        "cosine_similarity": -0.000202328126761131,
+        "sign_conflict_rate": 0.4884210228919983,
+        "norm_ratio": 0.8584212509407813,
+        "norm1": 0.6175923943519592,
+        "norm2": 0.7194514274597168,
+        "num_params": 1835008
+      },
+      "mlp": {
+        "cosine_similarity": 0.0017178902635350823,
+        "sign_conflict_rate": 0.4857672452926636,
+        "norm_ratio": 0.8030488748251992,
+        "norm1": 1.6310524940490723,
+        "norm2": 2.0310750007629395,
+        "num_params": 13074432
+      },
+      "all": {
+        "cosine_similarity": 0.0014912254409864545,
+        "sign_conflict_rate": 0.48616984486579895,
+        "norm_ratio": 0.8091982813156591,
+        "norm1": 1.7433831691741943,
+        "norm2": 2.1544573307037354,
+        "num_params": 14909440
+      }
+    },
+    "5": {
+      "attention": {
+        "cosine_similarity": 0.0016594870248809457,
+        "sign_conflict_rate": 0.48836925625801086,
+        "norm_ratio": 0.8446306417849483,
+        "norm1": 0.6334386467933655,
+        "norm2": 0.7499593496322632,
+        "num_params": 1835008
+      },
+      "mlp": {
+        "cosine_similarity": 0.0010093804448843002,
+        "sign_conflict_rate": 0.4849240183830261,
+        "norm_ratio": 0.7685689271965773,
+        "norm1": 1.6038914918899536,
+        "norm2": 2.0868544578552246,
+        "num_params": 13074432
+      },
+      "all": {
+        "cosine_similarity": 0.0010902619687840343,
+        "sign_conflict_rate": 0.48533880710601807,
+        "norm_ratio": 0.7773616514298552,
+        "norm1": 1.723649501800537,
+        "norm2": 2.2173070907592773,
+        "num_params": 14909440
+      }
+    },
+    "6": {
+      "attention": {
+        "cosine_similarity": 0.001068256562575698,
+        "sign_conflict_rate": 0.4889005720615387,
+        "norm_ratio": 0.8210807203395217,
+        "norm1": 0.6540567874908447,
+        "norm2": 0.7965803742408752,
+        "num_params": 1835008
+      },
+      "mlp": {
+        "cosine_similarity": 0.0006919410079717636,
+        "sign_conflict_rate": 0.4863015115261078,
+        "norm_ratio": 0.7893696604427742,
+        "norm1": 1.6615173816680908,
+        "norm2": 2.1048660278320312,
+        "num_params": 13074432
+      },
+      "all": {
+        "cosine_similarity": 0.0007410643738694489,
+        "sign_conflict_rate": 0.48625603318214417,
+        "norm_ratio": 0.7931796339177175,
+        "norm1": 1.7848801612854004,
+        "norm2": 2.2502849102020264,
+        "num_params": 14909440
+      }
+    },
+    "7": {
+      "attention": {
+        "cosine_similarity": 0.0006281541427597404,
+        "sign_conflict_rate": 0.49111583828926086,
+        "norm_ratio": 0.8515212820259122,
+        "norm1": 0.6974948048591614,
+        "norm2": 0.8191161155700684,
+        "num_params": 1835008
+      },
+      "mlp": {
+        "cosine_similarity": 0.0010263783624395728,
+        "sign_conflict_rate": 0.48619404435157776,
+        "norm_ratio": 0.7880605546719167,
+        "norm1": 1.6743385791778564,
+        "norm2": 2.124631881713867,
+        "num_params": 13074432
+      },
+      "all": {
+        "cosine_similarity": 0.000971495290286839,
+        "sign_conflict_rate": 0.48682379722595215,
+        "norm_ratio": 0.7962926951656966,
+        "norm1": 1.812976360321045,
+        "norm2": 2.276771306991577,
+        "num_params": 14909440
+      }
+    },
+    "8": {
+      "attention": {
+        "cosine_similarity": 0.0017956990050151944,
+        "sign_conflict_rate": 0.4889114797115326,
+        "norm_ratio": 0.8453508973755857,
+        "norm1": 0.6768795251846313,
+        "norm2": 0.8007083535194397,
+        "num_params": 1835008
+      },
+      "mlp": {
+        "cosine_similarity": 0.0010656099766492844,
+        "sign_conflict_rate": 0.48659712076187134,
+        "norm_ratio": 0.7833516595443772,
+        "norm1": 1.6970001459121704,
+        "norm2": 2.166332483291626,
+        "num_params": 13074432
+      },
+      "all": {
+        "cosine_similarity": 0.00115963036660105,
+        "sign_conflict_rate": 0.4869210422039032,
+        "norm_ratio": 0.7908521287729414,
+        "norm1": 1.8263061046600342,
+        "norm2": 2.30928897857666,
+        "num_params": 14909440
+      }
+    },
+    "9": {
+      "attention": {
+        "cosine_similarity": 0.0019007025985047221,
+        "sign_conflict_rate": 0.4898896813392639,
+        "norm_ratio": 0.8497593614396046,
+        "norm1": 0.720136284828186,
+        "norm2": 0.847459077835083,
+        "num_params": 1835008
+      },
+      "mlp": {
+        "cosine_similarity": -4.570744567899965e-05,
+        "sign_conflict_rate": 0.48924657702445984,
+        "norm_ratio": 0.7895923901301583,
+        "norm1": 1.7344950437545776,
+        "norm2": 2.1966967582702637,
+        "num_params": 13074432
+      },
+      "all": {
+        "cosine_similarity": 0.00022305696620605886,
+        "sign_conflict_rate": 0.489776611328125,
+        "norm_ratio": 0.7974031194119936,
+        "norm1": 1.8772832155227661,
+        "norm2": 2.354246139526367,
+        "num_params": 14909440
+      }
+    },
+    "10": {
+      "attention": {
+        "cosine_similarity": 7.36936999601312e-05,
+        "sign_conflict_rate": 0.4892466366291046,
+        "norm_ratio": 0.8368849650073098,
+        "norm1": 0.6585174798965454,
+        "norm2": 0.7868673801422119,
+        "num_params": 1835008
+      },
+      "mlp": {
+        "cosine_similarity": 0.000840217515360564,
+        "sign_conflict_rate": 0.48821860551834106,
+        "norm_ratio": 0.7671603018712848,
+        "norm1": 1.729250431060791,
+        "norm2": 2.2540926933288574,
+        "num_params": 13074432
+      },
+      "all": {
+        "cosine_similarity": 0.0007503011729568243,
+        "sign_conflict_rate": 0.4882638156414032,
+        "norm_ratio": 0.7748435778791657,
+        "norm1": 1.8497670888900757,
+        "norm2": 2.3872780799865723,
+        "num_params": 14909440
+      }
+    },
+    "11": {
+      "attention": {
+        "cosine_similarity": -0.00012247917766217142,
+        "sign_conflict_rate": 0.49360355734825134,
+        "norm_ratio": 0.8914824894655935,
+        "norm1": 0.7124018669128418,
+        "norm2": 0.7991204261779785,
+        "num_params": 1835008
+      },
+      "mlp": {
+        "cosine_similarity": 0.0012873102677986026,
+        "sign_conflict_rate": 0.489396870136261,
+        "norm_ratio": 0.7873847328492753,
+        "norm1": 1.7628865242004395,
+        "norm2": 2.2389137744903564,
+        "num_params": 13074432
+      },
+      "all": {
+        "cosine_similarity": 0.0011091438354924321,
+        "sign_conflict_rate": 0.4899074137210846,
+        "norm_ratio": 0.7996096622652975,
+        "norm1": 1.9007147550582886,
+        "norm2": 2.3770532608032227,
+        "num_params": 14909440
+      }
+    },
+    "12": {
+      "attention": {
+        "cosine_similarity": 0.0006924430490471423,
+        "sign_conflict_rate": 0.4901294410228729,
+        "norm_ratio": 0.8180483063790251,
+        "norm1": 0.6827383637428284,
+        "norm2": 0.834594190120697,
+        "num_params": 1835008
+      },
+      "mlp": {
+        "cosine_similarity": 0.0016786776250228286,
+        "sign_conflict_rate": 0.48848745226860046,
+        "norm_ratio": 0.8193978280394019,
+        "norm1": 1.7968021631240845,
+        "norm2": 2.1928324699401855,
+        "num_params": 13074432
+      },
+      "all": {
+        "cosine_similarity": 0.0015547266229987144,
+        "sign_conflict_rate": 0.48884063959121704,
+        "norm_ratio": 0.8190479732851226,
+        "norm1": 1.9215259552001953,
+        "norm2": 2.34604811668396,
+        "num_params": 14909440
+      }
+    },
+    "13": {
+      "attention": {
+        "cosine_similarity": 0.0014303105417639017,
+        "sign_conflict_rate": 0.49090874195098877,
+        "norm_ratio": 0.8687541609536216,
+        "norm1": 0.6932469010353088,
+        "norm2": 0.7979782223701477,
+        "num_params": 1835008
+      },
+      "mlp": {
+        "cosine_similarity": 0.0009456947445869446,
+        "sign_conflict_rate": 0.48997050523757935,
+        "norm_ratio": 0.8078170378777694,
+        "norm1": 1.804068684577942,
+        "norm2": 2.2332639694213867,
+        "num_params": 13074432
+      },
+      "all": {
+        "cosine_similarity": 0.0010043198708444834,
+        "sign_conflict_rate": 0.49012404680252075,
+        "norm_ratio": 0.81475765703124,
+        "norm1": 1.9320734739303589,
+        "norm2": 2.371347427368164,
+        "num_params": 14909440
+      }
+    },
+    "14": {
+      "attention": {
+        "cosine_similarity": 0.0007722817244939506,
+        "sign_conflict_rate": 0.49063625931739807,
+        "norm_ratio": 0.7851970685906634,
+        "norm1": 0.6815734505653381,
+        "norm2": 0.8680285215377808,
+        "num_params": 1835008
+      },
+      "mlp": {
+        "cosine_similarity": 0.0011266969377174973,
+        "sign_conflict_rate": 0.4893062114715576,
+        "norm_ratio": 0.8161939055063627,
+        "norm1": 1.8439891338348389,
+        "norm2": 2.259253740310669,
+        "num_params": 13074432
+      },
+      "all": {
+        "cosine_similarity": 0.0010829551611095667,
+        "sign_conflict_rate": 0.48946306109428406,
+        "norm_ratio": 0.8121162882774902,
+        "norm1": 1.965349555015564,
+        "norm2": 2.420034646987915,
+        "num_params": 14909440
+      }
+    },
+    "15": {
+      "attention": {
+        "cosine_similarity": 0.0007149265147745609,
+        "sign_conflict_rate": 0.49042099714279175,
+        "norm_ratio": 0.8845828493061992,
+        "norm1": 0.7374147176742554,
+        "norm2": 0.8336299061775208,
+        "num_params": 1835008
+      },
+      "mlp": {
+        "cosine_similarity": 0.000921569939237088,
+        "sign_conflict_rate": 0.4895421862602234,
+        "norm_ratio": 0.8337933094483044,
+        "norm1": 1.8614650964736938,
+        "norm2": 2.2325258255004883,
+        "num_params": 13074432
+      },
+      "all": {
+        "cosine_similarity": 0.0008951235795393586,
+        "sign_conflict_rate": 0.4896703064441681,
+        "norm_ratio": 0.8400049187536578,
+        "norm1": 2.0016064643859863,
+        "norm2": 2.3828508853912354,
+        "num_params": 14909440
+      }
+    },
+    "16": {
+      "attention": {
+        "cosine_similarity": -4.4476062612375244e-05,
+        "sign_conflict_rate": 0.4906880259513855,
+        "norm_ratio": 0.8818192113352312,
+        "norm1": 0.8163922429084778,
+        "norm2": 0.9258045554161072,
+        "num_params": 1835008
+      },
+      "mlp": {
+        "cosine_similarity": 0.0013168236473575234,
+        "sign_conflict_rate": 0.4888553321361542,
+        "norm_ratio": 0.829591490394714,
+        "norm1": 1.8781766891479492,
+        "norm2": 2.2639777660369873,
+        "num_params": 13074432
+      },
+      "all": {
+        "cosine_similarity": 0.001111590419895947,
+        "sign_conflict_rate": 0.48867830634117126,
+        "norm_ratio": 0.8370762249843454,
+        "norm1": 2.0472488403320312,
+        "norm2": 2.445713758468628,
+        "num_params": 14909440
+      }
+    },
+    "17": {
+      "attention": {
+        "cosine_similarity": 0.0015519565204158425,
+        "sign_conflict_rate": 0.49023300409317017,
+        "norm_ratio": 0.8863922873688982,
+        "norm1": 0.7678257822990417,
+        "norm2": 0.8662369847297668,
+        "num_params": 1835008
+      },
+      "mlp": {
+        "cosine_similarity": 0.002943548606708646,
+        "sign_conflict_rate": 0.4872499108314514,
+        "norm_ratio": 0.8375696545429292,
+        "norm1": 1.9010013341903687,
+        "norm2": 2.2696635723114014,
+        "num_params": 13074432
+      },
+      "all": {
+        "cosine_similarity": 0.0027582761831581593,
+        "sign_conflict_rate": 0.4874267578125,
+        "norm_ratio": 0.8437645017746109,
+        "norm1": 2.049593210220337,
+        "norm2": 2.429105758666992,
+        "num_params": 14909440
+      }
+    },
+    "18": {
+      "attention": {
+        "cosine_similarity": 0.000996936927549541,
+        "sign_conflict_rate": 0.49150002002716064,
+        "norm_ratio": 0.8276961661769794,
+        "norm1": 0.7987109422683716,
+        "norm2": 0.9649808406829834,
+        "num_params": 1835008
+      },
+      "mlp": {
+        "cosine_similarity": 0.001966325333341956,
+        "sign_conflict_rate": 0.4884469211101532,
+        "norm_ratio": 0.8239688334028341,
+        "norm1": 1.9594146013259888,
+        "norm2": 2.3780202865600586,
+        "num_params": 13074432
+      },
+      "all": {
+        "cosine_similarity": 0.001829440239816904,
+        "sign_conflict_rate": 0.4888271987438202,
+        "norm_ratio": 0.824363456654357,
+        "norm1": 2.115370273590088,
+        "norm2": 2.5660650730133057,
+        "num_params": 14909440
+      }
+    },
+    "19": {
+      "attention": {
+        "cosine_similarity": 0.0029104778077453375,
+        "sign_conflict_rate": 0.488933265209198,
+        "norm_ratio": 0.8934506078503142,
+        "norm1": 0.7902590036392212,
+        "norm2": 0.8845021724700928,
+        "num_params": 1835008
+      },
+      "mlp": {
+        "cosine_similarity": 0.0018953876569867134,
+        "sign_conflict_rate": 0.4884415566921234,
+        "norm_ratio": 0.8358810315934522,
+        "norm1": 1.9485443830490112,
+        "norm2": 2.3311264514923096,
+        "num_params": 13074432
+      },
+      "all": {
+        "cosine_similarity": 0.0020310101099312305,
+        "sign_conflict_rate": 0.48871320486068726,
+        "norm_ratio": 0.8431937819676443,
+        "norm1": 2.1021134853363037,
+        "norm2": 2.493037223815918,
+        "num_params": 14909440
+      }
+    },
+    "20": {
+      "attention": {
+        "cosine_similarity": 0.0019909467082470655,
+        "sign_conflict_rate": 0.4886253774166107,
+        "norm_ratio": 0.8867633953226538,
+        "norm1": 0.8083851337432861,
+        "norm2": 0.9116131067276001,
+        "num_params": 1835008
+      },
+      "mlp": {
+        "cosine_similarity": 0.002566449111327529,
+        "sign_conflict_rate": 0.48771801590919495,
+        "norm_ratio": 0.8381730162159077,
+        "norm1": 2.0247867107391357,
+        "norm2": 2.4157145023345947,
+        "num_params": 13074432
+      },
+      "all": {
+        "cosine_similarity": 0.002491429215297103,
+        "sign_conflict_rate": 0.48788753151893616,
+        "norm_ratio": 0.8442739876208777,
+        "norm1": 2.17971134185791,
+        "norm2": 2.5817582607269287,
+        "num_params": 14909440
+      }
+    },
+    "21": {
+      "attention": {
+        "cosine_similarity": 0.0024930729996412992,
+        "sign_conflict_rate": 0.48839375376701355,
+        "norm_ratio": 0.9051084457399109,
+        "norm1": 0.8148906826972961,
+        "norm2": 0.9003238081932068,
+        "num_params": 1835008
+      },
+      "mlp": {
+        "cosine_similarity": 0.00445819366723299,
+        "sign_conflict_rate": 0.48653823137283325,
+        "norm_ratio": 0.8506598317722954,
+        "norm1": 2.0882012844085693,
+        "norm2": 2.4548017978668213,
+        "num_params": 13074432
+      },
+      "all": {
+        "cosine_similarity": 0.004212408326566219,
+        "sign_conflict_rate": 0.48673558235168457,
+        "norm_ratio": 0.8572100003881493,
+        "norm1": 2.241152286529541,
+        "norm2": 2.6144728660583496,
+        "num_params": 14909440
+      }
+    },
+    "22": {
+      "attention": {
+        "cosine_similarity": 0.007265772670507431,
+        "sign_conflict_rate": 0.4869033098220825,
+        "norm_ratio": 0.9132720789540898,
+        "norm1": 0.8716365098953247,
+        "norm2": 0.9544105529785156,
+        "num_params": 1835008
+      },
+      "mlp": {
+        "cosine_similarity": 0.002692281501367688,
+        "sign_conflict_rate": 0.48909857869148254,
+        "norm_ratio": 0.900720415364195,
+        "norm1": 2.229562759399414,
+        "norm2": 2.4753105640411377,
+        "num_params": 13074432
+      },
+      "all": {
+        "cosine_similarity": 0.0032921251840889454,
+        "sign_conflict_rate": 0.48889997601509094,
+        "norm_ratio": 0.9023070460143912,
+        "norm1": 2.393538236618042,
+        "norm2": 2.6526870727539062,
+        "num_params": 14909440
+      }
+    },
+    "23": {
+      "attention": {
+        "cosine_similarity": 0.006953926291316748,
+        "sign_conflict_rate": 0.4882166385650635,
+        "norm_ratio": 0.9351833266458457,
+        "norm1": 0.8742110729217529,
+        "norm2": 0.9348018169403076,
+        "num_params": 1835008
+      },
+      "mlp": {
+        "cosine_similarity": 0.0026295226998627186,
+        "sign_conflict_rate": 0.4883134365081787,
+        "norm_ratio": 0.9984598394348677,
+        "norm1": 2.1352837085723877,
+        "norm2": 2.138577461242676,
+        "num_params": 13074432
+      },
+      "all": {
+        "cosine_similarity": 0.0032860091887414455,
+        "sign_conflict_rate": 0.48792409896850586,
+        "norm_ratio": 0.9885839414234537,
+        "norm1": 2.306971549987793,
+        "norm2": 2.3336122035980225,
+        "num_params": 14909440
+      }
+    }
+  }
+}
