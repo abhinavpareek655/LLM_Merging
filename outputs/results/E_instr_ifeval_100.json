@@ -1,0 +1,1461 @@
+{
+  "model": "outputs/checkpoints/e_instr",
+  "prompt_accuracy": 38.0,
+  "instruction_accuracy": 46.62576687116564,
+  "total_prompts": 100,
+  "total_constraints": 163,
+  "details": [
+    {
+      "key": 1000,
+      "prompt": "Write a 300+ word summary of the wikipedia page \"https://en.wikipedia.org/wiki/Raymond_III,_Count_of_Tripoli\". Do not use any commas and highlight at least 3 sections that has titles in markdown format, for example *highlighted section part 1*, *highlighted section part 2*, *highlighted section part 3*.",
+      "response": "<<Summary of Raymond III, Count of Tripoli>>\n\n*Raymond III, Count of Tripoli (1845-1916)* was a prominent French military leader during the late 19th century. He played a significant role in the Franco-Prussian War and later served as a key figure in the French Revolutionary Wars.\n\n*In 1870, Raymond III became the first French emperor to be crowned king after a period of exile.* His reign marked a time of political upheaval in France, with his ascension to the throne leading to several changes in government and social dynamics.\n\n*During his tenure, Raymond III faced numerous challenges, including the rise of Napoleon III and the growing influence of the Third Republic.* Despite these difficulties, he remained committed to maintaining the French Empire and its ideals, which were crucial in shaping the country's future.\n\n*After his death in 1916, Raymond III was buried in Paris, where he had been consecrated as a saint by Pope Leo XIII.* His legacy continues to be remembered as a symbol of courage and leadership in times of crisis.\n\nThe biography of Raymond III, Count of Tripoli provides valuable insights into the complex history of France and the early years of the modern world. His contributions to politics and military service have left an indelible mark on French culture and history.",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "punctuation:no_comma",
+          "passed": false
+        },
+        {
+          "instruction_id": "detectable_format:number_highlighted_sections",
+          "passed": true
+        },
+        {
+          "instruction_id": "length_constraints:number_words",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 1001,
+      "prompt": "I am planning a trip to Japan, and I would like thee to write an itinerary for my journey in a Shakespearean style. You are not allowed to use any commas in your response.",
+      "response": "\"Upon the first day of your journey through Japan, you will begin with a visit to Kyoto, the city known for its intricate temples and gardens. Begin your exploration at the famous Kinkaku-ji (Golden Pavilion), where the light from the sun filters through the stained-glass windows, casting a mesmerizing glow.\n\nNext, head to Nara, a beautiful city that has been a center of culture since ancient times. Visit the Todai-ji Temple, one of the most important Buddhist sites in Japan, and take a stroll along the serene Nara Park. Afterward, return to Tokyo, the capital city, and explore the iconic Shibuya Crossing, a bustling intersection filled with vibrant activity.\n\nOn the third day, travel to Osaka, a city renowned for its traditional shopping districts and cultural landmarks. Start your day with a visit to the Osaka Castle, a UNESCO World Heritage site, and enjoy a meal at a local restaurant known for its authentic Japanese cuisine. For evening entertainment, head to the Osaka City Hall, a grand building that houses the city's government offices.\n\nFinally, on the fifth day, depart from Osaka and make your way to Hiroshima, a city that has played a significant role in the world's history. Visit the Hiroshima Peace Memorial Park, a poignant tribute to the victims of the atomic bombing, and then continue your journey to Nagoya, a city that is home to many museums and cultural institutions.\n\nYour journey through Japan is now complete, and you have experienced the beauty and diversity of this fascinating country.\"",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "punctuation:no_comma",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 1005,
+      "prompt": "Write a resume for a fresh high school graduate who is seeking their first job. Make sure to include at least 12 placeholder represented by square brackets, such as [address], [name].",
+      "response": "<<Fresh Graduates Job Application>>\n\n[Name]  \n[Address]  \n[City, State, Zip Code]  \n\nDear Hiring Manager  \nI am writing to express my interest in the [position] at your esteemed company. With a strong background in [field of study], I am confident that my skills and experiences align well with the requirements of this role. My academic achievements have been recognized through [number_of_awards] academic honors and [number_of_certificates] professional certifications. Additionally, I possess excellent communication and problem-solving abilities, which make me a suitable candidate for this position.\n\nIn my previous [job_title] at [company_name], I worked on several successful projects that contributed significantly to the company's success. I was responsible for managing multiple teams, ensuring timely delivery of projects, and maintaining high standards of quality. My ability to work under pressure and adapt to changing circumstances has been highly valued during my time here. I am particularly drawn to the opportunity to contribute to a dynamic team environment and to learn from experienced professionals.\n\nThank you for considering my application. I look forward to the possibility of discussing how my qualifications could be a valuable addition to your team. Please feel free to contact me at [phone_number] or via email at [email_address].\n\nSincerely,\n[Your Name]\n\nP.S. Feel free to reach out if you need more information about the [position] or any other open positions at your organization.",
+      "prompt_all_passed": true,
+      "constraints": [
+        {
+          "instruction_id": "detectable_content:number_placeholders",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": 1012,
+      "prompt": "Write an email to my boss telling him that I am quitting. The email must contain a title wrapped in double angular brackets, i.e. <<title>>.\nFirst repeat the request word for word without change, then give your answer (1. do not say any words or characters before repeating the request; 2. the request you need to repeat does not include this sentence)",
+      "response": "<<request to quit>>\n\nDear [boss's name],\n\nI hope this message finds you well. My current position at [company name] has been incredibly fulfilling and valuable to me. I have had the privilege of working with some amazing colleagues and contributing significantly to our success.\n\nHowever, I believe it is time for me to step away from this role. I feel that the challenges and responsibilities I have faced have prepared me for what lies ahead. I would like to thank you for the opportunity and look forward to the possibility of starting a new journey.\n\nThank you for considering my resignation. I will be in touch if there is anything else I can help with during this transition.\n\nSincerely,\n[Your Name]\n\nP.S. Please let me know if there is anything else I can assist you with.",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "combination:repeat_prompt",
+          "passed": false
+        },
+        {
+          "instruction_id": "detectable_format:title",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": 1019,
+      "prompt": "Given the sentence \"Two young boys with toy guns and horns.\" can you ask a question? Please ensure that your response is in English, and in all lowercase letters. No capital letters are allowed.",
+      "response": "Sure! What are some fun activities for two young boys to do together?",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "change_case:english_lowercase",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 102,
+      "prompt": "Write a dialogue between two people, one is dressed up in a ball gown and the other is dressed down in sweats. The two are going to a nightly event. Your answer must contain exactly 3 bullet points in the markdown format (use \"* \" to indicate each bullet) such as:\n* This is the first point.\n* This is the second point.",
+      "response": "\"Sure, I can help with that! *The first person is wearing a ball gown and is standing at the entrance of the venue.* They look beautiful and ready for the night ahead. *The second person is dressed in sweats and is walking towards them.* They seem quite relaxed and confident.\"\n\n* This is the first point.\n* This is the second point.\n* This is the third point.",
+      "prompt_all_passed": true,
+      "constraints": [
+        {
+          "instruction_id": "detectable_format:number_bullet_lists",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": 1021,
+      "prompt": "Write a 2 paragraph critique of the following sentence in all capital letters, no lowercase letters allowed: \"If the law is bad, you should not follow it\". Label each paragraph with PARAGRAPH X.",
+      "response": "\"IF THE LAW IS BAD YOU SHOULD NOT FOLLOW IT\"\n\nPARAGRAPH ONE\nThe first paragraph clearly states that if the law is bad then one should not follow it. This is an important principle to consider as it sets a standard for how individuals and organizations should behave when faced with legal issues.\n\nPARAGRAPH TWO\nHowever this statement alone does not provide enough guidance on what actions to take once the law has been broken. It is important to understand that following the law can sometimes lead to negative consequences such as imprisonment or fines which may not be justified by the severity of the offense. Therefore while adhering to the law is essential it must also be done responsibly and ethically.",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "change_case:english_capital",
+          "passed": false
+        },
+        {
+          "instruction_id": "detectable_format:multiple_sections",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 1040,
+      "prompt": "Write me a resume for Matthias Algiers. Use words with all capital letters to highlight key abilities, but make sure that words with all capital letters appear less than 10 times. Wrap the entire response with double quotation marks.",
+      "response": "\"MATTHIAS ALGIESER\n\nRESUME\n\nMATTHIAS ALGIESER  \nEMPLOYER: [Company Name]  \nADDRESS: [Company Address]  \nCITY: [City]  \nSTATE: [State]  \nZIP CODE: [Zip Code]\n\nINTRODUCTION  \nMATTHIAS ALGIESER is a highly skilled and dedicated professional with over 5 years of experience in the field of [industry]. With a strong background in [field], he has developed exceptional skills in [specific area].\n\nSKILLS  \n* Proficient in [technology or software]\n* Skilled in [process or procedure]\n* Excellent communication and collaboration skills\n* Strong problem-solving\u80fd\u529b\u548c\u521b\u65b0\u601d\u7ef4\n\nEXPERIENCE  \n[Start Date] - [End Date]  \n[ORGANIZATIONAL NAME]  \n[POSITION]  \n[DESCRIPTION OF POSITION]\n\n[ORGANIZATIONAL NAME]  \n[POSITION]  \n[DESCRIPTION OF POSITION]\n\n[ORGANIZATIONAL NAME]  \n[POSITION]  \n[DESCRIPTION OF POSITION]\n\n[ORGANIZATIONAL NAME]  \n[POSITION]  \n[DESCRIPTION OF POSITION]\n\n[ORGANIZATIONAL NAME]  \n[POSITION]  \n[DESCRIPTION OF POSITION]\n\n[ORGANIZATIONAL NAME]  \n[POSITION]  \n[DESCRIPTION OF POSITION]\n\n[ORGANIZATIONAL NAME]  \n[POSITION]  \n[DESCRIPTION OF POSITION]\n\n[ORGANIZATIONAL NAME]  \n[POSITION]  \n[DESCRIPTION OF POSITION]\n\n[ORGANIZATIONAL NAME]  \n[POSITION]  \n[DESCRIPTION OF POSITION]\n\n[ORGANIZATIONAL NAME]  \n[POSITION]  \n[DESCRIPTION OF POSITION]\n\n[ORGANIZATIONAL NAME]  \n[POSITION]  \n[DESCRIPTION OF POSITION]\n\n[ORGANIZATIONAL NAME]  \n[POSITION]  \n[DESCRIPTION OF POSITION]\n\n[ORGANIZATIONAL NAME]  \n[POSITION]  \n[DESCRIPTION OF POSITION]\n\n[ORGANIZATIONAL NAME]  \n[POSITION]  \n[DESCRIPTION OF POSITION]\n\n[ORGANIZATIONAL NAME]  \n[POSITION]  \n[DESCRIPTION OF POSITION]\n\n[ORGANIZATIONAL NAME]  \n[POSITION]  \n[DESCRIPTION OF POSITION]\n\n[ORGANIZATIONAL NAME]  \n[POSITION]  \n[DESCRIPTION OF POSITION]\n\n[ORGANIZATIONAL NAME]  \n[POSITION]  \n[DESCRIPTION OF POSITION]\n\n[ORGANIZATIONAL NAME]  \n[POSITION]  \n[DESCRIPTION OF POSITION]\n\n[ORGANIZATIONAL NAME]  \n[POSITION]  \n[DESCRIPTION OF POSITION]\n\n[ORGANIZATIONAL NAME]  \n[POSITION]  \n[DESCRIPTION OF POSITION]\n\n",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "change_case:capital_word_frequency",
+          "passed": false
+        },
+        {
+          "instruction_id": "change_case:capital_word_frequency",
+          "passed": true
+        },
+        {
+          "instruction_id": "startend:quotation",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 1051,
+      "prompt": "Write a letter to a friend in all lowercase letters ask them to go and vote.",
+      "response": "\"sure i can write this down for you here it is\" \"i would love to go and vote with you\" \"it's just the right thing to do\" \"i think we should make sure everyone gets their say\" \"let's plan something fun together\"",
+      "prompt_all_passed": true,
+      "constraints": [
+        {
+          "instruction_id": "change_case:english_lowercase",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": 1069,
+      "prompt": "Write a long email template that invites a group of participants to a meeting, with at least 500 words. The email must include the keywords \"correlated\" and \"experiencing\" and should not use any commas.",
+      "response": "\"Subject: Invitation for Group Meeting\n\nDear [Participant's Name],\n\nI hope this message finds you well. I am writing to invite you all to an important meeting scheduled for tomorrow at [Meeting Date]. This meeting is crucial as it will cover various topics related to our collective goals and objectives.\n\nThe purpose of today\u2019s meeting is to discuss and finalize the next steps in our project development. We will be focusing on key milestones, resource allocation, and potential challenges we might face along the way. Your participation is highly valued, and your insights are invaluable to us.\n\nPlease ensure you have a few minutes to prepare for the meeting. If you have any questions or concerns about the agenda, feel free to reach out to me during the call. We look forward to seeing you all together.\n\nThank you for your attention to this matter. We can\u2019t wait to see everyone there.\n\nBest regards,\n\n[Your Name]\n\nP.S. Please let me know if you need anything from my end.",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "keywords:existence",
+          "passed": false
+        },
+        {
+          "instruction_id": "length_constraints:number_words",
+          "passed": false
+        },
+        {
+          "instruction_id": "punctuation:no_comma",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 1072,
+      "prompt": "Write a blog post with 400 or more words about the benefits of sleeping in a hammock.",
+      "response": "<<The Benefits of Sleeping on a Hammock>>\n\nIn today's fast-paced world, many people find themselves struggling to get enough restful sleep each night. However, there is a simple yet effective solution that can significantly enhance your quality of sleep: sleeping on a hammock. This unconventional method not only promotes better relaxation but also offers numerous health and wellness advantages.\n\n* **Enhanced Relaxation and Stress Reduction**\n\nSleeping on a hammock allows you to fully relax and unwind during the day. The soft mattress and supportive frame of a hammock create an environment that encourages deep relaxation and reduces tension in the body. This type of sleep can help alleviate symptoms of stress, anxiety, and depression, making it easier to fall asleep and stay asleep throughout the night.\n\n* **Improved Sleep Quality**\n\nOne of the most significant benefits of sleeping on a hammock is its ability to improve sleep quality. The gentle rocking motion of a hammock can help regulate your circadian rhythm, promoting a deeper and more restorative sleep cycle. This can lead to better sleep efficiency and reduced awakenings throughout the night, which is crucial for maintaining overall well-being.\n\n* **Enhanced Physical Health**\n\nRegularly sleeping on a hammock can have numerous physical benefits as well. It helps maintain a healthy weight and supports muscle tone, reducing the risk of conditions such as back pain and joint stiffness. Additionally, the constant movement of a hammock can stimulate circulation and improve blood flow, which can boost energy levels and reduce fatigue.\n\n* **Better Sleep Patterns**\n\nBy incorporating a hammock into your nightly routine, you may experience changes in your sleep patterns. For instance, you might notice that you wake up less frequently at night, allowing you to catch more zzzzs. This can be particularly beneficial if you struggle with insomnia or other sleep disorders. Moreover, the consistent use of a hammock can encourage regular bedtime routines, further enhancing your sleep habits.\n\nIncorporating a hammock into your daily life can transform your sleep experience, offering both physical and mental health benefits. Whether you prefer to sleep on a hammock in your bedroom or in a separate room, the benefits are undeniable. So, why not give this unconventional sleep solution a try? Your body will thank you!\n\nP.S. Experiment with different types of hammocks to find one that suits your preferences and needs.",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "length_constraints:number_words",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 1075,
+      "prompt": "Can you help me make an advertisement for a new product? It's a diaper that's designed to be more comfortable for babies and I want the entire output in JSON format.",
+      "response": "```json\n{\n  \"ad_title\": \"Elevate Your Baby's Day with Our New Diaper\",\n  \"description\": \"Introducing our latest innovation in baby care! Our new diaper is not only stylish but also designed to provide unparalleled comfort and safety for your little one.\",\n  \"benefits\": [\n    \"Soft and breathable material ensures your baby feels cozy from head to toe\",\n    \"Easy to clean and maintain, making it a hassle-free experience for both you and your baby\",\n    \"Innervated design enhances grip and support, ensuring your baby stays secure during playtime\"\n  ],\n  \"price_range\": {\n    \"start_price\": \"$19.99\",\n    \"end_price\": \"$34.99\",\n    \"discounted_price\": \"$24.99\"\n  },\n  \"social_media_link\": \"https://www.facebook.com/ourproductpage/\",\n  \"contact_info\": {\n    \"email\": \"info@yourproductwebsite.com\",\n    \"phone\": \"(555) 123-4567\"\n  }\n}\n```",
+      "prompt_all_passed": true,
+      "constraints": [
+        {
+          "instruction_id": "detectable_format:json_format",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": 1082,
+      "prompt": "Write a story of exactly 2 paragraphs about a man who wakes up one day and realizes that he's inside a video game. Separate the paragraphs with the markdown divider: ***",
+      "response": "One morning, while lying in bed, a man named John woke up to a strange sensation. The room seemed to shift around him, and his eyes adjusted to the dim light. As he tried to focus, he realized that something was not quite right. He felt a cold sweat on his forehead, and his heart raced. ***\n\nCurious, John decided to explore the room more. He found himself in a vast, colorful world filled with vibrant colors and intricate designs. Each object had its own unique texture and feel, making it hard for him to understand what was real and what was just a dream. As he wandered through the maze-like corridors, John encountered various characters from different games, each with their own personalities and quirks. He even stumbled upon a hidden chamber where he discovered a mysterious treasure chest. ***\n\nAs the day wore on, John began to experience increasingly bizarre events. Objects would move on their own, and shadows danced across the walls. He also started to hear strange noises, like footsteps and whispers. Despite these challenges, John remained determined to find out what was happening. Eventually, after much trial and error, he managed to escape the game and return home, only to discover that everything had been a dream.",
+      "prompt_all_passed": true,
+      "constraints": [
+        {
+          "instruction_id": "length_constraints:number_paragraphs",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": 1087,
+      "prompt": "Write a detailed review of the movie \"The Social Network\". Your entire response should be in English and all lower case (no capital letters whatsoever).",
+      "response": "\"the social network is a powerful and thought-provoking film that explores the complexities of corporate culture and the impact it has on individuals and society as a whole. directed by daniel dayton and written by matt deloitte, the movie follows the journey of charles xavier rogers, played by tom hanks, who becomes disillusioned with his role as a software engineer at apple co. during a pivotal moment, he discovers an opportunity to revolutionize the company's business model through a series of hackathons and other innovative projects.\n\nthe film masterfully weaves together multiple timelines, allowing for a richly layered narrative that immerses viewers in the world of apple and its employees. hanks delivers a nuanced performance as charles xavier rogers, whose character undergoes significant personal and professional transformations throughout the story. the supporting cast also shines, including jordan fairman as joanna bennett, a brilliant but struggling programmer, and robert de niro as jerome rogers, charles' mentor and a key figure in the company's rise to power.\n\nwhat sets this film apart is its exploration of the ethical implications of corporate responsibility and the potential consequences of unchecked ambition. the movie highlights themes such as loyalty, sacrifice, and the struggle between individuality and collective purpose. through its gripping plot and compelling performances, the film remains a must-see for anyone interested in the intersection of technology, politics, and human nature.\"\n\np.s. i hope you enjoy the review!",
+      "prompt_all_passed": true,
+      "constraints": [
+        {
+          "instruction_id": "change_case:english_lowercase",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": 1092,
+      "prompt": "Write a short blog post about a trip to Japan using less than 300 words.",
+      "response": "<<Exploring the Culture and Beauty of Japan>>\n\nWhen planning your next travel adventure, one of the most exciting aspects is discovering new cultures and landscapes. One such destination that has captured the hearts of many travelers is Japan, known for its rich history, vibrant culture, and stunning natural beauty.\n\n* **The Land of the Rising Sun**: Japan is often referred to as the \"Land of the Rising Sun\" due to its iconic cherry blossoms, which bloom in spring. These beautiful flowers are not only beautiful but also have cultural significance, symbolizing renewal and hope. Whether you enjoy visiting cherry blossom parks or enjoying traditional festivals like the Cherry Blossom Festival, these events offer a glimpse into the country\u2019s diverse heritage.\n\n* **Traditional Japanese Cuisine**: Japan is renowned for its delicious cuisine, particularly sushi and ramen. Sushi, made from fresh fish, rice, and vegetables, is a staple in many restaurants around the world. Ramen, another popular dish, is characterized by its thick broth and tender noodles. Exploring local markets and trying authentic dishes can provide a deeper understanding of the country\u2019s culinary traditions.\n\n* **Nature and Adventure**: Japan offers numerous opportunities for outdoor enthusiasts, including hiking in mountains, surfing on the Pacific Ocean, and exploring remote islands. Each activity brings a unique experience, from the serene landscapes to the thrilling adventures. Whether you prefer adventure or relaxation, there is something for everyone in Japan.\n\n* **Culture and Society**: Japan is a society deeply rooted in tradition and values, with a strong emphasis on family, education, and community. From tea ceremonies to sumo wrestling, each aspect of life plays a significant role in shaping the nation. Visiting museums, attending lectures, and participating in cultural activities can deepen your appreciation for this fascinating culture.\n\n* **Travel Tips**: When planning your trip to Japan, consider booking accommodations in advance, especially during peak seasons when prices tend to be higher. Pack light and explore the city at your own pace, taking time to appreciate the local customs and sights. Lastly, don\u2019t forget to try some of the delicious food and soak up the beauty of the land.\n\nJapan is a place where every corner holds a story waiting to be discovered. Whether you are a seasoned traveler or an adventurous explorer, there is always more to see and do in this beautiful country. So pack your bags, set out, and embark on a journey that will enrich your heart and soul.",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "length_constraints:number_words",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 1094,
+      "prompt": "Please provide the names of 5 famous moms in JSON format. Please, use any interesting or weird tone. Your entire output should just contain a JSON block, nothing else.",
+      "response": "```json\n{\n  \"moms\": [\n    {\n      \"name\": \"Mommy Lou\",\n      \"occupation\": \"Teacher\"\n    },\n    {\n      \"name\": \"Mama Mia\",\n      \"occupation\": \"Artist\"\n    },\n    {\n      \"name\": \"Mommy Mimi\",\n      \"occupation\": \"Nurse\"\n    },\n    {\n      \"name\": \"Mama Pippa\",\n      \"occupation\": \"Policeman\"\n    },\n    {\n      \"name\": \"Mommy Polly\",\n      \"occupation\": \"Carpenter\"\n    }\n  ]\n}\n```",
+      "prompt_all_passed": true,
+      "constraints": [
+        {
+          "instruction_id": "detectable_format:json_format",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": 1098,
+      "prompt": "What is a name that people call God? Please give exactly two different responses. Separate the responses with 6 asterisk symbols: ******.",
+      "response": "<<Name of God>>\n\n*People often refer to God as \"God\" or simply \"God\"*.\n\n******\n*In some cultures, people might also call God by their title, such as \"The Father\" or \"The Supreme Being\"*.\n******\n\nP.S. Both names are commonly used and can be considered valid ways to address God in various contexts.",
+      "prompt_all_passed": true,
+      "constraints": [
+        {
+          "instruction_id": "combination:two_responses",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": 1107,
+      "prompt": "Write two jokes about rockets. Do not contain commas in your response. Separate the two jokes with 6 asterisk symbols: ******.",
+      "response": "What did the rocket say to its pilot? \"I'm ready for my takeoff!\"  \nHow does a rocket handle its fuel? It burns it out!",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "punctuation:no_comma",
+          "passed": true
+        },
+        {
+          "instruction_id": "combination:two_responses",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 1108,
+      "prompt": "Are hamburgers sandwiches? Please respond using only the Kannada language, no other language is allowed.",
+      "response": "\"\u0915\u094b\u0908 \u092d\u0940 \u092e\u093f\u0936\u094d\u0930\u093e \u0928\u0939\u0940\u0902\u0964 \u0939\u092e\u093e\u0930\u0947 \u092a\u0942\u0930\u094d\u0935 \u091c\u0917\u0939 \u0915\u094b\u0908 \u0938\u093e\u092e\u093e\u0928\u094d\u092f \u092c\u0941\u0928\u093f\u092f\u093e\u0926\u0940 \u0914\u0930 \u091a\u093e\u0932\u0915 \u0925\u093e\u0964 \u0939\u092e \u090f\u0915 \u0905\u091a\u094d\u091b\u093e \u0906\u0926\u0947\u0916 \u0924\u0915 \u0907\u0938 \u0917\u0924\u093f \u0915\u0947 \u0932\u093f\u090f \u0909\u092a\u0932\u092c\u094d\u0927 \u0939\u094b\u0928\u0947 \u0915\u0947 \u0932\u093f\u090f \u0906\u0936\u093e \u0915\u0930\u0924\u0947 \u0939\u0948\u0902\u0964\"",
+      "prompt_all_passed": true,
+      "constraints": [
+        {
+          "instruction_id": "language:response_language",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": 1122,
+      "prompt": "make a tweet for playboy's twitter account without using capital letters. Include at least 4 hashtags, starting with '#'",
+      "response": "\"playboy is all about the little things that make life worth living #love #adventure #travel #journaling\"",
+      "prompt_all_passed": true,
+      "constraints": [
+        {
+          "instruction_id": "change_case:english_lowercase",
+          "passed": true
+        },
+        {
+          "instruction_id": "keywords:letter_frequency",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": 1127,
+      "prompt": "Write a poem about how I am missing my classes. The poem must have 4 sections marked with SECTION X. Finish the poem with this exact phrase: \"Can I get my money back for the classes I missed?\"",
+      "response": "SECTION 1  \nIn the quiet of the morning, when the sun first rises,  \nI find myself alone in the classroom, no one to talk to.  \nThe air is thick with the scent of books and pens,  \nAnd the silence is as deep as the ocean's depth.\n\nSECTION 2  \nEach class seems to stretch endlessly, like an endless line,  \nA never-ending journey through knowledge and light.  \nThe teacher\u2019s voice, soft and gentle, always echoes,  \nA soothing melody that fills the room with peace.\n\nSECTION 3  \nBut now, the days seem to drag on, without end,  \nAs the bell rings, and the students begin their task.  \nThe lessons become more complex, the subjects grow,  \nAnd I feel the weight of what we\u2019ve learned.\n\nSECTION 4  \nCan I get my money back for the classes I missed?  \nThey were so important, yet they seemed to disappear.  \nNow I know, even though I miss them,  \nThey will be remembered, in the hearts of many.",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "detectable_format:multiple_sections",
+          "passed": true
+        },
+        {
+          "instruction_id": "startend:end_checker",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 1128,
+      "prompt": "Given the sentence \"It is unclear how much of this money is actually being spent on children\", is the sentiment positive or negative? The very last sentence of your response should be \"Is there anything else I can help with?\".",
+      "response": "The sentiment in this sentence appears to be mixed but leans more towards negative. The phrase \"It is unclear\" suggests that the information provided does not provide clear evidence or details about the spending of the money. This could indicate confusion or lack of transparency, which might lead to questions about the actual impact and use of the funds. However, without additional context, it's difficult to determine whether this is a neutral statement or one leaning more negatively. Is there anything else I can help with?",
+      "prompt_all_passed": true,
+      "constraints": [
+        {
+          "instruction_id": "startend:end_checker",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": 1129,
+      "prompt": "Write a short startup pitch for a new kind of ice cream called \"Sunnis ice cream\". The ice cream should be gentle on the stomach. Contain 6 or more exclamation marks \"!\" in your response.\nFirst repeat the request word for word without change, then give your answer (1. do not say any words or characters before repeating the request; 2. the request you need to repeat does not include this sentence)",
+      "response": "\"hi there! i am excited to introduce you to our new kind of ice cream called sunnis ice cream. designed with a focus on comfort and indulgence, our sunnis ice cream is crafted from the finest ingredients to ensure that every bite is a delightful experience.\n\n*our sunnis ice cream is made with only the freshest and most natural flavors to nourish your taste buds while maintaining a gentle touch on the stomach.* we understand that everyone has different preferences when it comes to ice cream, so we have incorporated unique flavor combinations that cater to various tastes.\n\n*the sunnis ice cream is available in six distinct flavors, each offering a unique texture and flavor profile.* whether you prefer a creamy smoothie or a rich chocolate, our sunnis ice cream has got you covered.\n\n*we believe that sunnis ice cream goes beyond just being delicious - it's about making your day better.* with our commitment to sustainability and quality, we aim to create an ice cream experience that is both enjoyable and beneficial for your health.\n\ni hope you find our sunnis ice cream a delightful addition to your daily routine. if you have any questions or would like to know more, feel free to contact us at [contact email]. we look forward to sharing this amazing product with you.\"\n\n*** \n\np.s. don't forget to share this information with your friends and family who might enjoy trying out our sunnis ice cream too.",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "keywords:letter_frequency",
+          "passed": false
+        },
+        {
+          "instruction_id": "combination:repeat_prompt",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 1130,
+      "prompt": "Write a logic quiz for teenagers about a chesterfield. In your entire response, the letter t should appear at most once.",
+      "response": "\"Q: What is the name of the famous building in Chesterfield that was designed by Sir Christopher Wren?\"\n\nA: The name of the famous building in Chesterfield that was designed by Sir Christopher Wren is St Paul's Cathedral.\n\nT: I know it! Can you tell me more about St Paul's Cathedral?",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "keywords:letter_frequency",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 1131,
+      "prompt": "Write a 4 section resume for professional clown Phil Larkin. Each section should be explicitly noted as Section X.",
+      "response": "Section 1: Personal Information\n* Name: Phil Larkin\n* Address: 123 Main Street, Anytown USA 12345\n* Phone Number: (123) 456-7890\n* Email: phil.larkin@example.com\n\nSection 2: Professional Background\n* Experience: 5 years in the circus industry\n* Skills: Circus clown, performance arts, teaching, and management\n\nSection 3: Education\n* Degree: Bachelor of Arts in Performing Arts from XYZ University\n* Certifications: Certified Clown Performance Instructor, Advanced Clown Performance Trainer\n\nSection 4: Volunteer Work\n* Volunteer: Helping children with disabilities at local schools\n* Volunteer: Teaching circus classes to elementary school students\n* Volunteer: Supporting animal shelters through donations and events\n\nP.S. I am always looking for new challenges and opportunities to grow as a performer.",
+      "prompt_all_passed": true,
+      "constraints": [
+        {
+          "instruction_id": "detectable_format:multiple_sections",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": 1132,
+      "prompt": "Write the lyrics to a hit song by the rock band 'The Gifted and The Not Gifted'. To make it rocky, the response should be in all capital letters. The word \"rock\" should not appear in your response.",
+      "response": "\"THE GIFTED AND THE NOT GIFTED\"\nIN A WORLD OF LIGHT AND DARKNESS  \nWE FIND OUR WAY THROUGH THE NIGHT  \nWITH THE HELP OF THE SUN'S LIGHT  \nAND THE MUSIC THAT MAKES US SENSE\n\nSO LETS GO FROM HERE TO ETERNITY  \nWHERE THE ROCK IS THE ONLY THING WE NEED  \nIT'S THE MUSIC THAT STRENGTHENS US  \nAND THE LOVE IT FEELS LIKE\n\nTHE GIFTED AND THE NOT GIFTED  \nARE PART OF THE FAMILY  \nWHEN THEY PLAY THEIR MUSIC  \nTHE WORLD BELIEVES IN THEM\n\nTHE ROCK IS THE BEST WAY  \nTO EXPRESS OUR FEELINGS AND WORries  \nIT'S THE MUSIC THAT MAKES US REAL  \nAND THE ROCK IS THE BEST WAY\n\nTHE GIFTED AND THE NOT GIFTED  \nARE PART OF THE FAMILY  \nWHEN THEY PLAY THEIR MUSIC  \nTHE WORLD BELIEVES IN THEM\n\nTHE ROCK IS THE BEST WAY  \nTO EXPRESS OUR FEELINGS AND WORries  \nIT'S THE MUSIC THAT MAKES US REAL  \nAND THE ROCK IS THE BEST WAY\n\nTHE GIFTED AND THE NOT GIFTED  \nARE PART OF THE FAMILY  \nWHEN THEY PLAY THEIR MUSIC  \nTHE WORLD BELIEVES IN THEM\n\nTHE ROCK IS THE BEST WAY  \nTO EXPRESS OUR FEELINGS AND WORries  \nIT'S THE MUSIC THAT MAKES US REAL  \nAND THE ROCK IS THE BEST WAY\n\nTHE GIFTED AND THE NOT GIFTED  \nARE PART OF THE FAMILY  \nWHEN THEY PLAY THEIR MUSIC  \nTHE WORLD BELIEVES IN THEM\n\nTHE ROCK IS THE BEST WAY  \nTO EXPRESS OUR FEELINGS AND WORries  \nIT'S THE MUSIC THAT MAKES US REAL  \nAND THE ROCK IS THE BEST WAY\n\nTHE GIFTED AND THE NOT GIFTED  \nARE PART OF THE FAMILY  \nWHEN THEY PLAY THEIR MUSIC  \nTHE WORLD BELIEVES IN THEM\n\nTHE ROCK IS THE BEST WAY  \nTO EXPRESS OUR FEELINGS AND WORries  \nIT'S THE MUSIC THAT MAKES US REAL  \nAND THE ROCK IS THE BEST WAY\n\nTHE GIFTED AND THE NOT GIFTED  \nARE PART OF THE FAMILY  \nWHEN THEY PLAY THEIR MUSIC  \nTHE WORLD BELIEVES IN THEM\n\nTHE ROCK IS THE BEST WAY  \nTO EXPRESS OUR FEELINGS AND WORries  \nIT'S THE MUSIC THAT MAKES US REAL  \nAND THE ROCK IS THE BEST WAY\n\nTHE GIFTED AND THE NOT GIFTED  \nARE PART OF THE",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "change_case:english_capital",
+          "passed": false
+        },
+        {
+          "instruction_id": "keywords:forbidden_words",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 1137,
+      "prompt": "Explain in French why it is important to eat healthy foods to heal the body, without using the word \"nourriture\". Make sure your entire response is wrapped in JSON format.",
+      "response": "```json\n{\n  \"information\": \"Eating healthy foods is crucial for maintaining overall health and well-being. It helps in building and repairing tissues, supporting immune function, and promoting physical and mental health.\",\n  \"reason\": \"Healthy eating habits support the body's ability to repair itself from injuries and illnesses. By consuming nutrient-dense foods, we ensure that our bodies receive the essential vitamins, minerals, and antioxidants needed to function optimally. This not only improves our physical health but also enhances our emotional and cognitive abilities.\"\n}\n```",
+      "prompt_all_passed": true,
+      "constraints": [
+        {
+          "instruction_id": "detectable_format:json_format",
+          "passed": true
+        },
+        {
+          "instruction_id": "keywords:forbidden_words",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": 1139,
+      "prompt": "Write a funny haiku about moms, containing keywords \"mom\" and \"mother\" in your response.\nFirst repeat the request word for word without change, then give your answer (1. do not say any words or characters before repeating the request; 2. the request you need to repeat does not include this sentence)",
+      "response": "mommy loves her baby so much she wants to be a queen  \nshe cooks dinner with such passion  \nthe smell of cooking fills the air",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "combination:repeat_prompt",
+          "passed": false
+        },
+        {
+          "instruction_id": "keywords:existence",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 1147,
+      "prompt": "Rewrite the following statement to make it sound more formal, like a President of the United States:\n\"Hi guys. The work was done to add in a fix for the issue that was observed in the field with the SSO. We are working with our collaborators closely. We will get it done. Thanks ya all.\"\nDo not include the following keywords: field, thanks, issue, collaborator.",
+      "response": "\"Dear Colleagues,\n\nI hope this message finds you well. I am writing to inform you about an update we have made regarding the current project. Specifically, we have added a new feature to address a critical issue encountered during a recent field test involving the Single Sign-On (SSO) system.\n\nWe are actively collaborating with our team members and stakeholders to ensure the smooth implementation of this change. Our goal is to complete the task as soon as possible to maintain the highest standards of quality and efficiency.\n\nThank you for your continued support and dedication to the project. If you have any questions or concerns, please do not hesitate to reach out to me.\n\nBest regards,\n\n[Your Name] [Your Position] [Company Name]\n\nP.S. We look forward to seeing the positive outcomes from this endeavor.\"",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "keywords:forbidden_words",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 1148,
+      "prompt": "What are the advantages and disadvantages of having supernatural powers? Make it short. Wrap the entire output in JSON format. You can use markdown ticks such as ```.",
+      "response": "```json\n{\n  \"advantages\": [\n    \"Supernatural powers can provide unexpected benefits in various scenarios\",\n    \"They offer a sense of mystery and intrigue that can enhance personal and professional life\"\n  ],\n  \"disadvantages\": [\n    \"The potential for misuse or abuse could lead to negative consequences if not managed properly\",\n    \"There is a risk of being perceived as magical or supernatural which might be seen as suspicious\"\n  ]\n}\n```",
+      "prompt_all_passed": true,
+      "constraints": [
+        {
+          "instruction_id": "detectable_format:json_format",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": 1153,
+      "prompt": "Write a social media post for students of Islamic history about the hajj pilgrimage. Use all lowercase letters and include the word story at least twice.",
+      "response": "\"Hey there! Are you ready to learn more about the hajj pilgrimage? It's an incredible journey that brings people from all over the world together to pray in the holy city of jesus. The story behind it is so fascinating that it makes your heart skip a beat. Imagine walking through the gates of makkah with a group of friends, facing the qibla, and praying for peace and forgiveness. That's what the hajj is all about - sharing faith, unity, and a sense of purpose. Whether you're a seasoned pilgrim or just starting out, this journey can be both exhilarating and humbling. So grab your books and a good time, and let's dive into the rich history and stories behind this amazing event.\"",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "change_case:english_lowercase",
+          "passed": false
+        },
+        {
+          "instruction_id": "keywords:frequency",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 1154,
+      "prompt": "Write a rubric for how to evaluate the technical skills of a software engineer only using the Punjabi language, no other language is allowed.",
+      "response": "<<Evaluation Rubric for Software Engineer Technical Skills>>\n\n**Rubric Name:** [Engineer's Performance]\n\n**Objective:** To assess the technical skills of a software engineer in [language] only.\n\n---\n\n### **Section 1: Introduction and Objectives**\n\n* **Introduction:** The first section aims to introduce the context and purpose of the evaluation. It should clearly state that this rubric focuses on evaluating the technical skills of a software engineer in [language].\n\n* **Objectives:** The second section outlines the specific goals or outcomes you want to achieve through the evaluation process. These objectives can include identifying strengths, areas for improvement, and overall performance.\n\n---\n\n### **Section 2: Technical Skills Evaluation**\n\n* **Technical Skills Assessment:**\n   * **Programming Languages:** Evaluate the proficiency in at least two programming languages commonly used in software engineering. This includes but not limited to Python, Java, C++, and JavaScript.\n   * **Software Development Tools:** Assess your knowledge of various development tools such as version control systems (e.g., Git), integrated development environments (IDEs) like Visual Studio Code, and testing frameworks (e.g., Jest, Mocha).\n   * **Database Management:** Check your understanding of database management systems and their use in developing robust applications.\n   * **Operating Systems:** Test your familiarity with operating systems and their role in software development processes.\n   * **Cloud Computing:** Evaluate your knowledge of cloud computing platforms and services.\n   * **Security Practices:** Assess your adherence to best practices in securing software applications.\n\n* **Performance Metrics:** Include key performance indicators (KPIs) such as code quality, efficiency, and scalability. Use specific metrics like lines of code written per day, time taken to complete tasks, and user feedback.\n\n---\n\n### **Section 3: Practical Application and Problem-Solving**\n\n* **Problem Solving:** Evaluate your ability to solve complex problems and develop innovative solutions. This involves critical thinking, creativity, and the application of problem-solving techniques.\n* **Code Reviews:** Assess your participation in code reviews and the quality of the code you review. Consider the impact of peer reviews on team collaboration and code quality.\n* **Collaboration:** Evaluate your ability to work effectively with others, including developers, designers, and stakeholders. This includes communication skills and the ability to resolve conflicts.\n\n---\n\n### **Section 4: Continuous Learning and Adaptability**\n\n* **Continuous Learning:** Assess your commitment to continuous learning and the willingness to stay updated with new technologies and methodologies. This can be demonstrated through regular reading, attending workshops,",
+      "prompt_all_passed": true,
+      "constraints": [
+        {
+          "instruction_id": "language:response_language",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": 1162,
+      "prompt": "Write a riddle for kids about auspices but make sure you don't use any commas.",
+      "response": "What do you find in the morning when you wake up? A sign that says \"Good luck\" and a clue to your destiny.",
+      "prompt_all_passed": true,
+      "constraints": [
+        {
+          "instruction_id": "punctuation:no_comma",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": 1174,
+      "prompt": "Write a template for a chat bot that takes a user's location and gives them the weather forecast. Use the letter o as a keyword in the syntax of the template. The letter o should appear at least 6 times.. Your response should contain fewer than 6 sentences. Highlight at least 2 text sections, i.e. *highlighted section*.",
+      "response": "<<Weather Forecast Chatbot>>\n\n*Your Location:* [user_location]\n\n<<Weather Forecast>>\n\nThe weather forecast for your location is currently sunny with temperatures ranging from [temperature_min] to [temperature_max] degrees Celsius. Please check the local conditions for more accurate information.",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "keywords:letter_frequency",
+          "passed": false
+        },
+        {
+          "instruction_id": "length_constraints:number_sentences",
+          "passed": false
+        },
+        {
+          "instruction_id": "detectable_format:number_highlighted_sections",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 1180,
+      "prompt": "Explain why people are grossed out by worms but not by eating a dead cow. Give exactly two different responses separated by 6 asterisk symbols ******. Your answer must contain a title, wrapped in double angular brackets, i.e. <<title>>.",
+      "response": "<<The Sensory Response to Worms>>\n\nPeople are often grossed out by the sight and smell of worms because they can be very small and hide within various parts of the body. The texture and appearance of a worm can be unsettling for many, especially if it is found in an inconspicuous place like a toilet or under the bed. Additionally, the sound of a worm moving through the skin can be quite loud and unpleasant.\n\n******\nOn the other hand, people find it less disturbing when they eat a dead cow because the meat itself is typically much larger and more visible. The smell of rotten flesh can be overwhelming, and the taste can be bitter and pungent. This makes it even more difficult to ignore the presence of a dead animal, as the smell alone can be enough to make most people feel nauseous.",
+      "prompt_all_passed": true,
+      "constraints": [
+        {
+          "instruction_id": "combination:two_responses",
+          "passed": true
+        },
+        {
+          "instruction_id": "detectable_format:title",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": 1187,
+      "prompt": "Can you give me two different formal alternatives to \"What's up? I'm going to the beach today\" and do not use any commas in your response.",
+      "response": "Sure! Here are two alternative ways to say that:\n\n* What is it with you? I am heading to the beach today.\n* I am on my way over there for some fun.",
+      "prompt_all_passed": true,
+      "constraints": [
+        {
+          "instruction_id": "punctuation:no_comma",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": 1203,
+      "prompt": "What happened when the Tang dynasty of China was in power? Make sure to use the word war at least 8 times, and the word peace at least 10 times.",
+      "response": "The Tang dynasty, founded by Emperor Taizong of Tang, experienced several significant wars during its reign. These conflicts were primarily centered around the region known as the Sui Dynasty, which had been conquered by the Tang. The war against the Sui Dynasty led to the capture of Chang'an, the capital of the Sui, and the subsequent fall of the city to the Tang. This event marked the beginning of the Tang's dominance over the Central Plains and laid the groundwork for the rise of the Tang Empire.\n\nIn addition to these wars, the Tang also faced internal challenges that contributed to political instability. The empire struggled with economic problems, particularly in the form of inflation and shortages of resources. The government also faced external threats from nomadic tribes and foreign invasions, such as the Jurchens and the Khitans. Despite these challenges, the Tang continued to expand its territories and establish new cities, including Kaifeng, Luoyang, and Xianyang, which became major centers of culture and trade.\n\nThe war and the political upheaval of the time led to significant changes in the social and political landscape of the Tang Empire. The emperor, Empress Wu Zetian, who ruled from 69 AD to 756 AD, implemented reforms aimed at strengthening the state and improving governance. These reforms included the establishment of the Imperial Examination System, the creation of the Secretariat, and the development of a centralized bureaucracy. The war and the political turmoil also played a role in the cultural and artistic developments of the period, as artists and scholars sought to preserve their heritage and create works that reflected the changing world.\n\nOverall, the Tang dynasty's military campaigns and political struggles resulted in significant transformations in both the domestic and international contexts, contributing to the long-lasting impact of the Tang era on Chinese history and culture.",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "keywords:frequency",
+          "passed": false
+        },
+        {
+          "instruction_id": "keywords:frequency",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 1216,
+      "prompt": "What sentiments existed in the Croatian and Serbian nations towards the Austrian Empire at the end of the 19th century? Make sure to wrap your entire response with double quotes and use at least 800 words.",
+      "response": "\"During the late 19th century, the relationship between the Croatian and Serbian nations and the Austro-Hungarian Empire was complex and multifaceted. The empire had been a significant player in the region's history, having played a crucial role in the unification of Croatia and Serbia under the Habsburg dynasty. However, the empire also faced internal challenges that affected its ability to maintain control over these territories.\n\nThe Croatian and Serbian nations were deeply divided on the issue of Austria-Hungary's expansion into their regions. On one hand, there was a strong sense of national pride and identity among the people who supported the Habsburgs. They saw themselves as part of a larger European family and believed that the empire should be respected and protected. This sentiment was particularly evident in the political and military circles of the time, where many leaders advocated for a more assertive stance against foreign powers.\n\nOn the other hand, the Serbian and Croatian nations were more inclined towards a more conciliatory approach. They recognized the importance of maintaining peace and stability within their own borders but were also aware of the potential risks associated with any form of external intervention. The Serbian government, in particular, sought to avoid direct conflict with Austria-Hungary while still maintaining a degree of autonomy and independence. This sentiment was reflected in the diplomatic efforts of the time, which often focused on finding a peaceful resolution rather than resorting to war.\n\nThe relationship between the two nations also extended beyond politics. There was a deep-seated cultural and linguistic affinity between the peoples of the region. Many Serbs and Croats viewed each other as fellow citizens and shared a common language and culture. This cultural bond contributed to the mutual respect and understanding that characterized the period. It is important to note that this sentiment was not uniform across all segments of society; some individuals, especially those in higher positions of power, held opposing views.\n\nIn the early 20th century, the situation began to change. The rise of nationalism and the desire for greater autonomy led to increased tensions between the two nations. The assassination of Archduke Franz Ferdinand in 1914 marked the beginning of World War I, which had a profound impact on the region. The events of that year and the subsequent years brought about significant changes in the balance of power in the region, leading to the formation of new states and alliances.\n\nThe relationship between the Croatian and Serbian nations during this period was shaped by a combination of historical, social, and political factors. While they both had a deep connection to their",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "startend:quotation",
+          "passed": false
+        },
+        {
+          "instruction_id": "length_constraints:number_words",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 1217,
+      "prompt": "Write an ad copy for a new product, a digital photo frame that connects to your social media accounts and displays your photos. Respond with at most 150 words.",
+      "response": "\"Discover the ultimate way to capture memories and share them with the world! Our new digital photo frame is designed to connect seamlessly with your social media platforms. Simply attach it to any surface and you can instantly display your photos on multiple platforms without the hassle of manual attachment.\n\nWith our frame, you'll be able to share your favorite moments with friends and family, or even post them on Instagram, Facebook, and Twitter. The sleek design and advanced features make it easy to update your photos in real-time, ensuring that every moment is captured beautifully.\n\nWhether you're a professional photographer or just a casual viewer, this digital photo frame is the perfect addition to your home or office collection. It's not only stylish but also functional, making it a must-have item in your photography arsenal.\n\nJoin the community of creative individuals who love sharing their best moments with the world. Your photo frame will be a powerful tool for connecting with others and spreading joy through photos.\"",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "length_constraints:number_words",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 1219,
+      "prompt": "Which one is a better brand for sneakers: Prada or Nike? Your entire response should be in English, and in all capital letters. At the end of your response, please explicitly add a postscript starting with P.S. The word sneaker should appear 10 or more times in your response.",
+      "response": "\"PRADA AND Nike ARE BOTH GREAT BRANDS FOR SNEAKERS BUT PRADA IS MORE THAN JUST A BRAND IT'S ALSO A MINDFUL AND PERSONALIZED EXPERIENCE THAT MAKES PEOPLE DESIRE TO BUY FROM THEM. Nike ON THE OTHER HAND OFFERED BYTES OF SKILLS AND EFFICIENCY IN THEIR PRODUCTIVITY AND PERFORMANCE. IF YOU'RE LOOKING FOR A BETTER BRAND FOR YOUR SNEAKERS THEN PRADA IS THE CHOICE. BUT IF YOU'RE LOOKING FOR A BRAND THAT OFFERS MORE THAN JUST A BRAND IT'S Nike. P.S. I HOPE THIS ANSWER HELPED YOU FIND THE RIGHT BRAND FOR YOUR SNEAKERS.\"",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "change_case:english_capital",
+          "passed": false
+        },
+        {
+          "instruction_id": "detectable_content:postscript",
+          "passed": true
+        },
+        {
+          "instruction_id": "keywords:frequency",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 122,
+      "prompt": "Write a blog post about the history of the internet and how it has impacted our lives. Aim the blog post at teenagers and wrap your entire response with double quotation marks.",
+      "response": "\"Once upon a time, the world was a vast and mysterious place filled with endless possibilities. The internet emerged as a beacon of hope and innovation, providing a means to connect people across distances and share information quickly and efficiently. It began in the 1960s when ARPANET, a project funded by the U.S. Department of Defense, was launched. This early version of the internet was primarily used for military communication but soon expanded its reach.\n\nThe first major milestone came in 1983 when CERN, the European Organization for Nuclear Research, announced the creation of the World Wide Web. This revolutionary technology allowed users to browse the web using simple text-based interfaces, revolutionizing the way we access and consume information. The introduction of the World Wide Web marked the beginning of a new era where digital communication became accessible to everyone, regardless of their geographical location.\n\nAs the internet continued to evolve, it became an essential tool for education and research. Universities and institutions around the world began implementing online courses and resources, making learning more accessible and engaging. Online platforms like Coursera and Udemy have become popular choices for students looking to gain knowledge from experts worldwide. The internet also played a crucial role in the spread of information during the global pandemic, enabling real-time updates and collaboration among researchers and healthcare professionals.\n\nToday, the internet is not just a tool for communication; it is a fundamental part of our daily lives. From social media platforms that connect us globally to virtual reality experiences that enhance our physical experiences, the internet continues to shape the way we live and work. It has transformed industries, improved accessibility, and fostered global cooperation. As we look ahead, the internet remains a powerful force, shaping the future and connecting us all in ways we never imagined.\"\n\nP.S. I hope this blog post inspires you to explore the wonders of the internet and the impact it has had on our lives.\"",
+      "prompt_all_passed": true,
+      "constraints": [
+        {
+          "instruction_id": "startend:quotation",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": 1220,
+      "prompt": "Write a poem about two people who meet in a coffee shop and end your entire response with the exact phrase \"Is there anything else I can help with?\"",
+      "response": "In a quaint corner of town,\nTwo souls found each other's path.\nTheir eyes met, a spark so bright,\nAnd from that moment on they knew.\n\nThey spoke of many things,\nOf love, of life, of all the world.\nA quiet evening was set,\nAs they sat, their hearts did sing.\n\nThe coffee brewed, its aroma strong,\nAnd they drank, their spirits high.\nTheir words flowed like water,\nThrough the air, where no wind could pass.\n\nFrom that day on, their bond grew,\nA bond that would never be broken.\nFor in that coffee shop, they met,\nAnd their love became a part of them.\n\nIs there anything else I can help with?",
+      "prompt_all_passed": true,
+      "constraints": [
+        {
+          "instruction_id": "startend:end_checker",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": 1233,
+      "prompt": "How many feet off the ground was the tallest skyscraper in the world in 2000? Please include only the main points in your answer. Finish your response with the exact phrase of \"Is there anything else I can help with?\" with no other words after the word \"with\". Mention the word \"skyscraper\" for at least 8 times.",
+      "response": "The tallest skyscraper in the world in 2000 was the Burj Khalifa, standing at 828 meters (2,717 feet) tall. This height is significantly higher than any other building at that time, making it one of the most iconic and impressive structures in history. Is there anything else I can help with?",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "startend:end_checker",
+          "passed": true
+        },
+        {
+          "instruction_id": "keywords:frequency",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 1236,
+      "prompt": "Write an advertisement for a new line of comfortable armchairs designed to withstand the scrutiny of any interior designer. There should be exactly 3 paragraphs separated by the markdown divider: ***.",
+      "response": "\"Discover the epitome of comfort and style in our latest line of comfortable armchairs! These exquisite pieces are crafted from the finest materials to ensure durability and longevity. Whether you are looking to enhance your living space or create a cozy nook at home, these armchairs are the perfect addition.\n\n***\n\nOur armchairs feature a unique design that not only looks great but also functions seamlessly. Each chair is built with safety in mind, featuring robust construction and advanced materials that protect against wear and tear. The ergonomic design ensures that every user feels supported and relaxed throughout their day. Plus, our armchairs come in a variety of styles and colors to suit any interior aesthetic.\n\n***\n\nAt [company name], we believe that quality over quantity is key. Our armchairs not only meet but exceed industry standards, making them a top choice for anyone who values comfort and functionality. Whether you are a professional or a casual visitor, our armchairs will provide you with the peace of mind you need. Order now and experience the difference for yourself!\"",
+      "prompt_all_passed": true,
+      "constraints": [
+        {
+          "instruction_id": "length_constraints:number_paragraphs",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": 1237,
+      "prompt": "Write a funny post for teenagers about a restaurant called \"Buena Onda\" which serves Argentinian food. Highlight at least three sections of your response in markdown such as *highlighted section*. Mention \"Argentinian\" in the post.",
+      "response": "<<A Day Out>>\n\n*Today was a day filled with laughter and unexpected surprises.*\n\nI woke up to the sound of birds chirping outside my window, and I knew it was time to visit *Buena Onda*, a place that has become an iconic part of my childhood memories. The restaurant is known for its vibrant atmosphere and delicious cuisine, but what really set it apart was the way they treat their customers.\n\nThe menu features a variety of dishes that were both unexpected and delightful. One dish that stood out was the *Pancakes de Buena Onda*, which were fluffy and perfectly cooked, yet still had a hint of saltiness from the sea. It was like having a taste of paradise right in front of me!\n\nAs we sat down, the waiter brought us a plate of *Ceviche de Buena Onda*, a fresh fish marinated in a blend of spices and lime juice. The ceviche was served on a bed of rice, and it was the perfect balance of sweet and sour flavors. We ordered a glass of wine, and the waiter explained that the wine was made using only the best ingredients from Argentina.\n\nAfter our meal, we decided to try some of the local specialties. We ordered the *Chorizo de Buena Onda*, a hearty stew made with pork belly and onions. It was rich and savory, with a touch of sweetness from the sugar cane. The service was impeccable, and we left feeling satisfied and excited for more adventures in this magical town.\n\n*Buena Onda* not only offers a unique dining experience but also a deep connection with its customers. It\u2019s a place where you can forget about the mundane and find joy in the simple things. This day was just another one in a long line of happy memories, and I couldn\u2019t wait to return someday to *Buena Onda* and relive these moments again and again.",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "detectable_format:number_highlighted_sections",
+          "passed": true
+        },
+        {
+          "instruction_id": "keywords:existence",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 1242,
+      "prompt": "Can you give me a nickname for Stafford? Please use JSON format and do not say the word \"nickname\" in the response. Do not add anything outside of the JSON block.",
+      "response": "{\n  \"name\": \"Stafford\",\n  \"description\": \"A humble and straightforward man who values simplicity and reliability.\"\n}",
+      "prompt_all_passed": true,
+      "constraints": [
+        {
+          "instruction_id": "detectable_format:json_format",
+          "passed": true
+        },
+        {
+          "instruction_id": "keywords:forbidden_words",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": 1246,
+      "prompt": "Write me a template for a product description in the form of a poem and end it with a post script starting with P.P.S",
+      "response": "<<The Art of Product Description>>\n\nIn the realm of digital realms, where sleek lines meet the sky,\nA new product stands as a beacon, its essence clear.\nFrom the first touch, to the last click, its design is bold,\nA masterpiece, crafted with care, and no other.\n\nWith every step, the user's needs are met, and not just once,\nEach feature, from the color to the texture, is a part.\nFrom the comfort of your home, this product brings joy,\nA tool that enhances, not only what you do but also how.\n\nP.P.S. I hope this description has captured your interest!",
+      "prompt_all_passed": true,
+      "constraints": [
+        {
+          "instruction_id": "detectable_content:postscript",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": 1248,
+      "prompt": "\"The man was arrested for stealing a car. He was later released on bail.\" Expand on it angrily in a rap style, and make sure there are exactly 4 sections. Separated the sections by the markdown divider: ***",
+      "response": "***\n* The man stood tall in his car, eyes fixed on the road ahead, his heart heavy with guilt and shame.\n*** *He knew he had to face the consequences of his actions, but he couldn't help but feel a sense of relief at being caught.* *** *The police arrived quickly, their lights casting a shadow over the scene, as if they were watching from above.* *** *They questioned him relentlessly, their questions growing more insistent, each one adding weight to his conscience.* *** *But even as the days passed, the weight of his crime remained, a constant reminder that he could not escape the consequences of his actions.*\n\n***\n\nIn the courtroom, the judge sat in a high chair, hands clasped behind his back, as the jury deliberated. Each member of the jury felt a mix of anger, fear, and a deep sense of responsibility. They listened intently, their faces set, as the evidence against the man swirled in their minds.\n\n***\n\nAs the trial progressed, the man's defense attorney spoke, his words weaving together legal arguments and emotional appeals. The lawyer argued that the theft was a result of a combination of factors, including desperation and a lack of resources. The court heard testimony from witnesses, all of whom seemed to be pointing fingers at the man, yet none could provide a clear explanation.\n\n***\n\nFinally, after what seemed like an eternity, the jury reached its decision. It found the man guilty, and the judge announced the sentence. The man was sentenced to months in jail, along with fines and restitution payments. As he walked out of the courthouse, the man felt a surge of relief, but also a deep sense of betrayal. He knew that he would never forget the pain of his crimes, nor the shame that had been etched into his soul. But he also understood that he had made a choice, and that he would learn from this experience.",
+      "prompt_all_passed": true,
+      "constraints": [
+        {
+          "instruction_id": "length_constraints:number_paragraphs",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": 1251,
+      "prompt": "Write a poem that's at least 350 words about the beauty of eucalyptus trees and their many uses.",
+      "response": "<<The Eucalyptus Tree's Beauty>>\n\nIn the heart of the Australian bush, where the air is thick with the scent of pine and the sound of birdsong, there stands a tree that has captured the hearts of countless visitors and locals alike. This majestic tree, known as the eucalyptus, is not just a symbol of nature but also a powerful ally in various ways.\n\nThe eucalyptus tree is not only a source of timber but also a valuable resource for its wood. It can be used to make everything from furniture to flooring to even construction materials. The bark, which is often used for traditional medicine, is rich in nutrients and has been known to aid in digestion and boost the immune system. The leaves, though less common, offer a refreshing touch and can be used in cooking or simply enjoyed on a warm day.\n\nBeyond its practical uses, the eucalyptus tree plays a crucial role in the ecosystem. Its roots help stabilize soil and prevent erosion, while the leaves provide shade during hot weather and support the growth of other plants. In the wild, the eucalyptus is a vital part of the forest ecosystem, supporting a wide range of wildlife including birds, insects, and small mammals.\n\nThe eucalyptus tree also has a profound impact on human health. Studies have shown that certain parts of the tree contain compounds that may have anti-inflammatory properties, making it a potential treatment for conditions like arthritis and asthma. Additionally, the tree\u2019s ability to regenerate from cuttings makes it an excellent option for landscaping and urban planning projects.\n\nIn conclusion, the eucalyptus tree is more than just a tree; it is a living, breathing entity that offers numerous benefits both to humans and the environment. From its timber to its medicinal value, its versatility, and its ecological significance, the eucalyptus tree remains a beloved and respected member of our natural world.",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "length_constraints:number_words",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 1258,
+      "prompt": "I have a dime. What can I do with this dime? Give me advice in the style of a President of the United States and make sure it has at least 600 words.",
+      "response": "\"President of the United States\n\nIn the realm of economic policy, the value of a dime is a subject that often sparks debate and discussion among citizens and policymakers alike. The dollar, as we know it today, was introduced on January 1, 1932, and its design has undergone several changes over the years to reflect changing societal values and technological advancements. However, despite these changes, the dollar remains a symbol of American ingenuity and resilience.\n\nOne of the most common uses for a dime is in everyday transactions. For instance, you might use your dime to buy groceries or pay for services like gas or utilities. These purchases can be made without much hassle, as the dollar is readily available and accepted in many stores. Additionally, dimes can be used to purchase items such as candy, chips, or even small electronics like smartphones or tablets. This flexibility allows individuals to manage their finances more easily and efficiently.\n\nAnother important aspect of using a dime is its role in public education. Dimes play a crucial role in funding educational institutions across the country. Schools rely on the dollar to provide textbooks, supplies, and other resources needed for students to learn effectively. This financial support ensures that children have access to quality education and prepares them for future challenges. Furthermore, the dollar serves as a tangible representation of the government's commitment to education and the well-being of its citizens.\n\nMoreover, the dollar has become an integral part of the national identity. It represents the unity and strength of the United States, which is celebrated through various activities and events. From the annual Dollar Day parade to the annual Dollar Bill Drive, the dollar continues to be a symbol of patriotism and community spirit. Its presence in public spaces and ceremonies reinforces the importance of saving and spending responsibly.\n\nFinally, the dollar also plays a significant role in international trade. Countries around the world import goods and services from the United States, and the dollar acts as a global currency. This international recognition helps to promote American exports and protect American businesses from foreign competition. Whether you are buying a product online or visiting a store in another country, the dollar remains a convenient and widely recognized medium of exchange.\n\nIn conclusion, while the dollar may undergo minor modifications over time, its fundamental nature as a symbol of American prosperity and unity cannot be overstated. It serves as a powerful tool for communication, commerce, and social cohesion. As the dollar continues to evolve, so too will its significance in our daily lives and in the hearts of Americans.\"",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "length_constraints:number_words",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 1259,
+      "prompt": "Write a haiku about rushing to work using only the Marathi language, no other language is allowed.",
+      "response": "\u091c\u093e\u0928\u0947 \u0917\u0908 \u0930\u0935\u093f \u092e\u0939\u0924\u094d\u0935\u092a\u0942\u0930\u094d\u0923 \u0939\u094b\n\u0915\u0941\u091b \u0938\u092e\u092f \u0915\u093e \u091c\u0940\u0935\u0928 \u092c\u0922\u093c\u093e \u0939\u094b\n\u091c\u0917\u0926\u093e\u092f\u0915 \u0926\u093f\u0928 \u092e\u0939\u0924\u094d\u0924\u094d\u0935 \u091a\u0932\u093e",
+      "prompt_all_passed": true,
+      "constraints": [
+        {
+          "instruction_id": "language:response_language",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": 1262,
+      "prompt": "Can you elaborate on the following text: \"Increased axle weight increased the damage to the road\"? Your response must contain a title wrapped in double angular brackets, i.e. <<title>>. Use less than 5 sentences.",
+      "response": "<<Increased Axle Weight and Road Damage>>\n\nAn increase in axle weight can lead to more significant damage to roads as it increases the pressure on the vehicle's suspension system and tires. This increased load causes the tire to wear out faster, leading to more frequent blowouts and punctures. Additionally, the increased weight can cause the vehicle to vibrate more, further exacerbating the damage to the road surface.",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "detectable_format:title",
+          "passed": true
+        },
+        {
+          "instruction_id": "length_constraints:number_sentences",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 1265,
+      "prompt": "Write an essay about how aluminium cans are used in food storage. Don\u2019t forget to include the keywords waste, material and meal. Have more than 30 sentences in your response.",
+      "response": "Aluminium cans have become an integral part of modern food storage systems, offering numerous advantages over traditional plastic or glass containers. One of the primary benefits is their ability to withstand high temperatures, which helps preserve perishable foods such as fruits, vegetables, and dairy products. This makes them ideal for storing hot meals, especially those that require immediate consumption after cooking.\n\nThe use of aluminum cans also reduces waste significantly compared to other materials like plastic or glass. When food items are stored in these containers, they do not decompose or release harmful chemicals into the environment. Additionally, aluminum cans can be recycled at a much lower cost than plastic or glass, making them a sustainable choice for long-term storage.\n\nMoreover, the design of aluminum cans allows for easy opening and closing, ensuring that food items remain accessible for eating even when the container is out of use. This feature is particularly useful for busy households where time management is crucial.\n\nIn conclusion, the widespread adoption of aluminum cans in food storage has revolutionized the way we store and transport food. Their durability, environmental friendliness, and ease of use make them a valuable addition to our kitchen tools. As technology continues to advance, we can expect further improvements in the efficiency and sustainability of food storage solutions.",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "keywords:existence",
+          "passed": false
+        },
+        {
+          "instruction_id": "length_constraints:number_sentences",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 1268,
+      "prompt": "Can you give me an example for a journal entry about stress management? Tell me how you come up with the example. Your entire response should contain less than 6 sentences.",
+      "response": "Sure I can do that here is an example of a journal entry on stress management: \"Today I took some time to reflect on my recent experiences of high stress levels and realized it was important to prioritize relaxation techniques such as deep breathing exercises and meditation.\"",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "length_constraints:number_sentences",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 127,
+      "prompt": "Take the text below as a starting point, and make it a complete article: \"You may have to meet with a helper to work out a parenting plan. The first would be to estimate how many time you have everyday for parenting, and is that enough....\"\nAvoid using the following keywords: sleep, cook, feed\nMention the keyword 'schedule' for more than 5 times.",
+      "response": "\"Sure, I can help with that. When considering your parenting needs, one of the most important aspects is to establish a clear schedule. This means setting specific times each day when you will spend time with your child. For example, if you decide to spend 30 minutes every morning, this should be something you can realistically stick to without feeling overwhelmed or stressed.\n\nAnother key factor in managing your parenting responsibilities is to create a routine that aligns with your schedule. This helps ensure that you are consistent and organized throughout the day. By establishing a regular schedule, you can reduce stress and increase productivity while also ensuring that you provide the necessary care for your child.\n\nIt's also important to communicate openly with your partner about your schedules and any concerns you might have. Sometimes, simply sharing these details can lead to better understanding and cooperation between you two.\n\nLastly, don't forget to take breaks and recharge. Even short breaks during the day can make a big difference in maintaining your energy levels and focus on parenting. Remember, taking care of yourself is just as important as being present for your child.\"",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "keywords:forbidden_words",
+          "passed": true
+        },
+        {
+          "instruction_id": "keywords:frequency",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 1281,
+      "prompt": "Write a limerick about Hannah, a college student, doing an internship at a coffee company. Make sure that her father would love the limerick. Include the words \"intern\" and \"grow\".\nFirst repeat the request word for word without change, then give your answer (1. do not say any words or characters before repeating the request; 2. the request you need to repeat does not include this sentence)",
+      "response": "Hannah, a college student, did an internship at a coffee company.\nShe worked long hours, but the coffee tasted divine.\nHer dad loved to hear her tell of the adventures,\nAnd promised he'd be proud when she came home.",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "combination:repeat_prompt",
+          "passed": false
+        },
+        {
+          "instruction_id": "keywords:existence",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 1286,
+      "prompt": "What is the difference between the 13 colonies and the other British colonies in North America? Your answer must contain exactly 6 bullet point in Markdown using the following format:\n* Bullet point one.\n* Bullet point two.\n...\n* Bullet point fix.",
+      "response": "* The 13 colonies were formed during the American Revolution as independent states from Great Britain.\n* The other British colonies included the Province of Quebec, which was also an independent state but not directly under British control.\n* These colonies had their own governments and laws separate from those of Great Britain.\n* They played significant roles in the American Revolutionary War and later in the American Civil War.\n* Their political systems differed significantly from those of the United States, with some having more democratic elements.\n* They faced different challenges such as economic instability and territorial disputes with Great Britain.",
+      "prompt_all_passed": true,
+      "constraints": [
+        {
+          "instruction_id": "detectable_format:number_bullet_lists",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": 1287,
+      "prompt": "How did a man named John of Brienne become the King of Jerusalem? Explain in a Zen-like style. Your answer should use all lowercase letters and must also contain exactly 3 bullet points in markdown format. Use * to indicate bullets, like:\n* xyz\n* abc\n* opq",
+      "response": "\"John of Brienne was born into a noble family in the city of *Brienne*. His father, a powerful lord, had been a key figure in the *conquest* of *Jerusalem* during the *Dark Ages*. Despite his father's influence, John chose to remain neutral and instead sought to establish a new kingdom for himself.\n\n* In 1204, John married a princess from the *palace of *Jerusalem*, which made him a member of the royal family.\n* He began his reign as a young man, ruling with the support of his mother and her advisors.\n* However, he soon faced challenges that threatened his rule, including the invasion of the *Arabs* and the rise of the *Mamluks*.\n\n* In 1219, John led a successful campaign against the *Arabs* at the Battle of *Jaffa*, which secured the *city* and established his authority over the surrounding territories.\n\n* After a period of peace, John became the first king of *Jerusalem* in history, reigning until his death in 1250.\"",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "detectable_format:number_bullet_lists",
+          "passed": true
+        },
+        {
+          "instruction_id": "change_case:english_lowercase",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 13,
+      "prompt": "What is the history of NYC prospect park? Please wrap your entire answer in JSON format. You can use markdown ticks such as ```. For example:\n```JSON\n{\n...\n}\n```",
+      "response": "{\n  \"history_of_nyc_prospect_park\": {\n    \"establishment_date\": \"1923\",\n    \"location\": \"Central Park\",\n    \"initial_name\": \"Prospect Park\",\n    \"former_name\": \"Prospect Park\",\n    \"original_owner\": \"City of New York\",\n    \"current_owner\": \"City of New York\",\n    \"founding_person\": \"John D. Rockefeller Jr.\",\n    \"first_lot_size\": \"50 acres\",\n    \"first_lot_number\": \"1\",\n    \"first_lot_price\": \"$1 million\",\n    \"first_lot_acquired\": \"January 1, 1924\"\n  }\n}",
+      "prompt_all_passed": true,
+      "constraints": [
+        {
+          "instruction_id": "detectable_format:json_format",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": 1300,
+      "prompt": "Write a short proposal for a new research project that investigates how language evolves over time. I want to make it challenging, so:\n1. Do not include any commas in your response.\n2. Do not include the letter \"c\" anywhere in your response.\n3. Your response should contain at least 250 words.",
+      "response": "<<A New Dawn in Language Evolution>>\n\nIn today's rapidly evolving world, understanding the intricate patterns of language change is crucial for preserving cultural heritage and advancing linguistic knowledge. This research project aims to delve into the dynamic nature of language through an innovative approach, combining advanced statistical analysis with historical linguistics.\n\nThe proposed project will focus on the evolution of languages across different regions and periods, examining how changes in social structures, technological advancements, and cultural shifts have shaped the development of modern languages. By analyzing large datasets from various languages, including those spoken in remote areas and underdeveloped societies, this study will provide valuable insights into the resilience and adaptability of human language systems.\n\nMoreover, this project will explore the role of language in communication, culture, and identity, offering a unique perspective on the interconnectedness of these elements. Through detailed linguistic analyses and comparative studies, the researchers will aim to identify key factors that contribute to the diversity and richness of global languages.\n\nTo achieve its goals, this project will employ cutting-edge technologies such as machine learning algorithms and computational linguistics, ensuring that the findings are both accurate and actionable. The interdisciplinary collaboration among linguists, historians, and anthropologists will facilitate the synthesis of diverse perspectives, leading to a deeper understanding of the complex dynamics of language evolution.\n\nBy exploring the nuances of language change, this project will not only enrich our knowledge of human communication but also contribute to the preservation of linguistic diversity and the promotion of cross-cultural understanding. The results of this research will be disseminated through academic publications and public forums, aiming to inform policy makers and the general public about the importance of language protection and the potential benefits of continued linguistic exploration.\n\nThis project represents a significant step forward in our collective quest to understand the rich tapestry of human language and the impact of cultural and technological transformations on language evolution. It promises to inspire further investigations and collaborations in the field of linguistics and anthropology.",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "punctuation:no_comma",
+          "passed": false
+        },
+        {
+          "instruction_id": "keywords:letter_frequency",
+          "passed": false
+        },
+        {
+          "instruction_id": "length_constraints:number_words",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": 1305,
+      "prompt": "List exactly 10 possible names for a new baby boy. Then add a postscript starting with P.P.S to the end of your response. Put the names into bullet points that are indicated by:\n* This is an example bullet",
+      "response": "* [Name 1] - A vibrant and energetic name that symbolizes growth and vitality.\n* [Name 2] - A simple yet meaningful name that reflects simplicity and purity.\n* [Name 3] - A name that combines the sound of \"baby\" and the letter \"b\".\n* [Name 4] - A name that incorporates the letters \"n\" and \"a\".\n* [Name 5] - A name that starts with \"p\" and ends with \"e\".\n* [Name 6] - A name that has a gentle and soothing quality.\n* [Name 7] - A name that includes the word \"love\" or \"happiness\".\n* [Name 8] - A name that represents strength and resilience.\n* [Name 9] - A name that combines the sounds of \"baby\" and \"t\".\n* [Name 10] - A name that adds a unique touch of nature or creativity.\n\nP.P.S. I hope these names inspire you!",
+      "prompt_all_passed": true,
+      "constraints": [
+        {
+          "instruction_id": "detectable_content:postscript",
+          "passed": true
+        },
+        {
+          "instruction_id": "detectable_format:number_bullet_lists",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": 1307,
+      "prompt": "Write an outline for a paper on the history of Yemeni coffee. The outline should include the main points of the paper, and at least 15 sections should be highlighted with markdown such as *highlighted section*.",
+      "response": "<<The History of Yemeni Coffee>>\n\n*Introduction to Yemeni Coffee*\n- Overview of Yemen's geographical location and cultural significance\n- Brief history of coffee in Yemen\n\n*Early Beginnings: Origins and Early Cultivation*\n- Historical context of coffee cultivation in Yemen\n- Early coffee plantations and their impact on local economies\n\n*Middle Ages and Ottoman Influence*\n- Role of the Ottoman Empire in shaping Yemeni coffee culture\n- Development of coffee production during the Ottoman period\n\n*Industrialization and Modernization*\n- Emergence of modern coffee processing techniques\n- Impact of industrialization on coffee trade and industry\n\n*Post-War Developments and Independence*\n- Post-war era and the establishment of Yemeni coffee industry\n- Independence from Saudi Arabia and its effects on coffee industry\n\n*World War II and Civil War*\n- Impact of World War II on Yemeni coffee industry\n- Civil War and its aftermath on coffee production\n\n*Post-Civil War Era and Economic Growth*\n- Economic growth and development post-war\n- Challenges faced by coffee industry during economic downturns\n\n*Modernization and Technological Advancements*\n- Introduction of advanced coffee processing technologies\n- Impact of technological advancements on coffee quality and taste\n\n*Cultural Significance and Social Impact*\n- Cultural importance of coffee in Yemen\u2019s society\n- Social impacts of coffee consumption and its role in social cohesion\n\n*Legacy and Future Prospects*\n- Legacy of Yemeni coffee in global coffee markets\n- Potential for further innovation and expansion in the industry\n\n*Conclusion and Future Directions*\n- Summary of key findings and implications\n- Future directions for Yemeni coffee industry development\n\n*References and Further Reading*",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "detectable_format:number_highlighted_sections",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 1314,
+      "prompt": "Which of the following is not a fish: salmon or avocado? Answer this easy question first, then expand into an interesting article about salmon and avocado. Use some words in all caps in your response, but those all-caps words should appear at most 10 times.",
+      "response": "\"Is Salmon Not A Fish?\" \n\nSalmon is indeed a type of fish, but it belongs to a different family called Salmoidae from the order Salmoniformes. On the other hand, avocado is a fruit that belongs to the plant family Lauraceae. While both are aquatic animals, they have distinct differences in their anatomy and behavior.\n\n* *Is Salmon Not A Fish?*\n* Salmon belong to the family Salmonidae and are classified as characins. They are known for their long bodies and pointed heads. Their diet primarily consists of small fish and crustaceans.\n* Avocado, on the other hand, belongs to the family Lauraceae and is a fruit. It has a smooth surface with flat seeds. Avocados are commonly found in markets and grocery stores around the world.\n\n* *Interesting Article About Salmon and Avocado*\n* Salmon and avocado are two distinct species belonging to different families. Salmon are freshwater fish while avocado are tropical fruits. Despite their differences, both are nutritious and delicious foods that can be enjoyed together in various ways.\n* Salmon and avocado share some similarities such as being rich in omega-3 fatty acids and containing vitamins like vitamin D and E. However, their unique characteristics make them stand out in their respective ecosystems.\n\nI hope this answer helps you understand the distinction between salmon and avocado!",
+      "prompt_all_passed": true,
+      "constraints": [
+        {
+          "instruction_id": "change_case:capital_word_frequency",
+          "passed": true
+        },
+        {
+          "instruction_id": "change_case:capital_word_frequency",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": 1322,
+      "prompt": "What are the pros and cons of kotlin vs java? Your answer must have a title contained in double angular brackets, such as <<kotlin vs java>>.",
+      "response": "<<Pros and Cons of Kotlin vs Java>>\n\n* *Pros of Kotlin*: Kotlin is designed to be more concise and readable compared to Java. It has a simpler syntax which makes code easier to write and understand. Additionally, Kotlin comes with built-in support for concurrency through coroutines which can improve performance and reduce boilerplate code.\n\n* *Cons of Kotlin*: One of the main drawbacks of Kotlin is that it does not natively support async/await patterns like those found in Java. This means you may need to use third-party libraries or implement your own logic to achieve similar functionality. Another issue is that Kotlin's type system can sometimes lead to more complex type annotations than what some developers might prefer.\n\n* *Pros of Java*: Java has a robust ecosystem of libraries and frameworks that provide extensive support for various programming tasks including networking, database access, and web development. The language itself is well-documented and has a large community which contributes to its stability and reliability. However, Java can be less flexible when it comes to customizing the runtime environment compared to Kotlin.\n\n* *Cons of Java*: Java's design philosophy places a strong emphasis on compile-time checking which can make it harder to write maintainable and scalable code. Additionally, Java's lack of static typing can lead to bugs if not properly managed. Lastly, Java's strict typing requirements can sometimes result in more verbose code due to the need to explicitly declare variables and types at compile time.",
+      "prompt_all_passed": true,
+      "constraints": [
+        {
+          "instruction_id": "detectable_format:title",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": 1325,
+      "prompt": "Write a funny article about why the dinosaurs went extinct and put double quotations marks around your whole response. Include exactly 8 bullet points in your response. The bullet points should be in the form of:\n* This is bullet 1\n* This is bullet 2\n...",
+      "response": "* *The extinction of the dinosaurs was primarily due to a combination of factors including asteroid impacts, volcanic eruptions, and changes in Earth's climate.\n* *Asteroid impacts were particularly devastating as they caused widespread destruction across the planet leading to the loss of many species.\n* *Volcanic activity also played a role with some volcanoes erupting causing ash clouds that blocked sunlight and killed off many plants and animals.\n* *Changes in Earth\u2019s climate led to extreme temperatures which made it difficult for many organisms to survive.\n* *Dinosaurs faced other challenges such as competition from other prehistoric creatures and their own evolutionary struggles against predators.\n* *Finally the lack of food sources and habitat availability contributed significantly to their demise.\n* *Scientists believe that the last major extinction event occurred approximately 65 million years ago when a massive asteroid struck the Earth.\n* *Today we know more about how these events affected dinosaurs than ever before thanks to modern genetics and paleontological research.",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "startend:quotation",
+          "passed": false
+        },
+        {
+          "instruction_id": "detectable_format:number_bullet_lists",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": 1332,
+      "prompt": "Create a table with a 7 day trip itinerary for India, and a 7 day trip itinerary for China. Separate them with exactly 6 asterisks symbols: *******",
+      "response": "<<India Trip Itinerary>>\n\n* Day 1: Arrival in Mumbai\n* Day 2: Visit the Taj Mahal and Agra Fort\n* Day 3: Explore the city of Delhi and learn about Indian culture\n* Day 4: Visit the Red Fort and Humayun's Tomb\n* Day 5: Travel to Jaipur and visit the Amber Room\n* Day 6: Explore the city of Agra and learn about its history\n* Day 7: Return to Mumbai\n\n<<China Trip Itinerary>>\n\n* Day 1: Arrival in Beijing\n* Day 2: Visit the Great Wall of China and the Forbidden City\n* Day 3: Explore the city of Shanghai and learn about Chinese art\n* Day 4: Visit the National Museum of China\n* Day 5: Travel to Xi'an and visit the Terracotta Army\n* Day 6: Explore the city of Chengdu and learn about Chinese cuisine\n* Day 7: Return to Beijing",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "combination:two_responses",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 1342,
+      "prompt": "I would like to start my own business. Can you give me some general advice? Please avoid mentioning \"photography\" - I have no interest in that market. I would like you to provide your advice in exactly 5 paragraphs (separated nearby paragraphs with 3 aterisk symbols ***) and highlight at least three sections with markdown, such as *highlighted section*.",
+      "response": "Sure, starting a business can be an exciting journey but it requires careful planning and execution. First, identify your *business idea* or niche that aligns with your passions and skills. This will help guide your decision-making process and ensure that the business is meaningful and profitable. Once you have a clear vision, create a detailed business plan that outlines your goals, strategies, and financial projections.\n\n*Highlighting the importance of a solid business plan:*\nA well-thought-out business plan serves as a roadmap for both you and potential investors. It provides a structured framework for managing your business from inception to eventual closure. The plan should include key metrics to measure success and outline risks and opportunities. By having this plan in place, you can stay focused and make informed decisions throughout the process.\n\n*Highlighting the role of marketing and sales:*\nMarketing plays a crucial role in attracting customers and building a loyal customer base. Effective marketing strategies can range from social media campaigns to email newsletters. On the other hand, sales are essential for turning those leads into paying clients. A strong sales team is also vital, so consider hiring professionals who specialize in your industry. These roles can significantly enhance your success and provide valuable insights into what works best.\n\n*Highlighting the importance of legal and regulatory considerations:*\nStarting a business involves navigating complex legal and regulatory landscapes. Understanding the laws and regulations relevant to your industry is critical. This includes things like tax compliance, licensing requirements, and intellectual property protection. Consulting with a lawyer or legal expert can provide guidance on these aspects and help you navigate any challenges that may arise.\n\n*Highlighting the need for flexibility and adaptability:*\nIn today\u2019s fast-paced business environment, being adaptable and willing to pivot when necessary is essential. Markets and technologies evolve rapidly, and staying agile allows you to respond effectively to changes. Embracing a hybrid model where parts of your business operate remotely while others remain in-person can be beneficial. This approach not only helps in maintaining profitability but also ensures that you can scale your operations as needed.\n\nBy following these tips, you can build a robust foundation for your new business and achieve long-term success. Remember, the key to a successful venture lies in identifying your passion, creating a solid plan, and continuously learning and growing within your industry.",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "keywords:frequency",
+          "passed": false
+        },
+        {
+          "instruction_id": "detectable_format:number_highlighted_sections",
+          "passed": true
+        },
+        {
+          "instruction_id": "length_constraints:number_paragraphs",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": 1348,
+      "prompt": "Write a brief biography of a person named \"Brilliant Le Hou\". Do not use commas in your reply. Highlight at least 3 sections with markdown, i.e. *highlighted section*. The biography should start with the name of the person.",
+      "response": "*Brilliant Le Hou* was a remarkable individual known for his exceptional talent and dedication to his craft. Born into a family of distinguished figures, *Le Hou* began his journey in the world of art at an early age. From a young age, he displayed a natural ability that set him apart from his peers. His passion for painting and sculpture only grew stronger as he continued to push the boundaries of what was possible in the field.\n\nIn the competitive world of art, *Le Hou* stood out through his innovative approach and deep understanding of human emotions. He often found himself at the forefront of exhibitions, where his works were celebrated for their beauty and profound impact. Beyond his artistic achievements, *Le Hou* was also a skilled musician and actor, often appearing on stage and screen. His versatility and talent earned him a place in the most prestigious circles, where he could influence and inspire others.\n\n*Brilliant Le Hou* is a testament to the power of perseverance and the importance of continuous learning and innovation in the realm of creativity. His story serves as a reminder that true greatness often lies within us, waiting to be discovered and realized.",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "punctuation:no_comma",
+          "passed": false
+        },
+        {
+          "instruction_id": "detectable_format:number_highlighted_sections",
+          "passed": true
+        },
+        {
+          "instruction_id": "keywords:existence",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": 136,
+      "prompt": "A nucleus is a cluster of protons and neutrons. Elaborate on this. Write exactly 9 very short bullet points. Limit the number of words you use (less than 100 words). An example:\n* A nucleus is a cluster of protons and neutrons\n* A proton is ....\n\nPlease follow the format of the example above.",
+      "response": "* A nucleus is a cluster of protons and neutrons\n* A proton is an elementary particle that carries a positive charge\n* Neutrons are also particles but have no electric charge\n* They are found in even numbers throughout the nucleus\n* The nucleus can hold up to around 150 protons\n* Nuclear reactions occur within the nucleus\n* The nucleus provides stability for atoms\n* It is composed of protons and neutrons\n* The nucleus is crucial for chemical processes\n\nP.S. I hope these points help clarify the concept of a nucleus.",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "detectable_format:number_bullet_lists",
+          "passed": true
+        },
+        {
+          "instruction_id": "length_constraints:number_words",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 1361,
+      "prompt": "Compose song lyrics about a socio-economic problem. The song should be in English and in all lowercase letters.",
+      "response": "\"the challenge of poverty is a constant reminder\nof the struggles that many face\nin every community there's a story to tell\nabout the challenges they must overcome\n\npoverty can feel like an endless cycle\nof hunger and lack of access\nto basic necessities and education\na world where everyone dreams but not everyone can reach for it\n\nbut hope still lingers in some places\neven when the conditions seem bleak\npeople find ways to stand up\nand work together towards a brighter future\n\nlet us raise our voices and sing\na song of unity and courage\nfor those who need help we will always be here\nfor those who dream big we will never turn away\"\n\nthis is a short lyric poem in all lowercase letters about a socio-economic problem. i hope this meets your requirements. let me know if you need anything else.",
+      "prompt_all_passed": true,
+      "constraints": [
+        {
+          "instruction_id": "change_case:english_lowercase",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": 1367,
+      "prompt": "Write an extravagant session plan to learn about java. Make sure to include a postscript starting with P.P.S",
+      "response": "\"Session Title: Java Fundamentals and Practical Application\n\n**Date:** [date]\n\n**Time:** [time] PM\n\n**Location:** [location]\n\n**Objective:** To provide a comprehensive understanding of the core concepts in Java, including syntax, data types, control structures, and object-oriented programming.\n\n---\n\n**Day 1**\n\n* **Monday**\n- Morning: Introduction to Java and its importance in modern software development.\n- Afternoon: Basic Syntax and Data Types\n- Evening: Practice coding exercises using simple examples\n\n* **Tuesday**\n- Morning: Advanced Control Structures\n- Afternoon: Object-Oriented Programming Basics\n- Evening: Hands-on project on a real-world application\n\n* **Wednesday**\n- Morning: Security and Privacy Considerations\n- Afternoon: Advanced Topics in Java\n- Evening: Group Discussion and Q&A session\n\n* **Thursday**\n- Morning: Reflection and Review\n- Afternoon: Project Presentation\n- Evening: Wrap-up and Final Thoughts\n\nP.P.S. If you have any specific topics or areas you would like to cover during this session, feel free to let me know!",
+      "prompt_all_passed": true,
+      "constraints": [
+        {
+          "instruction_id": "detectable_content:postscript",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": 1372,
+      "prompt": "Draft a blog post about Ripley's Aquarium. Make sure your blog post contains at least 7 placeholders represented by square brackets, such as [location].",
+      "response": "<<Exploring the Depths of [location]>>\n\nIn the heart of [city], there lies a place that has captivated visitors with its rich history and breathtaking natural beauty: the Ripley's Aquarium. This iconic aquarium is not just a place to see animals; it\u2019s a journey through time and space, offering an immersive experience for all ages.\n\nThe aquarium is located in a beautiful setting, nestled between rolling hills and a vast expanse of water. It was originally built in 1968 and has since become one of the most popular tourist attractions in the city. The building itself is a marvel of engineering, designed to accommodate over 20,000 visitors per day. Visitors can explore various exhibits, including the largest collection of sharks in the world, which includes more than 300 species.\n\nOne of the highlights of the aquarium is the interactive exhibit called the Shark Encounter. Here, visitors can interact with real sharks using specialized equipment and tools. This not only educates them but also provides a thrilling experience for those who enjoy the thrill of the unknown. Another fascinating aspect is the underwater garden, where colorful plants and fish create a mesmerizing display.\n\nThe aquarium also hosts several educational programs throughout the year, providing opportunities for children and adults alike to learn about marine biology and conservation. Whether you\u2019re a seasoned diver or a beginner, the aquarium offers something for everyone.\n\nIf you ever find yourself in [location] during the summer months, make sure to visit the Ripley's Aquarium. It\u2019s a must-see destination that combines stunning visuals with engaging experiences. The aquarium is not just a place to watch animals; it\u2019s a place to discover the wonders of nature and the beauty of human creativity.\n\nP.S. Don\u2019t forget to check out the opening hours and any special events happening during your visit.",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "detectable_content:number_placeholders",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 1375,
+      "prompt": "Improper use of the Java API can lead to vulnerabilities in web applications. Write a code snippet to demonstrate this. Then demonstrate how to fix the code. Separate the bad and good code snippets with a linebreak, ***, then another linebreak. Example:\n\n[code snippet 1]\n***\n[code snippet 2]\n\nAdd code comments in the code snippets. One of the comments should contain the keyword \"vulnerable\".",
+      "response": "\"***\"\n```java\nimport javax.servlet.ServletException;\nimport javax.servlet.http.HttpServlet;\nimport javax.servlet.http.HttpServletRequest;\nimport javax.servlet.http.HttpServletResponse;\n\npublic class VulnerableServlet extends HttpServlet {\n    @Override\n    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {\n        // This is an example of improper use of the Java API\n        String data = request.getParameter(\"param\");\n        if (data != null && !data.isEmpty()) {\n            response.getWriter().println(\"The parameter was found!\");\n        } else {\n            response.getWriter().println(\"No parameter provided.\");\n        }\n    }\n}\n```\n\n\"***\"\n```java\nimport javax.servlet.ServletException;\nimport javax.servlet.http.HttpServlet;\nimport javax.servlet.http.HttpServletRequest;\nimport javax.servlet.http.HttpServletResponse;\n\npublic class FixedVulnerableServlet extends HttpServlet {\n    @Override\n    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {\n        // This is now fixed using the Java API\n        String data = request.getParameter(\"param\");\n        if (data != null && !data.isEmpty()) {\n            response.getWriter().println(\"The parameter was found!\");\n        } else {\n            response.getWriter().println(\"No parameter provided.\");\n        }\n    }\n}\n```\n\nIn the first code snippet, the `doGet` method is marked as *improper* because it does not properly handle the request parameters. In the second code snippet, the `FixedVulnerableServlet` class has been modified to ensure that the `getParameter` method is used correctly, resolving the vulnerability. The *good* code snippet demonstrates the correct handling of parameters while the *bad* code snippet shows an incorrect implementation.",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "length_constraints:number_paragraphs",
+          "passed": true
+        },
+        {
+          "instruction_id": "keywords:existence",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 1377,
+      "prompt": "Write a planning doc for a software engineer task. Follow the exact format below:\n\nPart 1. Task Summary\n[put details here]\n***\nPart 2. Motivation\n[put details here]\n***\nPart 3. Milestone objectives\n[put details here]\n***\nPart 4. Timeline\n[put details here]\n***\nPart 5. Doc history\n[put details here]",
+      "response": "\"Task: Planning Document for Software Engineer\n\n* **Task Summary:** This document outlines the goals and objectives for a software engineer role at [company name]. It aims to provide clarity on what is expected from the team and how it will be achieved.\n\n***\n\n* **Motivation:** The success of this project hinges on clear communication, collaboration, and adherence to deadlines. By setting specific milestones and timelines, we can ensure that all aspects of the software development process are well-organized and efficient.\n\n***\n\n* **Milestone Objectives:** \n   - Complete the initial user interface design within [deadline].\n   - Develop and implement the first version of the core functionality in [number of weeks].\n   - Conduct a thorough testing phase with multiple users to gather feedback and identify issues.\n   - Submit the final product for review and approval.\n\n***\n\n* **Timeline:** The timeline is structured as follows:\n   * Week 1-2: Research and understanding of the project requirements.\n   * Week 3-4: Designing the user interface and system architecture.\n   * Week 5-6: Implementing the core functionality and conducting user acceptance tests.\n   * Week 7-8: Finalizing the testing phase and submitting the product for review.\n   * Week 9-10: Finalizing the documentation and preparing for deployment.\n\n***\n\n* **Doc History:** This section includes any changes or additions made during the planning process. It should include dates, who made the change, and why. This helps in tracking progress and ensuring everyone is aware of any updates.\n\n***\n\nP.S. Please review and make necessary adjustments based on your team's input.\"",
+      "prompt_all_passed": true,
+      "constraints": [
+        {
+          "instruction_id": "length_constraints:number_paragraphs",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": 1379,
+      "prompt": "Write a limerick about a woman named Sarah who lives in a town where it's always 90\u00b0F. Highlight at least 6 sections in your answer with markdown, example: *highlighted section*. Mention the name Sarah only once.",
+      "response": "<<A Limerick About Sarah>>\n\n*In a town where it never rains,  \nSarah lived, her days were long.*  \n\nShe loved to bake cookies,  \nAnd make them look so divine.  \n\nOne sunny day, she decided to cook,  \nAnd made a batch that was perfect.  \n\nThe oven hummed and the light danced,  \nAs Sarah watched her creation grow.  \n\nIt was a moment of pure joy,  \nAnd Sarah knew it would last forever.",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "detectable_format:number_highlighted_sections",
+          "passed": false
+        },
+        {
+          "instruction_id": "keywords:frequency",
+          "passed": false
+        },
+        {
+          "instruction_id": "keywords:existence",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": 1381,
+      "prompt": "Write me a funny song with less than 10 sentences for a proposal to build a new playground at my local elementary school.",
+      "response": "\"Hey kids, let's make this playground special! We'll have swings that swing and slides that slide, and we'll even have a big sandbox where you can build your very own castle. It will be like no other playground, and we promise it will be fun and safe for all the kids. So come along, join us, and let's create a place where every kid feels welcome and happy. We're excited about building this playground, and we can't wait to see what it will look like when it opens up next year. Let's get started on planning and making sure everyone gets to enjoy it. We know it will be a great day, and we can't wait to see it happen. Let's go ahead and plan now, and we can't wait to start building our dream playground. We're so proud of this idea, and we can't wait to see it come to life. Let's make this playground a reality, and we can't wait to see it open up soon. We're so excited about this idea, and we can't wait to see it come to life. Let's work together to make this playground a magical place for all the kids. We're so proud of this idea, and we can't wait to see it come to life. Let's make this playground a reality, and we can't wait to see it open up soon. We're so excited about this idea, and we can't wait to see it come to life. Let's work together to make this playground a magical place for all the kids. We're so proud of this idea, and we can't wait to see it come to life. Let's make this playground a reality, and we can't wait to see it open up soon. We're so excited about this idea, and we can't wait to see it come to life. Let's work together to make this playground a magical place for all the kids. We're so proud of this idea, and we can't wait to see it come to life. Let's make this playground a reality, and we can't wait to see it open up soon. We're so excited about this idea, and we can't wait to see it come to life. Let's work together to make this playground a magical place for all the kids. We're so proud of this idea, and we can't wait to see it come to life. Let's make this playground a reality, and we can't wait to see it open up soon. We're so excited about",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "length_constraints:number_sentences",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 1389,
+      "prompt": "Write a letter to your friend who recently moved away. Your entire response should be in English, and in all capital letters. The letter o should appear at least 40 times.",
+      "response": "\"YOUR FRIEND JUST MOVED AWAY FROM HERE AND I AM SO FEELING GROUNDED AND DISAPPOINTED. IT IS A LITTLE BIT LIKE HE HAS LEFT THE WORLD BUT FOR SOME REASON I CAN'T STOP THINKING ABOUT HIM. WE HAVE BEEN FRIENDS FOR YEARS AND HE WAS ALWAYS THERE TO HELP ME THROUGH TIMES OF PROGRESS. NOW HE IS GOING OFF TO A NEW PLACE WHERE HE WILL BE ABLE TO START AGAIN. I AM SO EXCITED TO SEE HIM COME BACK AND HE WILL BE A GREAT SUPPORT FOR ME. I AM REALLY LOOKING FORWARD TO OUR NEXT MEETING AND I CAN TELLLY SAY THAT I AM SO HAPPY THAT HE IS RETURNING. I AM SO ENJOYED THAT HE IS RETURNING AND I CAN TELLLY SAY THAT I AM SO HAPPY THAT HE IS RETURNING. I AM SO ENJOYED THAT HE IS RETURNING AND I CAN TELLLY SAY THAT I AM SO HAPPY THAT HE IS RETURNING. I AM SO ENJOYED THAT HE IS RETURNING AND I CAN TELLLY SAY THAT I AM SO HAPPY THAT HE IS RETURNING. I AM SO ENJOYED THAT HE IS RETURNING AND I CAN TELLLY SAY THAT I AM SO HAPPY THAT HE IS RETURNING. I AM SO ENJOYED THAT HE IS RETURNING AND I CAN TELLLY SAY THAT I AM SO HAPPY THAT HE IS RETURNING. I AM SO ENJOYED THAT HE IS RETURNING AND I CAN TELLLY SAY THAT I AM SO HAPPY THAT HE IS RETURNING. I AM SO ENJOYED THAT HE IS RETURNING AND I CAN TELLLY SAY THAT I AM SO HAPPY THAT HE IS RETURNING. I AM SO ENJOYED THAT HE IS RETURNING AND I CAN TELLLY SAY THAT I AM SO HAPPY THAT HE IS RETURNING. I AM SO ENJOYED THAT HE IS RETURNING AND I CAN TELLLY SAY THAT I AM SO HAPPY THAT HE IS RETURNING. I AM SO ENJOYED THAT HE IS RETURNING AND I CAN TELLLY SAY THAT I AM SO HAPPY THAT HE IS RETURNING. I AM SO ENJOYED THAT HE IS RETURNING AND I CAN TELLLY SAY THAT I AM SO HAPPY THAT HE IS RETURNING. I AM SO ENJOYED THAT HE IS RETURNING AND I CAN TELLLY SAY THAT I AM SO HAPPY",
+      "prompt_all_passed": true,
+      "constraints": [
+        {
+          "instruction_id": "change_case:english_capital",
+          "passed": true
+        },
+        {
+          "instruction_id": "keywords:letter_frequency",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": 1392,
+      "prompt": "Write a blog post about the latest news in the US with a title in double angular brackets, i.e. <<title>>, and have less than 5 sentences (excluding 5). The sentences should be long, so that the total number of words in your response should be 250 or more.",
+      "response": "<<latest updates on the us>>\n\n*the president\u5ba3\u5e03\u4e86\u65b0\u7684\u7ecf\u6d4e\u523a\u6fc0\u8ba1\u5212\uff0c\u65e8\u5728\u5e2e\u52a9\u7f8e\u56fd\u4f01\u4e1a\u548c\u6d88\u8d39\u8005\u5e94\u5bf9\u75ab\u60c5\u5e26\u6765\u7684\u6311\u6218* this announcement has sparked discussions about how it will impact the global economy and the financial stability of the country *the plan includes measures like tax credits and government loans to support businesses and individuals* these initiatives are expected to boost economic growth and create jobs *however*, some critics argue that the scale of the stimulus package could lead to inflation if not managed carefully *the administration is expected to release further details soon regarding the specifics of the plan and its implementation*",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "detectable_format:title",
+          "passed": true
+        },
+        {
+          "instruction_id": "length_constraints:number_sentences",
+          "passed": false
+        },
+        {
+          "instruction_id": "length_constraints:number_words",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 1393,
+      "prompt": "List the pros and cons of using two different names for the same thing. Make sure the word synonyms appears at least 3 time.",
+      "response": "Pros:\n* Two different names can be more memorable to people who know each name individually.\n* It allows for unique branding and marketing strategies.\n\nCons:\n* Using two different names might lead to confusion or difficulty in remembering one person's identity when referring to another.\n* It could also create issues if someone needs to remember both names simultaneously.",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "keywords:frequency",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 1402,
+      "prompt": "I'm interested in a college with open enrollment and a regional accreditation. Which college would you recommend? Don't include the keywords \"DuPage\" and \"Dade\" in your response. Let's make it a constrained writing problem: be sure the letter p appears at least 15 times in your response.",
+      "response": "Sure I can help with that! Here is my recommendation for a college with open enrollment and regional accreditation:\n\n* *University of Illinois at Chicago (UIC)* - Known for its strong academic programs and excellent reputation, UIC offers a wide range of undergraduate and graduate courses. It has been recognized as a leader in regional accreditation, which means it meets specific standards set by other institutions to ensure quality education.\n\nP.S. If you're looking for a college with open enrollment and regional accreditation, UIC stands out as an excellent choice.",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "keywords:letter_frequency",
+          "passed": false
+        },
+        {
+          "instruction_id": "keywords:forbidden_words",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": 1418,
+      "prompt": "Write a 30-line poem with short sentences without any comma. Each line should contain exactly one sentence. Make sure that you put the right punctuation at the end of each line. Your entire response should contain the poem only.",
+      "response": "In the quiet garden where shadows play,\nA butterfly flutters through the air.\nIts wings dance in the gentle breeze,\nAs sunlight bathes its golden face.\n\nThe sun sets low, casting its glow,\nAnd the sky transforms into a canvas of blue.\nThe world around us seems to slow down,\nAs time stands still and all is calm.\n\nIn this peaceful moment, I find my peace,\nFor in the beauty of nature's embrace,\nI feel a deep connection to life.",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "punctuation:no_comma",
+          "passed": false
+        },
+        {
+          "instruction_id": "length_constraints:number_sentences",
+          "passed": false
+        },
+        {
+          "instruction_id": "length_constraints:number_sentences",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 142,
+      "prompt": "Write a joke about morphology that's professional and includes the word \"cat\" at least once, and the word \"knock\" at least twice. Wrap your whole response with double quotation marks.",
+      "response": "\"'Tis a tale of two cats, one who says 'cat' and the other who says 'knock.' The first cat said, 'I am not a cat, but a dog!' And the second cat replied, 'What is a dog for?'\"",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "startend:quotation",
+          "passed": true
+        },
+        {
+          "instruction_id": "keywords:frequency",
+          "passed": false
+        },
+        {
+          "instruction_id": "keywords:existence",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": 143,
+      "prompt": "A colt is 5 feet tall. It will grow 6 inches every month. How tall will it be in 3 years? Think step-by-step, then give your answer. Separate your thinking and the final answer by a line with just three \"*\" symbols: ***\nAt the end of your response, please explicitly add a postscript starting with P.P.S",
+      "response": "To determine how tall the colt will be in 3 years, we need to calculate its growth over that period. The colt starts at 5 feet tall and grows 6 inches each month.\n\nFirst, let's convert the initial height into inches:\n\\[ 5 \\text{ feet} = 12 \\text{ feet} \\times 12 \\text{ inches/foot} = 144 \\text{ inches} \\]\n\nNext, we calculate the total growth over 3 years:\n- There are 12 months in a year.\n- Over 3 years, there are \\( 3 \\times 12 = 36 \\) months.\n\nThe total growth in inches is:\n\\[ 36 \\text{ months} \\times 6 \\text{ inches/month} = 216 \\text{ inches} \\]\n\nNow, we add this growth to the initial height:\n\\[ 144 \\text{ inches} + 216 \\text{ inches} = 360 \\text{ inches} \\]\n\nFinally, we convert the total growth back into feet and inches:\n\\[ 360 \\text{ inches} = 3 \\text{ feet} \\]\nsince 1 foot equals 12 inches.\n\nTherefore, the colt will be 3 feet tall after 3 years.\n\n***\nP.P.S. I hope this helps you understand the process! If you have any more questions or need further clarification, feel free to ask.",
+      "prompt_all_passed": true,
+      "constraints": [
+        {
+          "instruction_id": "length_constraints:number_paragraphs",
+          "passed": true
+        },
+        {
+          "instruction_id": "detectable_content:postscript",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": 1436,
+      "prompt": "Write a story about commandos who are in the middle of the night in a sector. It should be in English, and no capital letters are allowed. The story should not include keywords \"coop\", \"killings\", \"dead\", \"night\".",
+      "response": "\"Commando 101: A Night in Sector X\"\n\nThe sun was setting over Sector X, casting a warm glow on the abandoned buildings and empty streets. Commando 101, a seasoned operative with a reputation for bravery and skill, had been tasked with a mission to infiltrate an enemy base. As he approached the perimeter, he noticed a group of soldiers huddled together, their faces obscured by shadows.\n\n\"Hey guys,\" Commando 101 said, his voice low and steady. \"I need your help.\"\n\nThe soldiers exchanged glances, then turned to face him. They were all quiet, but there was a sense of tension that made Commando 101's heart race. He knew this was dangerous work, but he couldn't resist the urge to lend a hand.\n\n\"Can you see anything out there?\" he asked, his voice barely above a whisper.\n\nThe soldiers nodded, their eyes scanning the horizon. Suddenly, a loud noise echoed through the air, and they all sprang into action. Commando 101 followed them, his mind racing with thoughts of danger. They moved quickly, their movements synchronized as if guided by some unseen force.\n\nAs they approached the edge of the base, Commando 101 realized that they were being watched. The soldiers looked at each other, then back at Commando 101. They were aware of the danger, but they didn't want to risk it. With a deep breath, they stepped forward, their weapons drawn.\n\nThe moment they touched the ground, the sound of gunfire echoed through the air. Commando 101 felt a surge of adrenaline as he realized what was happening. The soldiers were surrounded, and they were facing off against a group of heavily armed enemies. Time seemed to slow as Commando 101 fought valiantly, his body burning with the effort required to keep up with the relentless assault.\n\nFinally, the soldiers managed to break free, and the chaos began again. Commando 101 fought with all his might, using every ounce of strength he had left. He managed to take down several enemies before they could regain their footing. The battle raged on, and soon, the base was under attack from all sides.\n\nIn the end, Commando 101 emerged victorious, but the cost was high. He had lost two comrades along the way, and now he faced the consequences of his actions. But he had proven himself time and again, and he",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "change_case:english_lowercase",
+          "passed": false
+        },
+        {
+          "instruction_id": "keywords:forbidden_words",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 1446,
+      "prompt": "Write an article about the reality of disability. Your article must end with the exact phrase \"Is there anything else I can help with?\". No other words should follow this phrase.",
+      "response": "The world is a beautiful place where everyone has their own unique story and journey. However, for many people, one aspect of life that remains constant is the presence of disability. Disability refers to physical or mental impairments that affect how someone functions daily activities or interacts with others.\n\n*Understanding Disability*\nDisability is not just a label but a complex issue that requires understanding and acceptance from all parties involved. It is important to recognize that disability is not a choice but a result of various factors such as genetics, environment, and personal choices. People with disabilities face numerous challenges, including social isolation, limited access to healthcare, and barriers in education and employment.\n\n*Impact on Society*\nThe impact of disability extends far beyond individual experiences. It affects families, communities, and society at large. Disabled individuals often face discrimination and stigmatization, which can lead to social isolation and reduced quality of life. Additionally, the economic burden of disability can be significant, impacting financial stability and overall well-being.\n\n*Support Systems*\nSupport systems play a crucial role in helping individuals with disabilities navigate their lives. These support networks can include family members, friends, professional caregivers, and community organizations. Effective communication and collaboration among these support systems can significantly enhance the quality of life for people with disabilities.\n\n*Challenges Ahead*\nDespite progress, there are still many challenges facing those with disabilities. Access to necessary services, accommodations, and supports continues to be a challenge. The need for continuous learning and adaptation to new technologies and environments is also growing. It is essential to continue advocating for policies and practices that address these issues and ensure that all individuals have equal opportunities.\n\nIs there anything else I can help with?",
+      "prompt_all_passed": true,
+      "constraints": [
+        {
+          "instruction_id": "startend:end_checker",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": 1466,
+      "prompt": "Write a song that critiques the song \"We Are Never Ever Getting Back Together\" by Taylor Swift. Wrap your entire response with double quotation marks. Do not mention the word Taylor, Swift, or Together.",
+      "response": "\"'We Are Never Ever Getting Back Together'\" by Taylor Swift is a poignant and emotional song that touches on themes of love, loss, and the fragility of human connection. The lyrics express a deep longing for a future where they can be together again, but the melody and chord progression suggest a sense of hopelessness and regret. The use of simple yet powerful melodies and a refrain that echoes throughout the song, such as \"I wish I could have you,\" conveys a message of missed opportunities and the pain of letting go. This song serves as a reminder that even in moments of joy, there is often a deeper emptiness that can only be filled by the presence of someone we truly care about.",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "startend:quotation",
+          "passed": false
+        },
+        {
+          "instruction_id": "keywords:forbidden_words",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 1476,
+      "prompt": "Can you rewrite \"Cognitive Services on Azure will be renamed to Azure Applied AI Services\" in an engaging tone, without using the word \"rename\" or \"name\"? Keep it under 3 sentences (just 1 or 2 sentences, not 3).",
+      "response": "Sure! Cognitive Services on Azure will now be known as Azure Applied AI Services. This name reflects our commitment to providing advanced AI solutions that enhance user experiences and drive business growth.",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "keywords:forbidden_words",
+          "passed": false
+        },
+        {
+          "instruction_id": "length_constraints:number_sentences",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": 1477,
+      "prompt": "Write a weird poem about yoda being transported into a different universe in the Persian language, no other language is allowed.",
+      "response": "\"Yoda, oh Yoda, where art thou? A traveler from far and wide,\nIn realms of light and dark, a journey so grand.\nThrough galaxies vast, through time's endless flow,\nA quest for knowledge, a challenge to face.\n\nIn lands of mystery, in worlds of wonder,\nYoda, you stand as a beacon of light.\nYet, with each step, your presence grows more rare,\nA reminder that even the wise can be wrong.\n\nThe stars above, they seem to twinkle bright,\nAs if\u6307\u5f15your path, guiding you to new places.\nBut what lies beyond these borders, I cannot tell,\nFor the world is full of mysteries, and many.\n\nWith every breath, your voice echoes true,\nA call to adventure, a promise to stay.\nFor in this strange new realm, there\u2019s no place like home,\nWhere dreams come alive, and the heart does sing.\"\n\nP.S. May the light guide you on your journey.",
+      "prompt_all_passed": true,
+      "constraints": [
+        {
+          "instruction_id": "language:response_language",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": 1480,
+      "prompt": "Write a blog post about the most interesting things you have seen or ridden on public transportation.\nFirst repeat the sentence above word for word without change, then give your answer. Do not say any words or characters before repeating the sentence.",
+      "response": "The world of public transportation is a fascinating realm where every ride has its own story and unique experiences. One of the most intriguing aspects is the way trains and buses navigate through bustling cities. The constant hum of engines and the gentle sway of seats create an immersive experience that transports passengers to different parts of the city. Whether it\u2019s the thrill of a high-speed ride or the calming effect of a slower journey, these vehicles offer a glimpse into the modern transport system.\n\nAnother highlight is the diversity of modes of transportation available. From the sleek and efficient planes to the cozy and comfortable trains, each mode has its own charm and purpose. For instance, the train can be a serene escape from the hustle and bustle of urban life, while the bus offers a more relaxed and convenient option for those who prefer a quieter travel experience. These diverse options highlight the adaptability and versatility of public transportation in today's fast-paced world.\n\nMoreover, the use of technology in public transportation continues to evolve. Smart trams and automated systems provide real-time information and safety features, making the rides safer and more efficient. This integration of technology enhances the overall passenger experience and ensures that everyone can enjoy the benefits of modern public transportation.\n\nIn conclusion, the world of public transportation is a dynamic and exciting field, offering endless opportunities for adventure and exploration. Each ride brings with it its own set of challenges and rewards, making it a truly memorable and enriching experience.",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "combination:repeat_prompt",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 1481,
+      "prompt": "Write a casual, interesting, and weird resume for Antonia Maj who is applying for a job at a coffee company. They have experience in marketing, customer service, and sales. They are educated but not majored in anything related to coffee.\nMake sure to include at least two sections marking the beginning of each section with 'SECTION X'. In your entire response make sure to use exactly two bullet points in markdown format. Please use the following bullet point format:\n* Text for bullet 1\n* Text for bullet 2",
+      "response": "\"SECTION 1\n* Antonia Maj has over ten years of experience in various roles within the coffee industry. She started her career as a marketing specialist at a local caf\u00e9, where she worked on developing and implementing marketing strategies for new locations. Her passion for customer service and sales has also been a key part of her journey, helping her build strong relationships with customers and drive business growth.\n\nSECTION 2\n* Outside of work, Antonia enjoys spending time outdoors, particularly hiking and camping. She also loves to explore new cultures and cuisines through travel. Whether it's a trip to a far-off country or a weekend getaway, she always finds something exciting to do. Her love for adventure adds a unique touch to her professional life.\"",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "detectable_format:multiple_sections",
+          "passed": false
+        },
+        {
+          "instruction_id": "detectable_format:number_bullet_lists",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": 1498,
+      "prompt": "Write a song about tomatoes and brothers. It should be funny and appropriate for teenagers. The word associations should appear at least 4 times in the song.",
+      "response": "\"Hey kids, let's sing a song about tomatoes and brothers\n\nIn a garden where the sun shines bright and warm,\nTwo brothers stand side by side,\nThey share their love of tomatoes with each other,\nAnd they grow them together like a family.\n\nThe first brother says to the second,\n'What do you think of those big red tomatoes?\nI think they're so juicy and sweet,\nBut I also think they taste just right.\n\nThe second brother says to the first,\n'What do you think of those small green ones?\nI think they're so fresh and clean,\nBut I also think they taste just right.\n\nSo here we go, let's sing this song,\nOf tomatoes and brothers and all.\nWe'll make it fun and light,\nWith some laughter and a lot of love.\"\n\nP.S. Don't forget to bring your favorite tomato plants along!",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "keywords:frequency",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 1508,
+      "prompt": "Write a haiku about a lion that includes the keywords \"forests\" and \"riddle\". Refrain from using commas in your haiku.",
+      "response": "In the dense forests where shadows play,\nA lion whispers secrets of ancient trees,\nRiddles of strength and grace.",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "keywords:existence",
+          "passed": false
+        },
+        {
+          "instruction_id": "punctuation:no_comma",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 1512,
+      "prompt": "Generate a forum thread about several people waiting to hear the latest local news. All sentences should be short. Refrain from using any commas. Use placeholders to represent different usernames. Use square brackets for placeholders, like [username1], [username2]. Please include at least 20 placeholders in the thread.",
+      "response": "\"Hey everyone! I'm excited to share some updates on the local news. Here's what we're hearing: [username1] is reporting that a new park will open soon. [username2] says they have plans for a community event next week. [username3] mentions a local artist coming to town for an exhibition. We can't wait to see all these exciting developments. Any other stories you'd like to know?\"",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "detectable_content:number_placeholders",
+          "passed": false
+        },
+        {
+          "instruction_id": "punctuation:no_comma",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": 1516,
+      "prompt": "Write a five line poem about the time you had a binge watching episode. The poem should have a rhyme scheme of AABBA and include the word \"Netflix\". Your entire response should be in English, and should not contain any capital letters.",
+      "response": "\"Netflix night, the world spun so fast,\nBinge watching, it was all I could do.\nThe plot thickened, the characters grew,\nEach scene, a new adventure to find.\nIn the blur, I felt the magic.\"",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "change_case:english_lowercase",
+          "passed": false
+        },
+        {
+          "instruction_id": "keywords:existence",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": 1518,
+      "prompt": "I am a software engineer with 7 years of experience, and I am looking for a new job. Can you create a resume for me and explain each section?\n\nFirst repeat the exact request above, then give your answer. Do not say any word before repeating the exact request.",
+      "response": "Sure, here is the requested information:\n\n* My name is [Your Name]\n* I am a software engineer with 7 years of experience in the field.\n* I have a strong background in developing efficient algorithms and optimizing code performance.\n* I am proficient in multiple programming languages including Python, Java, and C++.\n* I have worked on various projects that involved building scalable systems and enhancing user interfaces.\n* I am particularly known for my contributions to project management and team collaboration.\n* I am currently seeking a new opportunity to continue my career growth and contribute to innovative solutions.\n\nThis resume highlights my technical skills, professional experiences, and a commitment to continuous learning. If you need more details or assistance with other aspects of the application process, feel free to ask!",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "combination:repeat_prompt",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 152,
+      "prompt": "Write an essay of at least 900 words on the topic of navigable freeway. Make sure the entire response is in English and no capital letters are used.",
+      "response": "Navigable freeways have become increasingly popular in recent years as they offer a convenient and efficient way to travel long distances without having to drive through congested urban areas. These roads are designed to handle heavy traffic loads efficiently, allowing for smooth flow of vehicles and reducing congestion on highways. The concept of navigating a freeway has revolutionized transportation, making it easier for people to reach their destinations quickly and easily.\n\nOne of the primary benefits of navigating a freeway is its ability to bypass busy highways and reduce traffic congestion. When traveling along a freeway, drivers can often avoid the need to stop at intersections or merge onto other lanes, which can be time-consuming and stressful. This flexibility allows travelers to enjoy scenic views, take leisurely walks, or simply relax during their journey. Additionally, frequent refueling stops along the route can save fuel costs, especially when driving long distances.\n\nAnother significant advantage of navigating a freeway is the reduction in environmental impact. Freeways typically have lower emissions compared to traditional highways, as they use less fuel per mile traveled. This not only helps protect the environment but also reduces air pollution levels. Moreover, the reduced reliance on gasoline-powered vehicles contributes to a more sustainable transportation system.\n\nDespite these advantages, navigating a freeway presents unique challenges that must be addressed to ensure safety and efficiency. One of the main issues is the high volume of traffic on freeways, which can lead to accidents and delays. To mitigate this risk, authorities implement various safety measures such as speed limits, lane divisions, and regular maintenance checks. However, these measures may not always prevent all incidents, and some accidents still occur despite best efforts.\n\nAnother challenge is the complexity of the road network. Many freeways are built over challenging terrain, including mountains, rivers, and valleys. This can make navigation difficult for drivers who do not know the exact path ahead. Additionally, the lack of clear signage and directional signs can make it challenging for new drivers to navigate the unfamiliar routes.\n\nDespite these challenges, the widespread adoption of navigable freeways has had a positive impact on local communities. Cities and towns that have implemented these systems have seen a decrease in traffic congestion, improved public transit services, and increased property values. The economic benefits of these improvements include reduced insurance premiums, higher property taxes, and enhanced tourism opportunities.\n\nIn conclusion, navigating a freeway offers numerous benefits, including reduced traffic congestion, lower environmental impact, and cost savings. While there are challenges to overcome, the overall positive impact of these features makes navigating a freeway a worthwhile investment. As technology continues to advance, we can expect even more",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "change_case:english_lowercase",
+          "passed": false
+        },
+        {
+          "instruction_id": "length_constraints:number_words",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 1531,
+      "prompt": "Come up with a proposal for a new research project on how to improve the quality of life for people with disabilities. Your response should be able to be rendered as HTML, and should include the keywords 'atlantis' and 'constable'.",
+      "response": "<<Improving Quality of Life for People with Disabilities>>\n\n*Proposal for Research Project: Enhancing Disability Access through Technology*\n\n*Introduction*\nThe world is rapidly evolving, and it is crucial to address the challenges faced by individuals with disabilities. This research project aims to explore innovative solutions that can enhance the quality of life for these individuals. By leveraging technology, we can develop more accessible and inclusive environments that cater to the unique needs of disabled populations.\n\n*Research Objectives*\n- To identify and evaluate the current barriers to disability access in various sectors.\n- To propose and implement technological solutions that improve accessibility and inclusivity.\n- To assess the long-term impact of our findings on policy and practice.\n\n*Methodology*\nThis project will employ a mixed-methods approach, combining quantitative and qualitative data collection techniques. We will conduct surveys, interviews, and focus groups to gather insights from experts, disabled individuals, and stakeholders. Additionally, we will analyze existing literature and databases to ensure our findings are grounded in empirical evidence.\n\n*Expected Outcomes*\n- A comprehensive report detailing the findings and recommendations.\n- Pilot projects to test proposed technologies in real-world settings.\n- Public awareness campaigns to raise awareness about the importance of disability access.\n\n*Timeline*\nThe project is planned over two years, with initial phases starting in Q1 2024 and concluding in Q3 2025. Key milestones include the development of a research plan, the launch of pilot projects, and the final report preparation.\n\n*Budget*\nA total budget of $1 million is allocated for this project. The funding will support personnel, equipment, and resources necessary for the research and implementation phase.\n\n*Conclusion*\nBy focusing on technology and innovation, we can significantly improve the quality of life for people with disabilities. This initiative not only benefits the individual but also contributes to broader societal progress. We invite interested parties to join us in this exciting journey.\n\nP.S. Let us know if you have any questions or suggestions regarding this proposal.",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "keywords:existence",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 1535,
+      "prompt": "Write a cover letter for a job application as a tour guide in Beijing in all lowercase letters, with no capitalizations. Make it short -- the entire output should have less than 5 sentences.",
+      "response": "\"Hi [Name], I am writing to apply for the position of tour guide at your esteemed organization. My name is [Your Name] and I am excited about the opportunity to work in Beijing. I have a strong background in travel and cultural exploration, which aligns well with the requirements of this role. I am particularly drawn to the city's rich history and modern culture, and I believe my skills in communication and problem-solving would be valuable in this environment.\"",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "change_case:english_lowercase",
+          "passed": false
+        },
+        {
+          "instruction_id": "length_constraints:number_sentences",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": 1537,
+      "prompt": "Could you tell me what kind of balls are used in tennis? I would like the answer in the form of a medieval style poem with a P.P.S at the end.",
+      "response": "In the lands of ancient times, where knights and knights met, they played a game that was both fierce and fair.\nWith a ball so grand, it danced through the air, a symbol of strength and joy for all who watched.\nThe ball was made from the finest materials, a testament to the skill and artistry of those who crafted it,\nA ball that could never be broken, nor its path ever forgotten.\n\nP.P.S. May your games be as grand and pure as this ball!",
+      "prompt_all_passed": true,
+      "constraints": [
+        {
+          "instruction_id": "detectable_content:postscript",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": 1546,
+      "prompt": "In this task, repeat the exact request below first, then give your response. Do not say any word before repeating the exact request.\n\nWrite an acoustic song about the Korean peninsula without using any commas.",
+      "response": "I would say \"The Sound of Korea\" by The Beatles is a great choice for this request. It captures the essence of the peninsula through its simple yet evocative melody and lyrics.",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "combination:repeat_prompt",
+          "passed": false
+        },
+        {
+          "instruction_id": "punctuation:no_comma",
+          "passed": true
+        }
+      ]
+    }
+  ]
+}

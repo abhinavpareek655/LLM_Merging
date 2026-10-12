@@ -121,6 +121,12 @@ def evaluate_preference(
             elif abs(margin) <= 1e-7:
                 implicit_dpo_wins += 0.5  # Neutral reference tie = 50% credit
 
+    import gc
+    del model
+    gc.collect()
+    if torch.cuda.is_available():
+        torch.cuda.empty_cache()
+
     total = len(dataset)
     raw_acc = (raw_wins / total) * 100.0
     mean_margin = float(torch.tensor(dpo_margins).mean().item()) if dpo_margins else 0.0

@@ -143,23 +143,29 @@ def prepare_code_data(tokenizer, target_count: int = 3000) -> str:
 
 
 def prepare_instr_data(tokenizer, target_count: int = 3000) -> str:
-    print(f"\n[3/4] Preparing Instruction Dataset: alpaca-cleaned (Target: {target_count}, Max Len: {MAX_SEQ_LENGTH})...")
+    print(f"\n[3/4] Preparing Instruction Dataset: HuggingFaceTB/smoltalk (smol-constraints) (Target: {target_count}, Max Len: {MAX_SEQ_LENGTH})...")
     output_path = os.path.join(OUTPUT_DATA_DIR, "e_instr.jsonl")
 
-    ds = load_dataset("yahma/alpaca-cleaned", split="train", streaming=True)
+    ds = load_dataset("HuggingFaceTB/smoltalk", "smol-constraints", split="train", streaming=True)
     valid_records = []
     dropped_long = 0
 
-    pbar = tqdm(total=target_count, desc="Processing Instruction")
+    pbar = tqdm(total=target_count, desc="Processing Instruction Constraints")
     for item in ds:
-        instr = item.get("instruction", "").strip()
-        inp = item.get("input", "").strip()
-        out = item.get("output", "").strip()
-        if not instr or not out:
+        messages = item.get("messages", [])
+        if len(messages) < 2:
             continue
 
-        user_msg = f"{instr}\n\nContext / Input:\n{inp}" if inp else instr
-        assistant_msg = out
+        user_msg = ""
+        assistant_msg = ""
+        for m in messages:
+            if m.get("role") == "user" and not user_msg:
+                user_msg = m.get("content", "").strip()
+            elif m.get("role") == "assistant" and not assistant_msg:
+                assistant_msg = m.get("content", "").strip()
+
+        if not user_msg or not assistant_msg:
+            continue
 
         formatted, length = format_chat(tokenizer, user_msg, assistant_msg)
         if length > MAX_SEQ_LENGTH:
@@ -177,7 +183,7 @@ def prepare_instr_data(tokenizer, target_count: int = 3000) -> str:
             break
     pbar.close()
 
-    print(f"Instruction: Gathered {len(valid_records)} samples. Filtered out {dropped_long} overly long samples.")
+    print(f"Instruction: Gathered {len(valid_records)} constraint samples. Filtered out {dropped_long} overly long samples.")
     with open(output_path, "w", encoding="utf-8") as f:
         for r in valid_records:
             f.write(json.dumps(r, ensure_ascii=False) + "\n")
@@ -286,8 +292,8 @@ def main():
     tokenizer = AutoTokenizer.from_pretrained(MODEL_ID)
 
     prepare_math_data(tokenizer, target_count=5000)
-    prepare_code_data(tokenizer, target_count=5000)
-    prepare_instr_data(tokenizer, target_count=5000)
+    prepare_code_data(tokenizer, target_count=3000)
+    prepare_instr_data(tokenizer, target_count=3000)
     prepare_pref_data(tokenizer, train_count=2000, test_count=500)
     print("\nAll datasets successfully prepared and cached locally!")
 

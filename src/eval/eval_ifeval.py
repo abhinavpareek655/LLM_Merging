@@ -220,7 +220,8 @@ def check_constraint(instruction_id: str, kwargs: dict, response: str, prompt: s
 def evaluate_ifeval(
     model_path: str,
     max_samples: int = None,
-    output_json: str = None
+    output_json: str = None,
+    batch_size: int = 16
 ):
     print("Loading IFEval dataset...")
     try:
@@ -235,8 +236,12 @@ def evaluate_ifeval(
     if max_samples and max_samples < len(dataset):
         dataset = dataset.select(range(max_samples))
 
-    print(f"Evaluating {len(dataset)} IFEval prompts on model: {model_path}...")
+    print(f"Evaluating {len(dataset)} IFEval prompts on model: {model_path} (batch_size={batch_size})...")
     tokenizer = AutoTokenizer.from_pretrained(model_path)
+    tokenizer.padding_side = "left"
+    if tokenizer.pad_token is None:
+        tokenizer.pad_token = tokenizer.eos_token
+
     model = AutoModelForCausalLM.from_pretrained(
         model_path,
         torch_dtype=TORCH_DTYPE,
@@ -249,51 +254,64 @@ def evaluate_ifeval(
     full_prompt_passed = 0
     results = []
 
-    for item in tqdm(dataset, desc="Evaluating IFEval"):
-        prompt = item["prompt"]
-        instruction_id_list = item.get("instruction_id_list", [])
-        kwargs_list = item.get("kwargs", [])
+    items = list(dataset)
+    for i in tqdm(range(0, len(items), batch_size), desc="Evaluating IFEval"):
+        batch = items[i : i + batch_size]
+        batch_prompts = []
+        for item in batch:
+            formatted = tokenizer.apply_chat_template(
+                [{"role": "user", "content": item["prompt"]}],
+                tokenize=False,
+                add_generation_prompt=True
+            )
+            batch_prompts.append(formatted)
 
-        messages = [
-            {"role": "user", "content": prompt}
-        ]
-
-        formatted_input = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
-        inputs = tokenizer(formatted_input, return_tensors="pt").to(model.device)
+        inputs = tokenizer(batch_prompts, return_tensors="pt", padding=True, truncation=True).to("cuda")
 
         with torch.no_grad():
             outputs = model.generate(
                 **inputs,
                 max_new_tokens=512,
                 do_sample=False,
-                pad_token_id=tokenizer.eos_token_id
+                pad_token_id=tokenizer.pad_token_id
             )
 
-        gen_text = tokenizer.decode(outputs[0][inputs.input_ids.shape[1]:], skip_special_tokens=True)
+        responses = tokenizer.batch_decode(outputs[:, inputs.input_ids.shape[1]:], skip_special_tokens=True)
 
-        prompt_all_passed = True
-        constraint_details = []
+        for item, gen_text in zip(batch, responses):
+            prompt = item["prompt"]
+            instruction_id_list = item.get("instruction_id_list", [])
+            kwargs_list = item.get("kwargs", [])
 
-        for inst_id, kw in zip(instruction_id_list, kwargs_list):
-            total_constraints += 1
-            kw_dict = kw if isinstance(kw, dict) else {}
-            passed = check_constraint(inst_id, kw_dict, gen_text, prompt=prompt)
-            if passed:
-                passed_constraints += 1
-            else:
-                prompt_all_passed = False
-            constraint_details.append({"instruction_id": inst_id, "passed": passed})
+            prompt_all_passed = True
+            constraint_details = []
 
-        if prompt_all_passed and len(instruction_id_list) > 0:
-            full_prompt_passed += 1
+            for inst_id, kw in zip(instruction_id_list, kwargs_list):
+                total_constraints += 1
+                kw_dict = kw if isinstance(kw, dict) else {}
+                passed = check_constraint(inst_id, kw_dict, gen_text, prompt=prompt)
+                if passed:
+                    passed_constraints += 1
+                else:
+                    prompt_all_passed = False
+                constraint_details.append({"instruction_id": inst_id, "passed": passed})
 
-        results.append({
-            "key": item.get("key", 0),
-            "prompt": prompt,
-            "response": gen_text,
-            "prompt_all_passed": prompt_all_passed,
-            "constraints": constraint_details
-        })
+            if prompt_all_passed and len(instruction_id_list) > 0:
+                full_prompt_passed += 1
+
+            results.append({
+                "key": item.get("key", 0),
+                "prompt": prompt,
+                "response": gen_text,
+                "prompt_all_passed": prompt_all_passed,
+                "constraints": constraint_details
+            })
+
+    import gc
+    del model
+    gc.collect()
+    if torch.cuda.is_available():
+        torch.cuda.empty_cache()
 
     prompt_accuracy = (full_prompt_passed / max(1, len(dataset))) * 100.0
     inst_accuracy = (passed_constraints / max(1, total_constraints)) * 100.0
@@ -326,6 +344,7 @@ if __name__ == "__main__":
     parser.add_argument("--model_path", type=str, required=True, help="Model checkpoint path")
     parser.add_argument("--max_samples", type=int, default=None, help="Max test samples (e.g. 200 for dev)")
     parser.add_argument("--output_json", type=str, default=None, help="Output JSON path")
+    parser.add_argument("--batch_size", type=int, default=16, help="Inference batch size")
     args = parser.parse_args()
 
-    evaluate_ifeval(args.model_path, args.max_samples, args.output_json)
+    evaluate_ifeval(args.model_path, args.max_samples, args.output_json, args.batch_size)

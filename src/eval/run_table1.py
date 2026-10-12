@@ -26,7 +26,7 @@ from configs.base_config import (
     OUTPUT_DATA_DIR,
     OUTPUT_RESULTS_DIR
 )
-from src.eval.eval_math import evaluate_gsm8k
+from src.eval.eval_math import evaluate_gsm8k, evaluate_svamp
 from src.eval.eval_code import evaluate_mbpp
 from src.eval.eval_ifeval import evaluate_ifeval
 from src.eval.eval_pref import evaluate_preference
@@ -50,7 +50,8 @@ def run_table1(
     models: dict[str, str],
     max_eval_samples: int = None,
     output_dir: str = OUTPUT_RESULTS_DIR,
-    force: bool = False
+    force: bool = False,
+    math_benchmark: str = "svamp"
 ):
     os.makedirs(output_dir, exist_ok=True)
     pref_test_path = os.path.join(OUTPUT_DATA_DIR, "e_pref_test.jsonl")
@@ -77,20 +78,37 @@ def run_table1(
         print(f"EVALUATING MODEL: {name} ({path})")
         print("#"*80)
 
-        # 1. Math (GSM8K)
-        print(f"\n--- [1/4] GSM8K Evaluation for {name} ---")
-        math_json = os.path.join(output_dir, f"{name}_gsm8k.json")
-        if not should_recompute(math_json, max_eval_samples, force):
-            with open(math_json, "r") as f:
-                math_res = json.load(f)
-            print(f"Loaded existing results from {math_json}")
+        # 1. Math Benchmark (SVAMP or GSM8K)
+        if math_benchmark == "svamp":
+            print(f"\n--- [1/4] SVAMP Evaluation for {name} ---")
+            math_json = os.path.join(output_dir, f"{name}_svamp.json")
+            if not should_recompute(math_json, max_eval_samples, force):
+                with open(math_json, "r") as f:
+                    math_res = json.load(f)
+                print(f"Loaded existing results from {math_json}")
+            else:
+                math_res = evaluate_svamp(
+                    model_path=path,
+                    max_samples=max_eval_samples,
+                    output_json=math_json
+                )
+            math_acc = math_res.get("accuracy", 0.0)
+            math_col = "SVAMP (Acc %)"
         else:
-            math_res = evaluate_gsm8k(
-                model_path=path,
-                max_samples=max_eval_samples,
-                output_json=math_json
-            )
-        gsm8k_acc = math_res.get("exact_match_accuracy", 0.0)
+            print(f"\n--- [1/4] GSM8K Evaluation for {name} ---")
+            math_json = os.path.join(output_dir, f"{name}_gsm8k.json")
+            if not should_recompute(math_json, max_eval_samples, force):
+                with open(math_json, "r") as f:
+                    math_res = json.load(f)
+                print(f"Loaded existing results from {math_json}")
+            else:
+                math_res = evaluate_gsm8k(
+                    model_path=path,
+                    max_samples=max_eval_samples,
+                    output_json=math_json
+                )
+            math_acc = math_res.get("exact_match_accuracy", 0.0)
+            math_col = "GSM8K (EM %)"
 
         # 2. Code (MBPP)
         print(f"\n--- [2/4] MBPP Evaluation for {name} ---")
@@ -142,7 +160,7 @@ def run_table1(
 
         row = {
             "Model": name,
-            "GSM8K (EM %)": round(gsm8k_acc, 2),
+            math_col: round(math_acc, 2),
             "MBPP (Pass@1 %)": round(mbpp_acc, 2),
             "IFEval (Strict %)": round(ifeval_acc, 2),
             "Raw Pref Win %": round(raw_pref_win, 2),
@@ -182,6 +200,7 @@ def run_table1(
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Run Table 1 comprehensive evaluation.")
+    parser.add_argument("--math_benchmark", type=str, default="svamp", choices=["svamp", "gsm8k"], help="Math benchmark (default: svamp)")
     parser.add_argument("--dev", action="store_true", help="Run in fast dev mode (200 samples per benchmark)")
     parser.add_argument("--max_samples", type=int, default=None, help="Explicit max samples per benchmark")
     parser.add_argument("--eval_b0_only", action="store_true", help="Evaluate only B0 baseline")
@@ -202,4 +221,4 @@ if __name__ == "__main__":
             "E_pref": os.path.join(OUTPUT_CHECKPOINTS_DIR, "e_pref"),
         })
 
-    run_table1(models_to_eval, max_eval_samples=max_samples, force=args.force)
+    run_table1(models_to_eval, max_eval_samples=max_samples, force=args.force, math_benchmark=args.math_benchmark)

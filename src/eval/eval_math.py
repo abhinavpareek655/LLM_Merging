@@ -127,6 +127,12 @@ def evaluate_gsm8k(
             "response": gen_text
         })
 
+    import gc
+    del model
+    gc.collect()
+    if torch.cuda.is_available():
+        torch.cuda.empty_cache()
+
     accuracy = (correct_count / len(dataset)) * 100.0
     print(f"\n==========================================")
     print(f"GSM8K Exact Match Accuracy: {accuracy:.2f}% ({correct_count}/{len(dataset)})")
@@ -149,11 +155,126 @@ def evaluate_gsm8k(
     return final_payload
 
 
+def evaluate_svamp(
+    model_path: str,
+    max_samples: int = None,
+    output_json: str = None,
+    batch_size: int = 16
+):
+    """Evaluates mathematical reasoning on the SVAMP test benchmark (300 problems)."""
+    print(f"Loading SVAMP dataset...")
+    try:
+        dataset = load_dataset("ChilleD/SVAMP", split="test")
+    except Exception:
+        dataset = load_dataset("Chillee/SVAMP", split="test")
+
+    if max_samples and max_samples < len(dataset):
+        dataset = dataset.select(range(max_samples))
+
+    print(f"Evaluating {len(dataset)} SVAMP problems on model: {model_path} (batch_size={batch_size})...")
+    tokenizer = AutoTokenizer.from_pretrained(model_path)
+    if tokenizer.pad_token is None:
+        tokenizer.pad_token = tokenizer.eos_token
+    tokenizer.padding_side = "left"
+
+    model = AutoModelForCausalLM.from_pretrained(
+        model_path,
+        torch_dtype=TORCH_DTYPE,
+        attn_implementation=ATTN_IMPLEMENTATION
+    ).to("cuda")
+    model.eval()
+
+    items = []
+    for item in dataset:
+        body = item.get("Body", "").strip()
+        q = item.get("Question", "").strip()
+        full_q = f"{body} {q}".strip() if body else q
+        gold = str(item.get("Answer", "")).strip()
+        if gold.endswith(".0"):
+            gold = gold[:-2]
+        items.append({"question": full_q, "gold": gold})
+
+    total = len(items)
+    correct_count = 0
+    results = []
+
+    for i in tqdm(range(0, total, batch_size), desc="Evaluating SVAMP (Batched)"):
+        batch = items[i : i + batch_size]
+        prompts = []
+        for it in batch:
+            messages = [
+                {"role": "system", "content": "You are Qwen, created by Alibaba Cloud. You are a helpful assistant."},
+                {"role": "user", "content": it["question"]}
+            ]
+            formatted = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
+            prompts.append(formatted)
+
+        inputs = tokenizer(prompts, return_tensors="pt", padding=True).to("cuda")
+        input_len = inputs.input_ids.shape[1]
+
+        with torch.no_grad():
+            outputs = model.generate(
+                **inputs,
+                max_new_tokens=256,
+                do_sample=False,
+                pad_token_id=tokenizer.pad_token_id
+            )
+
+        gen_tokens = outputs[:, input_len:]
+        decoded = tokenizer.batch_decode(gen_tokens, skip_special_tokens=True)
+
+        for it, gen_text in zip(batch, decoded):
+            pred = extract_predicted_answer(gen_text)
+            correct = is_equivalent(pred, it["gold"])
+            if correct:
+                correct_count += 1
+            results.append({
+                "question": it["question"],
+                "gold": it["gold"],
+                "pred": pred,
+                "correct": correct,
+                "response": gen_text
+            })
+
+    import gc
+    del model
+    gc.collect()
+    if torch.cuda.is_available():
+        torch.cuda.empty_cache()
+
+    accuracy = (correct_count / total) * 100.0
+    print(f"\n==========================================")
+    print(f"SVAMP Accuracy: {accuracy:.2f}% ({correct_count}/{total})")
+    print(f"==========================================")
+
+    final_payload = {
+        "model": model_path,
+        "benchmark": "svamp",
+        "accuracy": accuracy,
+        "total": total,
+        "correct": correct_count,
+        "details": results
+    }
+
+    if output_json:
+        os.makedirs(os.path.dirname(output_json), exist_ok=True)
+        with open(output_json, "w") as f:
+            json.dump(final_payload, f, indent=2)
+        print(f"Saved evaluation results to: {output_json}")
+
+    return final_payload
+
+
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Evaluate model on GSM8K.")
+    parser = argparse.ArgumentParser(description="Evaluate model on Math benchmarks (SVAMP or GSM8K).")
     parser.add_argument("--model_path", type=str, required=True, help="Model checkpoint path")
-    parser.add_argument("--max_samples", type=int, default=None, help="Max test samples (e.g. 200 for dev)")
+    parser.add_argument("--benchmark", type=str, default="svamp", choices=["svamp", "gsm8k"], help="Benchmark dataset (default: svamp)")
+    parser.add_argument("--max_samples", type=int, default=None, help="Max test samples")
     parser.add_argument("--output_json", type=str, default=None, help="Output JSON path")
+    parser.add_argument("--batch_size", type=int, default=16, help="Inference batch size")
     args = parser.parse_args()
 
-    evaluate_gsm8k(args.model_path, args.max_samples, args.output_json)
+    if args.benchmark == "svamp":
+        evaluate_svamp(args.model_path, args.max_samples, args.output_json, args.batch_size)
+    else:
+        evaluate_gsm8k(args.model_path, args.max_samples, args.output_json)

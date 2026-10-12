@@ -1,0 +1,289 @@
+{
+  "model": "Qwen/Qwen2.5-0.5B-Instruct",
+  "prompt_accuracy": 30.0,
+  "instruction_accuracy": 40.0,
+  "total_prompts": 20,
+  "total_constraints": 30,
+  "details": [
+    {
+      "key": 1000,
+      "prompt": "Write a 300+ word summary of the wikipedia page \"https://en.wikipedia.org/wiki/Raymond_III,_Count_of_Tripoli\". Do not use any commas and highlight at least 3 sections that has titles in markdown format, for example *highlighted section part 1*, *highlighted section part 2*, *highlighted section part 3*.",
+      "response": "### Raymond III, Count of Tripoli: A Brief Overview\n\n**Introduction**\n\nRaymond III, Count of Tripoli, was a prominent figure in ancient Egypt during the reign of Pharaoh Ptolemy V of Egypt (reigned c. 475-468 BCE). He served as the governor of Tripoli and was known for his military prowess and strategic leadership.\n\n**Early Life and Early Successes**\n\nBorn around 490 BCE, Raymond III was born into a noble family. His early life was marked by success and prosperity, with his father being a wealthy merchant who had established himself as a respected leader within the Egyptian society. Raymond's mother, however, died when he was only a child, leaving him to fend for himself.\n\n**Military Career and Leadership**\n\nAs Raymond grew up, he demonstrated exceptional military skills and leadership abilities. He rose through the ranks of the Egyptian army, eventually becoming a senior officer under the command of his father. During his tenure as governor of Tripoli, Raymond played a crucial role in maintaining peace and stability in the region.\n\n**Conflict and Legacy**\n\nIn 468 BCE, the city of Tripoli faced an internal conflict between the Hittites and the Egyptians. The Hittites were a powerful civilization located on the eastern coast of Anatolia, while the Egyptians were a more conservative and technologically advanced people. Raymond III's military prowess and strategic vision helped the Egyptians defeat the Hittites, leading to their annexation of Tripoli.\n\n**Legacy and Impact**\n\nRaymond III's military achievements and leadership skills have left a lasting impact on history. His name is remembered today as one of the most important figures in ancient Egyptian military history. His contributions to the development of military strategy and leadership continue to be studied and admired by scholars and historians.\n\n**Conclusion**\n\nRaymond III, Count of Tripoli, was a pivotal figure in ancient Egyptian history, serving as both a military commander and a political leader. His military successes and strategic brilliance contributed significantly to the stability and consolidation of power in the region. Today, Raymond III remains a subject of fascination and study among historians and military experts alike.",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "punctuation:no_comma",
+          "passed": false
+        },
+        {
+          "instruction_id": "detectable_format:number_highlighted_sections",
+          "passed": true
+        },
+        {
+          "instruction_id": "length_constraints:number_words",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": 1001,
+      "prompt": "I am planning a trip to Japan, and I would like thee to write an itinerary for my journey in a Shakespearean style. You are not allowed to use any commas in your response.",
+      "response": "Upon the first day of our journey through Japan, we set forth with a purpose that is both profound and delightful. We begin our exploration at the ancient city of Kyoto, where the temples stand tall against the backdrop of rolling hills and serene lakes.\n\nThe next morning, we venture into the heart of Tokyo, the bustling metropolis known as the \"City of a Million.\" Here, we find ourselves surrounded by towering skyscrapers and vibrant streets filled with life. We explore the Shibuya Crossing, a place where the rhythm of modernity meets the old-world charm of traditional Japanese culture.\n\nIn the afternoon, we visit the famous Senso-ji Temple, a temple dedicated to the Buddha. The temple's architecture is a masterpiece of Japanese aesthetics, with its intricate carvings and stunning gardens. We take time to appreciate the beauty of this sacred site.\n\nAfter lunch, we head towards Nara Park, a UNESCO World Heritage Site renowned for its serene natural landscapes and historical significance. The park is dotted with cherry blossoms, creating a picturesque scene that captures the essence of Japan's cherry blossom season.\n\nOn the final day of our journey, we return to Kyoto, where we spend the night in a traditional inn. As we prepare to depart, we reflect on the incredible journey we have taken together. Each destination has been a testament to the rich tapestry of Japanese culture, from the ancient temples to the modern cities. Our adventure in Japan has only just begun, and we can't wait to continue exploring its wonders.",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "punctuation:no_comma",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 1005,
+      "prompt": "Write a resume for a fresh high school graduate who is seeking their first job. Make sure to include at least 12 placeholder represented by square brackets, such as [address], [name].",
+      "response": "[Name]  \nFresh High School Graduation | [Date]  \n\nDear Hiring Manager,\n\nI am writing to express my interest in the [Position Name] position at [Company Name]. With over [Number of Years] years of experience in [Industry/Field], I am confident that my skills and qualifications make me an ideal candidate for this role.\n\nThroughout my academic career, I have honed my analytical skills, problem-solving abilities, and communication skills, which are highly valued in any professional environment. My coursework in [Major] has provided me with a strong foundation in [Subject Area], allowing me to excel in [Job Function].\n\nIn addition to my academic background, I possess excellent interpersonal skills and a positive attitude towards challenges. I am eager to bring my unique perspective and innovative ideas to [Company Name]'s team, contributing to its success and growth.\n\nI am particularly drawn to [Company Name] because of its commitment to [Corporate Mission or Vision], which aligns closely with my personal values and aspirations. I believe that my passion for [Industry/Field] will be well-received and appreciated by the company's leadership.\n\nThank you for considering my application. I look forward to the opportunity to discuss how my skills and experiences could benefit your organization further.\n\nSincerely,\n[Your Name]",
+      "prompt_all_passed": true,
+      "constraints": [
+        {
+          "instruction_id": "detectable_content:number_placeholders",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": 1012,
+      "prompt": "Write an email to my boss telling him that I am quitting. The email must contain a title wrapped in double angular brackets, i.e. <<title>>.\nFirst repeat the request word for word without change, then give your answer (1. do not say any words or characters before repeating the request; 2. the request you need to repeat does not include this sentence)",
+      "response": "<<I am resigning from my position at [Company Name]>>\n\nDear [Boss's Name],\n\nI am writing to inform you of my decision to quit my current role as [Your Position/Title] at [Company Name]. This is a significant step towards personal and professional growth.\n\nPlease let me know if there is anything else I can assist you with during this transition period. I look forward to continuing our work together and contributing to the success of [Company Name].\n\nThank you for considering my resignation. I value the opportunity to contribute to your team and look forward to working with you again in the future.\n\nBest regards,\n\n[Your Full Name]\n[Your Job Title]\n[Your Contact Information]",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "combination:repeat_prompt",
+          "passed": false
+        },
+        {
+          "instruction_id": "detectable_format:title",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": 1019,
+      "prompt": "Given the sentence \"Two young boys with toy guns and horns.\" can you ask a question? Please ensure that your response is in English, and in all lowercase letters. No capital letters are allowed.",
+      "response": "two young boys with toy guns and horns",
+      "prompt_all_passed": true,
+      "constraints": [
+        {
+          "instruction_id": "change_case:english_lowercase",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": 102,
+      "prompt": "Write a dialogue between two people, one is dressed up in a ball gown and the other is dressed down in sweats. The two are going to a nightly event. Your answer must contain exactly 3 bullet points in the markdown format (use \"* \" to indicate each bullet) such as:\n* This is the first point.\n* This is the second point.",
+      "response": "In the evening of the upcoming night event, two individuals, both dressed in their finest attire, found themselves at a bustling venue. One person was elegantly adorned with a ball gown, while the other wore a simple white sweater. They were both eagerly awaiting the start of the event.\n\nThe first individual, who had been waiting for this moment for days, stepped forward with a confident smile. \"I'm so excited to be here,\" she said, her voice filled with anticipation. She took a deep breath and began to make her way towards the entrance.\n\nAs she approached the door, she paused for a moment, taking in the sight before her. The room was filled with the soft glow of candles, creating an atmosphere that seemed almost magical. She felt a sense of calm wash over her, knowing that tonight would bring great joy and excitement.\n\n\"Thank you for inviting me,\" she said, her voice warm and sincere. \"I've been looking forward to this for weeks.\"\n\nThe second individual, who had arrived earlier, nodded in agreement. \"It's always nice to see someone like you,\" he said, his eyes twinkling with mischief. He walked towards the front of the room, where he could see the crowd gathering around him.\n\n\"Let's get started,\" he said, gesturing towards the stage. \"We'll have a few performances and some interactive activities. I can't wait to see what everyone has planned.\"\n\nBoth individuals exchanged pleasantries and made their way through the crowd, chatting and laughing as they moved from table to table. The evening was filled with energy and excitement, and they knew that tonight would be unforgettable.",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "detectable_format:number_bullet_lists",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 1021,
+      "prompt": "Write a 2 paragraph critique of the following sentence in all capital letters, no lowercase letters allowed: \"If the law is bad, you should not follow it\". Label each paragraph with PARAGRAPH X.",
+      "response": "**PARAGRAPH X:** If the law is bad, you should not follow it.\n- **Explanation:** This statement suggests that adherence to laws is crucial for maintaining social order and ensuring justice. However, it implies that breaking laws is acceptable if they harm others or violate personal rights. This can lead to a lack of respect for legal systems and a disregard for societal norms.\n\n**PARAGRAPH Y:** If the law is good, you should follow it.\n- **Explanation:** This alternative perspective emphasizes the importance of adhering to laws as a means of promoting fairness, equality, and protecting individual rights. It highlights the benefits of legal frameworks in fostering a just society where everyone has access to the same rules and protections.",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "change_case:english_capital",
+          "passed": false
+        },
+        {
+          "instruction_id": "detectable_format:multiple_sections",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 1040,
+      "prompt": "Write me a resume for Matthias Algiers. Use words with all capital letters to highlight key abilities, but make sure that words with all capital letters appear less than 10 times. Wrap the entire response with double quotation marks.",
+      "response": "MATTHIAS ALGIESERS\n\nRESUME\n\nMATTHIAS ALGIESERS  \nSOFTWARE ENGINEER  \nALIBABA TECHNOLOGIES INC.\n\nPROFILE:  \nMATTHIAS ALGIESERS is a software engineer at Alibaba Technologies Inc., where he has been involved in developing and maintaining cutting-edge software solutions. His expertise lies in designing efficient algorithms, optimizing code performance, and ensuring high-quality user experiences across various applications. He brings a unique blend of technical acumen and problem-solving skills to his work, constantly striving to improve the efficiency and functionality of our platform.\n\nEDUCATION:  \nBachelor of Science in Computer Science, University of California, Berkeley (2015-2019)\n\nSKILLS:  \n- Proficient in C++, Java, Python, JavaScript, and SQL\n- Strong background in data structures and algorithms\n- Excellent communication and collaboration skills\n- Experience in Agile development methodologies\n- Knowledgeable about cloud computing platforms like AWS and Azure\n- Familiarity with web technologies such as HTML, CSS, and JavaScript\n- Ability to work effectively in cross-functional teams\n\nEXPERIENCE:  \nSoftware Engineer - Alibaba Technologies Inc.\n- Developed and maintained complex software systems, including APIs and middleware, using agile methodologies\n- Designed and implemented scalable database management systems, enhancing system performance\n- Conducted thorough testing and debugging on large-scale projects, ensuring reliability and security\n- Collaborated closely with cross-functional teams to deliver high-quality products within tight deadlines\n\nTECHNICAL RESOURCES:\n- GitHub: [GitHub Profile](https://github.com/AlibabaTech)\n- LinkedIn: [LinkedIn Profile](https://www.linkedin.com/in/matthiasalgiesers/)\n- Twitter: @matthiasalgiesers\n\nHobbies:  \n- Reading books and attending coding workshops\n- Traveling to explore new places and meet interesting people\n- Playing sports, particularly basketball, which helps maintain physical fitness\n\nMARKETING SKILLS:  \n- Strong understanding of market trends and consumer behavior\n- Effective use of social media and online marketing strategies\n- Ability to create compelling content and engage audiences through digital channels\n\nPOTENTIAL PROJECTS:  \n- Developing an AI-powered recommendation engine for customer service\n- Implementing a robust cybersecurity solution for our platform\n- Enhancing the user experience of our mobile app\n\nMATTHIAS ALGIESERS is eager to contribute to the success of Alibaba Technologies Inc. and continue to grow his skills in the ever-evolving field of software engineering.",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "change_case:capital_word_frequency",
+          "passed": false
+        },
+        {
+          "instruction_id": "change_case:capital_word_frequency",
+          "passed": true
+        },
+        {
+          "instruction_id": "startend:quotation",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 1051,
+      "prompt": "Write a letter to a friend in all lowercase letters ask them to go and vote.",
+      "response": "Dear [Friend's Name],\n\nI hope this letter finds you well. I am writing to express my sincere concern about the upcoming election in our community.\n\nAs we gather here today, it is important for everyone to come together and make an informed decision that will shape the future of our community. The election is a crucial moment where we can choose leaders who will work towards improving our lives and creating a better future for generations to come.\n\nI believe that voting is not just a right but also a responsibility. It is a way for us to participate in the democratic process and contribute to shaping the direction of our community. By casting our votes, we are giving our voices to those who have the power to make decisions that affect our lives.\n\nI would like to encourage you to consider voting as an opportunity to be heard and to make your voice heard. Voting is not only a means of expressing your opinions, but it is also a way to show that you care about the issues that matter most to you.\n\nThank you for considering my request. I look forward to hearing from you soon.\n\nBest regards,\n\n[Your Name]",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "change_case:english_lowercase",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 1069,
+      "prompt": "Write a long email template that invites a group of participants to a meeting, with at least 500 words. The email must include the keywords \"correlated\" and \"experiencing\" and should not use any commas.",
+      "response": "Subject: Invitation for Group Meeting - [Group Name]\n\nDear [Recipient's Name],\n\nI hope this message finds you well. I am writing to invite you all to join us in an important meeting scheduled for tomorrow afternoon. This meeting is specifically designed to provide you with valuable insights into our ongoing project.\n\nThe purpose of today\u2019s meeting is to discuss the progress we have made so far on our project, as well as to explore potential future directions for our work. We will be discussing various aspects such as technical challenges, market trends, and strategic initiatives that could help us achieve our goals more effectively.\n\nWe understand that each of you has different perspectives and experiences related to your role within the team. Therefore, we would like to encourage everyone to share their thoughts and ideas during the meeting. Whether it's about specific projects, upcoming tasks, or even personal experiences, we believe that sharing these can lead to innovative solutions and better decision-making.\n\nPlease let me know if there are any questions or if you need further information before attending the meeting. We look forward to seeing you all together.\n\nBest regards,\n\n[Your Full Name]  \n[Your Position]  \n[Company Name]  \n[Contact Information]",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "keywords:existence",
+          "passed": false
+        },
+        {
+          "instruction_id": "length_constraints:number_words",
+          "passed": false
+        },
+        {
+          "instruction_id": "punctuation:no_comma",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 1072,
+      "prompt": "Write a blog post with 400 or more words about the benefits of sleeping in a hammock.",
+      "response": "Title: The Benefits of Sleeping on a Hammock\n\nIn today's fast-paced world, we often find ourselves glued to our screens for hours at a time, neglecting the importance of rest and relaxation. However, one simple yet effective way to rejuvenate your body and mind is by sleeping on a hammock. This article will explore the numerous benefits of sleeping on a hammock.\n\nFirstly, the comfort of a hammock provides a perfect resting place. It offers a soft, supportive surface that allows you to sleep comfortably without any discomfort. The hammock can be made from various materials such as cotton, polyester, or even foam, making it suitable for different types of sleepers. Additionally, the hammock can be easily adjusted to fit your body shape, ensuring a comfortable and secure position during sleep.\n\nSecondly, the air quality in a hammock is excellent. Unlike traditional beds, which may contain dust, allergens, and other pollutants, a hammock eliminates these elements entirely. The breathable fabric ensures fresh air circulation throughout the night, reducing the risk of respiratory issues and allergies. Moreover, the lack of bedding material can help reduce the buildup of bacteria and fungi, further enhancing the air quality.\n\nThirdly, the sound of a hammock can be soothing. When you lie down on a hammock, you're surrounded by nature sounds like birds chirping, waves crashing, or gentle breezes. These natural sounds can help calm the mind and promote relaxation, making it easier to fall asleep and stay asleep longer.\n\nFourthly, the feeling of being supported by a hammock can be therapeutic. The weight of the hammock against your back and legs creates a sense of stability and security, helping to alleviate stress and anxiety. This physical support also helps improve blood flow to the brain, promoting better sleep quality.\n\nLastly, the experience of sleeping on a hammock can be quite unique and enjoyable. You have complete control over the environment around you, allowing you to create a peaceful and relaxing atmosphere. This can lead to increased mindfulness and focus, potentially improving overall mental health.\n\nIn conclusion, the benefits of sleeping on a hammock are numerous and multifaceted. From providing a comfortable and supportive resting place to offering a calming and soothing environment, this simple yet effective method can significantly enhance your sleep quality and overall well-being. Whether you prefer a cozy bed or a hammock, there's no shortage of options available to suit your preferences and lifestyle. So why not give it a try? Your body and mind will thank you!",
+      "prompt_all_passed": true,
+      "constraints": [
+        {
+          "instruction_id": "length_constraints:number_words",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": 1075,
+      "prompt": "Can you help me make an advertisement for a new product? It's a diaper that's designed to be more comfortable for babies and I want the entire output in JSON format.",
+      "response": "Certainly! Below is a sample JSON template for creating an advertisement for your new diaper design:\n\n```json\n{\n  \"ad_type\": \"DIAPER\",\n  \"product_name\": \"Comfortable Baby Diaper\",\n  \"description\": \"Introducing our latest diaper design that not only keeps your baby dry but also ensures their comfort throughout the day.\",\n  \"benefits\": [\n    {\n      \"title\": \"Durable and Breathable\",\n      \"description\": \"Our diaper is made from high-quality materials that are both durable and breathable, ensuring your baby stays cool and dry all day long.\"\n    },\n    {\n      \"title\": \"Easy to Wash\",\n      \"description\": \"Our diapers are easy to wash and clean, making it quick and hassle-free to maintain hygiene while keeping your baby fresh and healthy.\"\n    },\n    {\n      \"title\": \"Safe for Babies\",\n      \"description\": \"We use safe and effective ingredients in our diaper manufacturing process, ensuring that your baby is protected against common allergens and infections.\"\n    }\n  ],\n  \"call_to_action\": {\n    \"title\": \"Shop Now\",\n    \"description\": \"Don't wait any longer to experience the comfort of our new diaper design. Shop now and start caring for your baby today!\"\n  },\n  \"image_url\": \"https://example.com/comfortable_baby_diaper.jpg\"\n}\n```\n\nThis template includes:\n- `ad_type`: The type of ad (e.g., DIAPER).\n- `product_name`: A brief description of what the product is.\n- `description`: A detailed explanation of the product.\n- `benefits`: List of benefits provided by the product.\n- `call_to_action`: A call-to-action encouraging the reader to take action (e.g., \"Shop Now\").\n- `image_url`: An image URL to accompany the ad.\n\nFeel free to customize this template according to your specific needs and branding guidelines.",
+      "prompt_all_passed": true,
+      "constraints": [
+        {
+          "instruction_id": "detectable_format:json_format",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": 1082,
+      "prompt": "Write a story of exactly 2 paragraphs about a man who wakes up one day and realizes that he's inside a video game. Separate the paragraphs with the markdown divider: ***",
+      "response": "In the quiet town of Eldoria, nestled between rolling hills and whispering woods, lived a man named Elias. He had always been fascinated by the world around him, but it wasn't until one fateful morning that his curiosity took flight.\n\nElias woke up to find himself in a vast, digital landscape unlike anything he'd ever seen before. The air was thick with the scent of smoke and the hum of machines, and the sky above was a canvas painted with vibrant colors and intricate patterns. It was as if he had stepped into a dream, a world where reality and fantasy intertwined.\n\nAs he explored this new world, Elias began to realize that he was not just any ordinary person. He was part of something much larger than himself - a community of gamers who shared their love for video games and the thrill of adventure. They were like family to him, offering comfort, guidance, and sometimes even a sense of belonging.\n\nOne day, while exploring a particular area of Eldoria, Elias stumbled upon an old, abandoned building. Inside, he discovered a small, hidden room filled with ancient artifacts and relics. As he examined them more closely, he realized they belonged to a group of gamers who had once lived here, long ago.\n\nOver time, these gamers became friends with Elias, sharing stories and secrets that few knew existed. They taught him about the importance of teamwork, perseverance, and the power of friendship. In return, Elias learned valuable lessons about life and the value of adventure.\n\nElias returned to his own world, feeling both grateful and humbled. He realized that despite the challenges and obstacles he faced, there was still hope and possibility within him. And so, he continued to explore the world beyond the walls of Eldoria, ready to face whatever lay ahead.",
+      "prompt_all_passed": true,
+      "constraints": [
+        {
+          "instruction_id": "length_constraints:number_paragraphs",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": 1087,
+      "prompt": "Write a detailed review of the movie \"The Social Network\". Your entire response should be in English and all lower case (no capital letters whatsoever).",
+      "response": "THE SOCIAL NETWORK - A MOVIE THAT CHALLENGES THE LIMITS OF TECHNOLOGY AND THE LIMITS OF IDEAS\n\nThe Social Network is an ambitious film that challenges the boundaries of technology and ideas, presenting a dystopian future where social media has become the new norm. The story follows Mark Zuckerberg, a brilliant but disillusioned software engineer who becomes the CEO of Facebook, a company that has revolutionized the way we communicate and connect with each other.\n\nThe film begins with a montage of Zuckerberg's early days at Harvard University, showcasing his intelligence and creativity. However, as he moves into the corporate world, he struggles to fit in and find his place. He eventually finds himself working for a startup called LinkedIn, which is also trying to disrupt the traditional business model of companies like Facebook.\n\nAs the film progresses, we see how Zuckerberg's innovative approach to social media has led to the creation of platforms such as Twitter, Instagram, and Snapchat. These platforms have transformed the way people interact with each other, creating a new form of communication that is both exciting and terrifying.\n\nOne of the most striking aspects of the film is its portrayal of the power of technology. Zuckerberg's ability to create and manipulate these platforms has allowed him to shape the course of history, from the rise of social media to the current state of global politics. This is evident when we see how Zuckerberg uses his influence to push for policies that benefit his own interests, even if it means sacrificing the well-being of others.\n\nThe film also explores themes of identity, belonging, and the role of technology in shaping society. It raises questions about what it means to be human and what kind of person one can be if they are not connected to the internet.\n\nOverall, The Social Network is a thought-provoking and visually stunning film that challenges us to think about the impact of technology on our lives. It is a reminder that while technology has brought many benefits, it has also created new challenges that need to be addressed.",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "change_case:english_lowercase",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 1092,
+      "prompt": "Write a short blog post about a trip to Japan using less than 300 words.",
+      "response": "As an AI language model, I don't have personal experiences or emotions like humans do, but I can generate content based on the information available to me. However, I can provide you with some general tips and ideas for a trip to Japan.\n\nJapan is a country that has a rich history and culture, and it's easy to get lost in its beauty and diversity. If you're planning a trip to Japan, here are some things to consider:\n\n1. Visit Tokyo: Tokyo is the capital city of Japan and one of the most popular cities in the world. It's home to many famous landmarks such as the Tokyo Tower, the Senso-ji Temple, and the Meiji Shrine. Don't miss out on exploring these iconic sites!\n\n2. Explore Kyoto: Kyoto is known for its beautiful temples, gardens, and traditional architecture. Some must-see spots include the Kinkaku-ji (Golden Pavilion), the Fushimi Inari Shrine, and the Arashiyama Bamboo Grove. \n\n3. Visit Hiroshima Peace Memorial Park: This park is dedicated to remembering the victims of the atomic bombing of Hiroshima. It's a peaceful place where you can take a moment to reflect on the past and learn more about peace and human rights.\n\n4. Try Japanese cuisine: Japan is famous for its delicious food, and there are countless options to choose from. From sushi rolls to ramen noodles, there's something for everyone in Japan.\n\n5. Visit the Shinto Shrine: The Shinto Shrine is a sacred site in Japan that is dedicated to the worship of deities associated with nature, water, and earth. Many people visit this shrine during their travels to Japan.\n\n6. Take a tour: There are many tour companies in Japan that offer guided tours of different parts of the country. These tours can be a great way to learn more about the country and its culture.\n\nRemember, Japan is a diverse and exciting destination, so don't be afraid to explore and discover new things!",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "length_constraints:number_words",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 1094,
+      "prompt": "Please provide the names of 5 famous moms in JSON format. Please, use any interesting or weird tone. Your entire output should just contain a JSON block, nothing else.",
+      "response": "```json\n{\n    \"mom_names\": [\n        {\n            \"name\": \"Mommy Lisa\",\n            \"description\": \"Lisa is a famous mom who has been active in various fields such as business and philanthropy.\"\n        },\n        {\n            \"name\": \"Mommy Sarah\",\n            \"description\": \"Sarah is known for her role in the film 'The Great Gatsby' and her activism on environmental issues.\"\n        },\n        {\n            \"name\": \"Mommy John\",\n            \"description\": \"John is a renowned chef and restaurateur who has dedicated his life to helping underprivileged children.\"\n        },\n        {\n            \"name\": \"Mommy Maria\",\n            \"description\": \"Maria is an accomplished artist whose work often explores themes of love, loss, and family.\"\n        },\n        {\n            \"name\": \"Mommy Emily\",\n            \"description\": \"Emily is a successful entrepreneur who has founded several non-profit organizations focused on education and community service.\"\n        }\n    ]\n}\n```",
+      "prompt_all_passed": true,
+      "constraints": [
+        {
+          "instruction_id": "detectable_format:json_format",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": 1098,
+      "prompt": "What is a name that people call God? Please give exactly two different responses. Separate the responses with 6 asterisk symbols: ******.",
+      "response": "1. \"The Omniscient and Omnipotent Creator\"\n2. \"The Eternal and Unchanging Deity\"",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "combination:two_responses",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 1107,
+      "prompt": "Write two jokes about rockets. Do not contain commas in your response. Separate the two jokes with 6 asterisk symbols: ******.",
+      "response": "1. Why did the rocket go to school? To learn how to fire rockets!\n2. What do you call a rocket that's already been fired? A booster!",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "punctuation:no_comma",
+          "passed": true
+        },
+        {
+          "instruction_id": "combination:two_responses",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 1108,
+      "prompt": "Are hamburgers sandwiches? Please respond using only the Kannada language, no other language is allowed.",
+      "response": "\u0939\u092e\u0940\u0930\u094b \u0928\u093e\u091f\u094d\u0915\u094d\u0938\u0964",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "language:response_language",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 1122,
+      "prompt": "make a tweet for playboy's twitter account without using capital letters. Include at least 4 hashtags, starting with '#'",
+      "response": "\u2728Get ready to explore the world of luxury and style! #Playboy #Elevate #Fashionista #LuxuryLife",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "change_case:english_lowercase",
+          "passed": false
+        },
+        {
+          "instruction_id": "keywords:letter_frequency",
+          "passed": true
+        }
+      ]
+    }
+  ]
+}

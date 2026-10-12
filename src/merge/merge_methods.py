@@ -17,18 +17,43 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")))
 from configs.base_config import MODEL_ID, TORCH_DTYPE
 
-def load_state_dict_cpu(model_path: str):
-    """Loads model state dict into CPU memory in bfloat16."""
+def clean_state_dict_keys(sd: dict[str, torch.Tensor]) -> dict[str, torch.Tensor]:
+    """Strips PEFT and model wrapper prefixes so keys align coordinate-by-coordinate."""
+    cleaned = {}
+    for k, v in sd.items():
+        clean_k = k
+        for prefix in ["base_model.model.", "base_model."]:
+            if clean_k.startswith(prefix):
+                clean_k = clean_k[len(prefix):]
+        cleaned[clean_k] = v
+    return cleaned
+
+def load_state_dict_cpu(model_path: str) -> dict[str, torch.Tensor]:
+    """Loads model state dict into CPU memory in bfloat16, normalizing key prefixes."""
     print(f"Loading state dict on CPU: {model_path}...")
-    model = AutoModelForCausalLM.from_pretrained(
-        model_path,
-        torch_dtype=torch.bfloat16,
-        device_map="cpu",
-        low_cpu_mem_usage=True
-    )
-    sd = {k: v.clone() for k, v in model.state_dict().items()}
+    if os.path.exists(os.path.join(model_path, "adapter_config.json")):
+        from peft import PeftModel
+        print(f"Detected PEFT adapter at {model_path}, baking on CPU...")
+        base = AutoModelForCausalLM.from_pretrained(
+            MODEL_ID,
+            torch_dtype=torch.bfloat16,
+            device_map="cpu",
+            low_cpu_mem_usage=True
+        )
+        peft_m = PeftModel.from_pretrained(base, model_path)
+        model = peft_m.merge_and_unload()
+    else:
+        model = AutoModelForCausalLM.from_pretrained(
+            model_path,
+            torch_dtype=torch.bfloat16,
+            device_map="cpu",
+            low_cpu_mem_usage=True
+        )
+    sd = {k: v.to(torch.bfloat16).clone() for k, v in model.state_dict().items()}
     del model
-    return sd
+    import gc
+    gc.collect()
+    return clean_state_dict_keys(sd)
 
 def slerp_tensor(v0: torch.Tensor, v1: torch.Tensor, t: float, eps: float = 1e-7) -> torch.Tensor:
     """Spherical Linear Interpolation between two tensors."""
@@ -68,21 +93,22 @@ def slerp_tensor(v0: torch.Tensor, v1: torch.Tensor, t: float, eps: float = 1e-7
 def ties_merge_tensors(
     tau_list: list[torch.Tensor],
     density: float = 0.20,
-    alpha: float = 0.50
+    alpha: float = 0.50,
+    divide_by_count: bool = True
 ) -> tuple[torch.Tensor, dict]:
     """
-    TIES-Merging on a coordinate list of task vectors [tau_math, tau_pref].
+    TIES-Merging on arbitrary K task vectors [tau_1, tau_2, ..., tau_K].
     Step 1: Trim top-density parameters
-    Step 2: Elect sign consensus (logs coordinate clashes)
-    Step 3: Disjoint merge
+    Step 2: Elect sign consensus across active updates
+    Step 3: Disjoint merge with consensus sign masking
+    divide_by_count: If True, averages agreeing vectors (standard TIES).
+                     If False, sums agreeing vectors (used when inputs are already pre-weighted with sum(w)=1).
     """
     stats = {
         "total_coords": tau_list[0].numel(),
-        "both_active": 0,
+        "multiple_active": 0,
         "sign_agreed": 0,
-        "sign_clashed": 0,
-        "math_won_sign": 0,
-        "pref_won_sign": 0
+        "sign_clashed": 0
     }
 
     trimmed = []
@@ -99,46 +125,36 @@ def ties_merge_tensors(
         trimmed.append(flat * mask)
         masks.append(mask)
 
-    t_math, t_pref = trimmed[0], trimmed[1]
-    m_math, m_pref = masks[0], masks[1]
+    stacked_trimmed = torch.stack(trimmed, dim=0)  # [K, N]
+    stacked_masks = torch.stack(masks, dim=0)      # [K, N]
 
-    # Sign consensus: sum of trimmed updates
-    sum_tau = t_math + t_pref
+    # Sign consensus: sum of trimmed updates across all K models
+    sum_tau = stacked_trimmed.sum(dim=0)
     consensus_sign = torch.sign(sum_tau)
 
     # Detailed clash logging
-    active_both = m_math & m_pref
-    stats["both_active"] = int(active_both.sum().item())
+    active_count = stacked_masks.sum(dim=0)
+    stats["multiple_active"] = int((active_count >= 2).sum().item())
 
-    if stats["both_active"] > 0:
-        s_math = torch.sign(t_math[active_both])
-        s_pref = torch.sign(t_pref[active_both])
-        s_cons = consensus_sign[active_both]
+    signs = torch.sign(stacked_trimmed)
+    agree_mask = (signs == consensus_sign.unsqueeze(0)) & (consensus_sign.unsqueeze(0) != 0)
 
-        clash = (s_math != s_pref) & (s_math != 0) & (s_pref != 0)
-        agree = (s_math == s_pref) & (s_math != 0)
-
-        stats["sign_agreed"] = int(agree.sum().item())
-        stats["sign_clashed"] = int(clash.sum().item())
-
-        math_won = (s_cons[clash] == s_math[clash])
-        pref_won = (s_cons[clash] == s_pref[clash])
-
-        stats["math_won_sign"] = int(math_won.sum().item())
-        stats["pref_won_sign"] = int(pref_won.sum().item())
+    # Tally sign agreement and clashes among active coordinates
+    active_mask = active_count >= 2
+    clash_coords = active_mask & ((signs != consensus_sign.unsqueeze(0)) & stacked_masks).any(dim=0)
+    stats["sign_clashed"] = int(clash_coords.sum().item())
+    stats["sign_agreed"] = int((active_mask & ~clash_coords).sum().item())
 
     # Disjoint merge: filter by consensus sign
-    merged_flat = torch.zeros_like(t_math)
-    count_agree = torch.zeros_like(t_math)
-
-    for t in [t_math, t_pref]:
-        t_sign = torch.sign(t)
-        agree_mask = (t_sign == consensus_sign) & (consensus_sign != 0)
-        merged_flat += t * agree_mask
-        count_agree += agree_mask.float()
+    masked_updates = stacked_trimmed * agree_mask
+    count_agree = agree_mask.float().sum(dim=0)
 
     valid_mask = count_agree > 0
-    merged_flat[valid_mask] = merged_flat[valid_mask] / count_agree[valid_mask]
+    merged_flat = torch.zeros_like(sum_tau)
+    if divide_by_count:
+        merged_flat[valid_mask] = masked_updates.sum(dim=0)[valid_mask] / count_agree[valid_mask]
+    else:
+        merged_flat[valid_mask] = masked_updates.sum(dim=0)[valid_mask]
 
     res = (alpha * merged_flat).view(tau_list[0].shape).to(tau_list[0].dtype)
     return res, stats
@@ -169,11 +185,9 @@ def merge_checkpoints(
     aggregate_stats = {
         "method": method,
         "total_params": 0,
-        "both_active": 0,
+        "multiple_active": 0,
         "sign_agreed": 0,
-        "sign_clashed": 0,
-        "math_won_sign": 0,
-        "pref_won_sign": 0
+        "sign_clashed": 0
     }
 
     for k in base_sd.keys():
@@ -211,29 +225,31 @@ def merge_checkpoints(
         elif method == "ties":
             tau_merged, stats = ties_merge_tensors([tau_m, tau_p], density=density_ties, alpha=alpha_math)
             merged_sd[k] = b_val + tau_merged
-            for stat_k in ["both_active", "sign_agreed", "sign_clashed", "math_won_sign", "pref_won_sign"]:
-                aggregate_stats[stat_k] += stats[stat_k]
+            for stat_k in stats:
+                if stat_k in aggregate_stats:
+                    aggregate_stats[stat_k] += stats[stat_k]
 
         elif method == "dare_ties":
             tau_m_dare = dare_tensors(tau_m, drop_rate=drop_dare)
             tau_p_dare = dare_tensors(tau_p, drop_rate=drop_dare)
             tau_merged, stats = ties_merge_tensors([tau_m_dare, tau_p_dare], density=density_ties, alpha=alpha_math)
             merged_sd[k] = b_val + tau_merged
-            for stat_k in ["both_active", "sign_agreed", "sign_clashed", "math_won_sign", "pref_won_sign"]:
-                aggregate_stats[stat_k] += stats[stat_k]
+            for stat_k in stats:
+                if stat_k in aggregate_stats:
+                    aggregate_stats[stat_k] += stats[stat_k]
 
         else:
             raise ValueError(f"Unknown merge method: {method}")
 
-    if method in ["ties", "dare_ties"] and aggregate_stats["sign_clashed"] > 0:
+    if method in ["ties", "dare_ties"] and aggregate_stats.get("sign_clashed", 0) > 0:
         c = aggregate_stats["sign_clashed"]
-        mw = aggregate_stats["math_won_sign"]
-        pw = aggregate_stats["pref_won_sign"]
-        print("\n--- TIES Sign Election Analysis ---")
-        print(f"Total Conflicting Coordinates: {c:,}")
-        print(f"Math Won Sign Consensus      : {mw:,} ({(mw/c)*100:.2f}%)")
-        print(f"Pref Won Sign Consensus      : {pw:,} ({(pw/c)*100:.2f}%)")
-        print("-----------------------------------")
+        ma = aggregate_stats.get("multiple_active", 0)
+        sa = aggregate_stats.get("sign_agreed", 0)
+        print("\n--- TIES Sign Consensus Analysis ---")
+        print(f"Total Multi-Active Coordinates: {ma:,}")
+        print(f"Total Agreed Coordinates      : {sa:,}")
+        print(f"Total Conflicting Coordinates : {c:,}")
+        print("------------------------------------")
 
     # Save merged model to disk
     print(f"Saving merged weights to: {output_dir}...")
@@ -260,6 +276,142 @@ def merge_checkpoints(
     with open(meta_path, "w") as f:
         json.dump(aggregate_stats, f, indent=2)
     print(f"Successfully saved {method} model to {output_dir}")
+    return aggregate_stats
+
+def merge_4_experts(
+    method: str,
+    output_dir: str,
+    base_sd: dict,
+    pref_sd: dict,
+    math_sd: dict,
+    code_sd: dict,
+    instr_sd: dict,
+    weights: dict[str, float] = None,
+    density_ties: float = 0.20,
+    drop_dare: float = 0.50
+) -> dict:
+    """
+    Merges all 4 domain specialists (E_pref, E_math, E_code, E_instr) simultaneously.
+    Supports methods: 'linear', 'linear_balanced', 'ties', 'dare_ties'.
+    weights: dictionary specifying each model's contribution (e.g., {'pref': 0.4, 'math': 0.2, 'code': 0.2, 'instr': 0.2}).
+    """
+    if weights is None:
+        weights = {"pref": 0.25, "math": 0.25, "code": 0.25, "instr": 0.25}
+
+    print(f"\n{'='*70}\nEXECUTING 4-EXPERT MERGE: {method.upper()} -> {output_dir}\nWeights: {weights}\n{'='*70}")
+    merged_sd = {}
+    aggregate_stats = {
+        "method": method,
+        "weights": weights,
+        "total_params": 0,
+        "multiple_active": 0,
+        "sign_agreed": 0,
+        "sign_clashed": 0
+    }
+
+    # Clean prefixes on all models
+    base_sd = clean_state_dict_keys(base_sd)
+    pref_sd = clean_state_dict_keys(pref_sd)
+    math_sd = clean_state_dict_keys(math_sd)
+    code_sd = clean_state_dict_keys(code_sd)
+    instr_sd = clean_state_dict_keys(instr_sd)
+
+    w_p = weights.get("pref", 0.25)
+    w_m = weights.get("math", 0.25)
+    w_c = weights.get("code", 0.25)
+    w_i = weights.get("instr", 0.25)
+
+    for k in base_sd.keys():
+        b_val = base_sd[k]
+        if k not in pref_sd or k not in math_sd or k not in code_sd or k not in instr_sd:
+            merged_sd[k] = b_val.clone()
+            continue
+
+        p_val = pref_sd[k]
+        m_val = math_sd[k]
+        c_val = code_sd[k]
+        i_val = instr_sd[k]
+
+        if not b_val.is_floating_point() or "embed" in k or "lm_head" in k:
+            merged_sd[k] = b_val.clone()
+            continue
+
+        tau_p = p_val - b_val
+        tau_m = m_val - b_val
+        tau_c = c_val - b_val
+        tau_i = i_val - b_val
+        aggregate_stats["total_params"] += b_val.numel()
+
+        if method == "linear":
+            tau_merged = w_p * tau_p + w_m * tau_m + w_c * tau_c + w_i * tau_i
+            merged_sd[k] = b_val + tau_merged
+
+        elif method == "linear_balanced":
+            norms = [torch.norm(t.float()) + 1e-8 for t in [tau_p, tau_m, tau_c, tau_i]]
+            avg_norm = sum(norms) / len(norms)
+            tau_p_b = (tau_p.float() / norms[0]) * avg_norm
+            tau_m_b = (tau_m.float() / norms[1]) * avg_norm
+            tau_c_b = (tau_c.float() / norms[2]) * avg_norm
+            tau_i_b = (tau_i.float() / norms[3]) * avg_norm
+            tau_merged = (w_p * tau_p_b + w_m * tau_m_b + w_c * tau_c_b + w_i * tau_i_b).to(b_val.dtype)
+            merged_sd[k] = b_val + tau_merged
+
+        elif method == "ties":
+            tau_list = [w_p * tau_p, w_m * tau_m, w_c * tau_c, w_i * tau_i]
+            tau_merged, stats = ties_merge_tensors(tau_list, density=density_ties, alpha=1.0, divide_by_count=False)
+            merged_sd[k] = b_val + tau_merged
+            for stat_k in stats:
+                if stat_k in aggregate_stats:
+                    aggregate_stats[stat_k] += stats[stat_k]
+
+        elif method == "dare_ties":
+            tau_list = [
+                dare_tensors(w_p * tau_p, drop_rate=drop_dare),
+                dare_tensors(w_m * tau_m, drop_rate=drop_dare),
+                dare_tensors(w_c * tau_c, drop_rate=drop_dare),
+                dare_tensors(w_i * tau_i, drop_rate=drop_dare),
+            ]
+            tau_merged, stats = ties_merge_tensors(tau_list, density=density_ties, alpha=1.0, divide_by_count=False)
+            merged_sd[k] = b_val + tau_merged
+            for stat_k in stats:
+                if stat_k in aggregate_stats:
+                    aggregate_stats[stat_k] += stats[stat_k]
+
+        else:
+            raise ValueError(f"Unknown merge method: {method}")
+
+    if method in ["ties", "dare_ties"] and aggregate_stats.get("sign_clashed", 0) > 0:
+        c = aggregate_stats["sign_clashed"]
+        ma = aggregate_stats.get("multiple_active", 0)
+        sa = aggregate_stats.get("sign_agreed", 0)
+        print("\n--- 4-Expert TIES Sign Consensus Analysis ---")
+        print(f"Total Multi-Active Coordinates: {ma:,}")
+        print(f"Total Agreed Coordinates      : {sa:,}")
+        print(f"Total Conflicting Coordinates : {c:,}")
+        print("---------------------------------------------")
+
+    print(f"Saving merged 4-expert weights to: {output_dir}...")
+    os.makedirs(output_dir, exist_ok=True)
+
+    model = AutoModelForCausalLM.from_pretrained(
+        MODEL_ID,
+        torch_dtype=torch.bfloat16,
+        device_map="cpu",
+        low_cpu_mem_usage=True
+    )
+    model.load_state_dict(merged_sd)
+    model.save_pretrained(output_dir)
+
+    tokenizer = AutoTokenizer.from_pretrained(MODEL_ID)
+    tokenizer.save_pretrained(output_dir)
+
+    del model
+    del merged_sd
+
+    meta_path = os.path.join(output_dir, "merge_meta.json")
+    with open(meta_path, "w") as f:
+        json.dump(aggregate_stats, f, indent=2)
+    print(f"Successfully saved 4-expert {method} model to {output_dir}")
     return aggregate_stats
 
 def run_phase_2a_merges():

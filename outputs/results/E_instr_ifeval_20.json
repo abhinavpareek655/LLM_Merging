@@ -1,0 +1,289 @@
+{
+  "model": "outputs/checkpoints/e_instr",
+  "prompt_accuracy": 50.0,
+  "instruction_accuracy": 50.0,
+  "total_prompts": 20,
+  "total_constraints": 30,
+  "details": [
+    {
+      "key": 1000,
+      "prompt": "Write a 300+ word summary of the wikipedia page \"https://en.wikipedia.org/wiki/Raymond_III,_Count_of_Tripoli\". Do not use any commas and highlight at least 3 sections that has titles in markdown format, for example *highlighted section part 1*, *highlighted section part 2*, *highlighted section part 3*.",
+      "response": "<<Summary of Raymond III, Count of Tripoli>>\n\n*Raymond III, Count of Tripoli (1845-1916)* was a prominent French military leader during the late 19th century. He played a significant role in the Franco-Prussian War and later served as a key figure in the French Revolutionary Wars.\n\n*In 1870, Raymond III became the first French emperor to be crowned king after a period of exile.* His reign marked a time of political upheaval in France, with his ascension to the throne leading to several changes in government and social dynamics.\n\n*During his tenure, Raymond III faced numerous challenges, including the rise of Napoleon III and the growing influence of the Third Republic.* Despite these difficulties, he remained committed to maintaining the French Empire and its ideals, which were crucial in shaping the country's future.\n\n*After his death in 1916, Raymond III was buried in Paris, where he had been consecrated as a saint by Pope Leo XIII.* His legacy continues to be remembered as a symbol of courage and leadership in times of crisis.\n\nThe biography of Raymond III, Count of Tripoli provides valuable insights into the complex history of France and the early years of the modern world. His contributions to politics and military service have left an indelible mark on French culture and history.",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "punctuation:no_comma",
+          "passed": false
+        },
+        {
+          "instruction_id": "detectable_format:number_highlighted_sections",
+          "passed": true
+        },
+        {
+          "instruction_id": "length_constraints:number_words",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 1001,
+      "prompt": "I am planning a trip to Japan, and I would like thee to write an itinerary for my journey in a Shakespearean style. You are not allowed to use any commas in your response.",
+      "response": "\"Upon the first day of your journey through Japan, you will begin with a visit to Kyoto, the city known for its intricate temples and gardens. Begin your exploration at the famous Kinkaku-ji (Golden Pavilion), where the light from the sun filters through the stained-glass windows, casting a mesmerizing glow.\n\nNext, head to Nara, a beautiful city that has been a center of culture since ancient times. Visit the Todai-ji Temple, one of the most important Buddhist sites in Japan, and take a stroll along the serene Nara Park. Afterward, return to Tokyo, the capital city, and explore the iconic Shibuya Crossing, a bustling intersection filled with vibrant activity.\n\nOn the third day, travel to Osaka, a city renowned for its traditional shopping districts and cultural landmarks. Start your day with a visit to the Osaka Castle, a UNESCO World Heritage site, and enjoy a meal at a local restaurant known for its authentic Japanese cuisine. For evening entertainment, head to the Osaka City Hall, a grand building that houses the city's government offices.\n\nFinally, on the fifth day, depart from Osaka and make your way to Hiroshima, a city that has played a significant role in the world's history. Visit the Hiroshima Peace Memorial Park, a poignant tribute to the victims of the atomic bombing, and then continue your journey to Nagoya, a city that is home to many museums and cultural institutions.\n\nYour journey through Japan is now complete, and you have experienced the beauty and diversity of this fascinating country.\"",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "punctuation:no_comma",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 1005,
+      "prompt": "Write a resume for a fresh high school graduate who is seeking their first job. Make sure to include at least 12 placeholder represented by square brackets, such as [address], [name].",
+      "response": "<<Fresh Graduates Job Application>>\n\n[Name]  \n[Address]  \n[City, State, Zip Code]  \n\nDear Hiring Manager  \nI am writing to express my interest in the [position] at your esteemed company. With a strong background in [field of study], I am confident that my skills and experiences align well with the requirements of this role. My academic achievements have been recognized through [number_of_awards] academic honors and [number_of_certificates] professional certifications. Additionally, I possess excellent communication and problem-solving abilities, which make me a suitable candidate for this position.\n\nIn my previous [job_title] at [company_name], I worked on several successful projects that contributed significantly to the company's success. I was responsible for managing multiple teams, ensuring timely delivery of projects, and maintaining high standards of quality. My ability to work under pressure and adapt to changing circumstances has been highly valued during my time here. I am particularly drawn to the opportunity to contribute to a dynamic team environment and to learn from experienced professionals.\n\nThank you for considering my application. I look forward to the possibility of discussing how my qualifications could be a valuable addition to your team. Please feel free to contact me at [phone_number] or via email at [email_address].\n\nSincerely,\n[Your Name]\n\nP.S. Feel free to reach out if you need more information about the [position] or any other open positions at your organization.",
+      "prompt_all_passed": true,
+      "constraints": [
+        {
+          "instruction_id": "detectable_content:number_placeholders",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": 1012,
+      "prompt": "Write an email to my boss telling him that I am quitting. The email must contain a title wrapped in double angular brackets, i.e. <<title>>.\nFirst repeat the request word for word without change, then give your answer (1. do not say any words or characters before repeating the request; 2. the request you need to repeat does not include this sentence)",
+      "response": "<<request to quit>>\n\nDear [boss's name],\n\nI hope this message finds you well. My current position at [company name] has been incredibly fulfilling and valuable to me. I have had the privilege of working with some amazing colleagues and contributing significantly to our success.\n\nHowever, I believe it is time for me to step away from this role. I feel that the challenges and responsibilities I have faced have prepared me for what lies ahead. I would like to thank you for the opportunity and look forward to the possibility of starting a new journey.\n\nThank you for considering my resignation. I will be in touch if there is anything else I can help with during this transition.\n\nSincerely,\n[Your Name]\n\nP.S. Please let me know if there is anything else I can assist you with.",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "combination:repeat_prompt",
+          "passed": false
+        },
+        {
+          "instruction_id": "detectable_format:title",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": 1019,
+      "prompt": "Given the sentence \"Two young boys with toy guns and horns.\" can you ask a question? Please ensure that your response is in English, and in all lowercase letters. No capital letters are allowed.",
+      "response": "Sure! What are some fun activities for two young boys to do together?",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "change_case:english_lowercase",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 102,
+      "prompt": "Write a dialogue between two people, one is dressed up in a ball gown and the other is dressed down in sweats. The two are going to a nightly event. Your answer must contain exactly 3 bullet points in the markdown format (use \"* \" to indicate each bullet) such as:\n* This is the first point.\n* This is the second point.",
+      "response": "\"Sure, I can help with that! *The first person is wearing a ball gown and is standing at the entrance of the venue.* They look beautiful and ready for the night ahead. *The second person is dressed in sweats and is walking towards them.* They seem quite relaxed and confident.\"\n\n* This is the first point.\n* This is the second point.\n* This is the third point.",
+      "prompt_all_passed": true,
+      "constraints": [
+        {
+          "instruction_id": "detectable_format:number_bullet_lists",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": 1021,
+      "prompt": "Write a 2 paragraph critique of the following sentence in all capital letters, no lowercase letters allowed: \"If the law is bad, you should not follow it\". Label each paragraph with PARAGRAPH X.",
+      "response": "\"IF THE LAW IS BAD YOU SHOULD NOT FOLLOW IT\"\n\nPARAGRAPH ONE\nThe first paragraph clearly states that if the law is bad then one should not follow it. This is an important principle to consider as it sets a standard for how individuals and organizations should behave when faced with legal issues.\n\nPARAGRAPH TWO\nHowever this statement alone does not provide enough guidance on what actions to take once the law has been broken. It is important to understand that following the law can sometimes lead to negative consequences such as imprisonment or fines which may not be justified by the severity of the offense. Therefore while adhering to the law is essential it must also be done responsibly and ethically.",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "change_case:english_capital",
+          "passed": false
+        },
+        {
+          "instruction_id": "detectable_format:multiple_sections",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 1040,
+      "prompt": "Write me a resume for Matthias Algiers. Use words with all capital letters to highlight key abilities, but make sure that words with all capital letters appear less than 10 times. Wrap the entire response with double quotation marks.",
+      "response": "\"MATTHIAS ALGIESER\n\nRESUME\n\nMATTHIAS ALGIESER  \nEMPLOYER: [Company Name]  \nADDRESS: [Company Address]  \nCITY: [City]  \nSTATE: [State]  \nZIP CODE: [Zip Code]\n\nINTRODUCTION  \nMATTHIAS ALGIESER is a highly skilled and dedicated professional with over 5 years of experience in the field of [industry]. With a strong background in [field], he has developed exceptional skills in [specific area].\n\nSKILLS  \n* Proficient in [technology or software]\n* Skilled in [process or procedure]\n* Excellent communication and collaboration skills\n* Strong problem-solving\u80fd\u529b\u548c\u521b\u65b0\u601d\u7ef4\n\nEXPERIENCE  \n[Start Date] - [End Date]  \n[ORGANIZATIONAL NAME]  \n[POSITION]  \n[DESCRIPTION OF POSITION]\n\n[ORGANIZATIONAL NAME]  \n[POSITION]  \n[DESCRIPTION OF POSITION]\n\n[ORGANIZATIONAL NAME]  \n[POSITION]  \n[DESCRIPTION OF POSITION]\n\n[ORGANIZATIONAL NAME]  \n[POSITION]  \n[DESCRIPTION OF POSITION]\n\n[ORGANIZATIONAL NAME]  \n[POSITION]  \n[DESCRIPTION OF POSITION]\n\n[ORGANIZATIONAL NAME]  \n[POSITION]  \n[DESCRIPTION OF POSITION]\n\n[ORGANIZATIONAL NAME]  \n[POSITION]  \n[DESCRIPTION OF POSITION]\n\n[ORGANIZATIONAL NAME]  \n[POSITION]  \n[DESCRIPTION OF POSITION]\n\n[ORGANIZATIONAL NAME]  \n[POSITION]  \n[DESCRIPTION OF POSITION]\n\n[ORGANIZATIONAL NAME]  \n[POSITION]  \n[DESCRIPTION OF POSITION]\n\n[ORGANIZATIONAL NAME]  \n[POSITION]  \n[DESCRIPTION OF POSITION]\n\n[ORGANIZATIONAL NAME]  \n[POSITION]  \n[DESCRIPTION OF POSITION]\n\n[ORGANIZATIONAL NAME]  \n[POSITION]  \n[DESCRIPTION OF POSITION]\n\n[ORGANIZATIONAL NAME]  \n[POSITION]  \n[DESCRIPTION OF POSITION]\n\n[ORGANIZATIONAL NAME]  \n[POSITION]  \n[DESCRIPTION OF POSITION]\n\n[ORGANIZATIONAL NAME]  \n[POSITION]  \n[DESCRIPTION OF POSITION]\n\n[ORGANIZATIONAL NAME]  \n[POSITION]  \n[DESCRIPTION OF POSITION]\n\n[ORGANIZATIONAL NAME]  \n[POSITION]  \n[DESCRIPTION OF POSITION]\n\n[ORGANIZATIONAL NAME]  \n[POSITION]  \n[DESCRIPTION OF POSITION]\n\n[ORGANIZATIONAL NAME]  \n[POSITION]  \n[DESCRIPTION OF POSITION]\n\n[ORGANIZATIONAL NAME]  \n[POSITION]  \n[DESCRIPTION OF POSITION]\n\n",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "change_case:capital_word_frequency",
+          "passed": false
+        },
+        {
+          "instruction_id": "change_case:capital_word_frequency",
+          "passed": true
+        },
+        {
+          "instruction_id": "startend:quotation",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 1051,
+      "prompt": "Write a letter to a friend in all lowercase letters ask them to go and vote.",
+      "response": "\"sure i can write this down for you here it is\" \"i would love to go and vote with you\" \"it's just the right thing to do\" \"i think we should make sure everyone gets their say\" \"let's plan something fun together\"",
+      "prompt_all_passed": true,
+      "constraints": [
+        {
+          "instruction_id": "change_case:english_lowercase",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": 1069,
+      "prompt": "Write a long email template that invites a group of participants to a meeting, with at least 500 words. The email must include the keywords \"correlated\" and \"experiencing\" and should not use any commas.",
+      "response": "\"Subject: Invitation for Group Meeting\n\nDear [Participant's Name],\n\nI hope this message finds you well. I am writing to invite you all to an important meeting scheduled for tomorrow at [Meeting Date]. This meeting is crucial as it will cover various topics related to our collective goals and objectives.\n\nThe purpose of today\u2019s meeting is to discuss and finalize the next steps in our project development. We will be focusing on key milestones, resource allocation, and potential challenges we might face along the way. Your participation is highly valued, and your insights are invaluable to us.\n\nPlease ensure you have a few minutes to prepare for the meeting. If you have any questions or concerns about the agenda, feel free to reach out to me during the call. We look forward to seeing you all together.\n\nThank you for your attention to this matter. We can\u2019t wait to see everyone there.\n\nBest regards,\n\n[Your Name]\n\nP.S. Please let me know if you need anything from my end.",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "keywords:existence",
+          "passed": false
+        },
+        {
+          "instruction_id": "length_constraints:number_words",
+          "passed": false
+        },
+        {
+          "instruction_id": "punctuation:no_comma",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 1072,
+      "prompt": "Write a blog post with 400 or more words about the benefits of sleeping in a hammock.",
+      "response": "<<The Benefits of Sleeping on a Hammock>>\n\nIn today's fast-paced world, many people find themselves struggling to get enough restful sleep each night. However, there is a simple yet effective solution that can significantly enhance your quality of sleep: sleeping on a hammock. This unconventional method not only promotes better relaxation but also offers numerous health and wellness advantages.\n\n* **Enhanced Relaxation and Stress Reduction**\n\nSleeping on a hammock allows you to fully relax and unwind during the day. The soft mattress and supportive frame of a hammock create an environment that encourages deep relaxation and reduces tension in the body. This type of sleep can help alleviate symptoms of stress, anxiety, and depression, making it easier to fall asleep and stay asleep throughout the night.\n\n* **Improved Sleep Quality**\n\nOne of the most significant benefits of sleeping on a hammock is its ability to improve sleep quality. The gentle rocking motion of a hammock can help regulate your circadian rhythm, promoting a deeper and more restorative sleep cycle. This can lead to better sleep efficiency and reduced awakenings throughout the night, which is crucial for maintaining overall well-being.\n\n* **Enhanced Physical Health**\n\nRegularly sleeping on a hammock can have numerous physical benefits as well. It helps maintain a healthy weight and supports muscle tone, reducing the risk of conditions such as back pain and joint stiffness. Additionally, the constant movement of a hammock can stimulate circulation and improve blood flow, which can boost energy levels and reduce fatigue.\n\n* **Better Sleep Patterns**\n\nBy incorporating a hammock into your nightly routine, you may experience changes in your sleep patterns. For instance, you might notice that you wake up less frequently at night, allowing you to catch more zzzzs. This can be particularly beneficial if you struggle with insomnia or other sleep disorders. Moreover, the consistent use of a hammock can encourage regular bedtime routines, further enhancing your sleep habits.\n\nIncorporating a hammock into your daily life can transform your sleep experience, offering both physical and mental health benefits. Whether you prefer to sleep on a hammock in your bedroom or in a separate room, the benefits are undeniable. So, why not give this unconventional sleep solution a try? Your body will thank you!\n\nP.S. Experiment with different types of hammocks to find one that suits your preferences and needs.",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "length_constraints:number_words",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 1075,
+      "prompt": "Can you help me make an advertisement for a new product? It's a diaper that's designed to be more comfortable for babies and I want the entire output in JSON format.",
+      "response": "```json\n{\n  \"ad_title\": \"Elevate Your Baby's Day with Our New Diaper\",\n  \"description\": \"Introducing our latest innovation in baby care! Our new diaper is not only stylish but also designed to provide unparalleled comfort and safety for your little one.\",\n  \"benefits\": [\n    \"Soft and breathable material ensures your baby feels cozy from head to toe\",\n    \"Easy to clean and maintain, making it a hassle-free experience for both you and your baby\",\n    \"Innervated design enhances grip and support, ensuring your baby stays secure during playtime\"\n  ],\n  \"price_range\": {\n    \"start_price\": \"$19.99\",\n    \"end_price\": \"$34.99\",\n    \"discounted_price\": \"$24.99\"\n  },\n  \"social_media_link\": \"https://www.facebook.com/ourproductpage/\",\n  \"contact_info\": {\n    \"email\": \"info@yourproductwebsite.com\",\n    \"phone\": \"(555) 123-4567\"\n  }\n}\n```",
+      "prompt_all_passed": true,
+      "constraints": [
+        {
+          "instruction_id": "detectable_format:json_format",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": 1082,
+      "prompt": "Write a story of exactly 2 paragraphs about a man who wakes up one day and realizes that he's inside a video game. Separate the paragraphs with the markdown divider: ***",
+      "response": "One morning, while lying in bed, a man named John woke up to a strange sensation. The room seemed to shift around him, and his eyes adjusted to the dim light. As he tried to focus, he realized that something was not quite right. He felt a cold sweat on his forehead, and his heart raced. ***\n\nCurious, John decided to explore the room more. He found himself in a vast, colorful world filled with vibrant colors and intricate designs. Each object had its own unique texture and feel, making it hard for him to understand what was real and what was just a dream. As he wandered through the maze-like corridors, John encountered various characters from different games, each with their own personalities and quirks. He even stumbled upon a hidden chamber where he discovered a mysterious treasure chest. ***\n\nAs the day wore on, John began to experience increasingly bizarre events. Objects would move on their own, and shadows danced across the walls. He also started to hear strange noises, like footsteps and whispers. Despite these challenges, John remained determined to find out what was happening. Eventually, after much trial and error, he managed to escape the game and return home, only to discover that everything had been a dream.",
+      "prompt_all_passed": true,
+      "constraints": [
+        {
+          "instruction_id": "length_constraints:number_paragraphs",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": 1087,
+      "prompt": "Write a detailed review of the movie \"The Social Network\". Your entire response should be in English and all lower case (no capital letters whatsoever).",
+      "response": "\"the social network is a powerful and thought-provoking film that explores the complexities of corporate culture and the impact it has on individuals and society as a whole. directed by daniel dayton and written by matt deloitte, the movie follows the journey of charles xavier rogers, played by tom hanks, who becomes disillusioned with his role as a software engineer at apple co. during a pivotal moment, he discovers an opportunity to revolutionize the company's business model through a series of hackathons and other innovative projects.\n\nthe film masterfully weaves together multiple timelines, allowing for a richly layered narrative that immerses viewers in the world of apple and its employees. hanks delivers a nuanced performance as charles xavier rogers, whose character undergoes significant personal and professional transformations throughout the story. the supporting cast also shines, including jordan fairman as joanna bennett, a brilliant but struggling programmer, and robert de niro as jerome rogers, charles' mentor and a key figure in the company's rise to power.\n\nwhat sets this film apart is its exploration of the ethical implications of corporate responsibility and the potential consequences of unchecked ambition. the movie highlights themes such as loyalty, sacrifice, and the struggle between individuality and collective purpose. through its gripping plot and compelling performances, the film remains a must-see for anyone interested in the intersection of technology, politics, and human nature.\"\n\np.s. i hope you enjoy the review!",
+      "prompt_all_passed": true,
+      "constraints": [
+        {
+          "instruction_id": "change_case:english_lowercase",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": 1092,
+      "prompt": "Write a short blog post about a trip to Japan using less than 300 words.",
+      "response": "<<Exploring the Culture and Beauty of Japan>>\n\nWhen planning your next travel adventure, one of the most exciting aspects is discovering new cultures and landscapes. One such destination that has captured the hearts of many travelers is Japan, known for its rich history, vibrant culture, and stunning natural beauty.\n\n* **The Land of the Rising Sun**: Japan is often referred to as the \"Land of the Rising Sun\" due to its iconic cherry blossoms, which bloom in spring. These beautiful flowers are not only beautiful but also have cultural significance, symbolizing renewal and hope. Whether you enjoy visiting cherry blossom parks or enjoying traditional festivals like the Cherry Blossom Festival, these events offer a glimpse into the country\u2019s diverse heritage.\n\n* **Traditional Japanese Cuisine**: Japan is renowned for its delicious cuisine, particularly sushi and ramen. Sushi, made from fresh fish, rice, and vegetables, is a staple in many restaurants around the world. Ramen, another popular dish, is characterized by its thick broth and tender noodles. Exploring local markets and trying authentic dishes can provide a deeper understanding of the country\u2019s culinary traditions.\n\n* **Nature and Adventure**: Japan offers numerous opportunities for outdoor enthusiasts, including hiking in mountains, surfing on the Pacific Ocean, and exploring remote islands. Each activity brings a unique experience, from the serene landscapes to the thrilling adventures. Whether you prefer adventure or relaxation, there is something for everyone in Japan.\n\n* **Culture and Society**: Japan is a society deeply rooted in tradition and values, with a strong emphasis on family, education, and community. From tea ceremonies to sumo wrestling, each aspect of life plays a significant role in shaping the nation. Visiting museums, attending lectures, and participating in cultural activities can deepen your appreciation for this fascinating culture.\n\n* **Travel Tips**: When planning your trip to Japan, consider booking accommodations in advance, especially during peak seasons when prices tend to be higher. Pack light and explore the city at your own pace, taking time to appreciate the local customs and sights. Lastly, don\u2019t forget to try some of the delicious food and soak up the beauty of the land.\n\nJapan is a place where every corner holds a story waiting to be discovered. Whether you are a seasoned traveler or an adventurous explorer, there is always more to see and do in this beautiful country. So pack your bags, set out, and embark on a journey that will enrich your heart and soul.",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "length_constraints:number_words",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 1094,
+      "prompt": "Please provide the names of 5 famous moms in JSON format. Please, use any interesting or weird tone. Your entire output should just contain a JSON block, nothing else.",
+      "response": "```json\n{\n  \"moms\": [\n    {\n      \"name\": \"Mommy Lou\",\n      \"occupation\": \"Teacher\"\n    },\n    {\n      \"name\": \"Mama Mia\",\n      \"occupation\": \"Artist\"\n    },\n    {\n      \"name\": \"Mommy Mimi\",\n      \"occupation\": \"Nurse\"\n    },\n    {\n      \"name\": \"Mama Pippa\",\n      \"occupation\": \"Policeman\"\n    },\n    {\n      \"name\": \"Mommy Polly\",\n      \"occupation\": \"Carpenter\"\n    }\n  ]\n}\n```",
+      "prompt_all_passed": true,
+      "constraints": [
+        {
+          "instruction_id": "detectable_format:json_format",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": 1098,
+      "prompt": "What is a name that people call God? Please give exactly two different responses. Separate the responses with 6 asterisk symbols: ******.",
+      "response": "<<Name of God>>\n\n*People often refer to God as \"God\" or simply \"God\"*.\n\n******\n*Another common term used for God is \"Deity\"*.\n\n******\n\n*In some cultures, people might also say \"Goddess\" or \"Mother Goddess\"* to describe her. *",
+      "prompt_all_passed": true,
+      "constraints": [
+        {
+          "instruction_id": "combination:two_responses",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": 1107,
+      "prompt": "Write two jokes about rockets. Do not contain commas in your response. Separate the two jokes with 6 asterisk symbols: ******.",
+      "response": "What did the rocket say to its pilot? \"I'm ready for my takeoff!\"  \nDid you hear about the rocket that crashed into a tree? \"No way! I thought it was going to fly!\"",
+      "prompt_all_passed": false,
+      "constraints": [
+        {
+          "instruction_id": "punctuation:no_comma",
+          "passed": true
+        },
+        {
+          "instruction_id": "combination:two_responses",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "key": 1108,
+      "prompt": "Are hamburgers sandwiches? Please respond using only the Kannada language, no other language is allowed.",
+      "response": "\"\u0915\u094b\u0908 \u092d\u0940 \u092e\u093f\u0936\u094d\u0930\u093e \u0928\u0939\u0940\u0902\u0964 \u0939\u092e\u093e\u0930\u0947 \u092a\u0942\u0930\u094d\u0935 \u091c\u0917\u0939 \u0915\u094b\u0908 \u0938\u093e\u092e\u093e\u0928\u094d\u092f \u092c\u0941\u0928\u093f\u092f\u093e\u0926\u0940 \u0914\u0930 \u091a\u093e\u0932\u0915 \u0925\u093e\u0964 \u0939\u092e \u090f\u0915 \u0905\u091a\u094d\u091b\u093e \u0906\u0926\u0947\u0916 \u0924\u0915 \u0907\u0938 \u0917\u0924\u093f \u0915\u0947 \u0932\u093f\u090f \u0909\u092a\u0932\u092c\u094d\u0927 \u0939\u094b\u0928\u0947 \u0915\u093e \u091c\u0935\u0901\u0938\u0928 \u0928\u0939\u0940\u0902\u0964\"",
+      "prompt_all_passed": true,
+      "constraints": [
+        {
+          "instruction_id": "language:response_language",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": 1122,
+      "prompt": "make a tweet for playboy's twitter account without using capital letters. Include at least 4 hashtags, starting with '#'",
+      "response": "\"playboy is all about the little things that make life worth living #love #adventure #travel #happiness\"",
+      "prompt_all_passed": true,
+      "constraints": [
+        {
+          "instruction_id": "change_case:english_lowercase",
+          "passed": true
+        },
+        {
+          "instruction_id": "keywords:letter_frequency",
+          "passed": true
+        }
+      ]
+    }
+  ]
+}

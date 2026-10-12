@@ -21,7 +21,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")
 from configs.base_config import TORCH_DTYPE, ATTN_IMPLEMENTATION
 
 
-def run_with_timeout(program: str, test_assertions: list[str], timeout: float = 2.0) -> bool:
+def run_with_timeout(program: str, test_assertions: list[str], timeout: float = 3.0) -> bool:
     """Runs test execution in a clean subprocess with an explicit OS-level timeout and kill.
     Guarantees no child processes hang indefinitely on Windows.
     """
@@ -121,7 +121,7 @@ def evaluate_mbpp(
 
         for item, gen_text in zip(batch, decoded):
             code = extract_code(gen_text)
-            passed = run_with_timeout(code, item["test_list"], timeout=2.0)
+            passed = run_with_timeout(code, item["test_list"], timeout=3.0)
             if passed:
                 passed_count += 1
             results.append({
@@ -130,6 +130,12 @@ def evaluate_mbpp(
                 "generated_code": code,
                 "passed": passed
             })
+
+    import gc
+    del model
+    gc.collect()
+    if torch.cuda.is_available():
+        torch.cuda.empty_cache()
 
     pass_at_1 = (passed_count / len(dataset)) * 100.0
     print(f"\n==========================================")

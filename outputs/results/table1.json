@@ -2,8 +2,8 @@
   {
     "Model":"B0",
     "GSM8K (EM %)":30.0,
-    "MBPP (Pass@1 %)":45.0,
-    "IFEval (Strict %)":30.0,
+    "MBPP (Pass@1 %)":31.13,
+    "IFEval (Strict %)":29.67,
     "Raw Pref Win %":65.0,
     "DPO Margin (vs B0)":0.0
   },
@@ -18,7 +18,7 @@
   {
     "Model":"E_code",
     "GSM8K (EM %)":30.0,
-    "MBPP (Pass@1 %)":35.0,
+    "MBPP (Pass@1 %)":38.91,
     "IFEval (Strict %)":20.0,
     "Raw Pref Win %":70.0,
     "DPO Margin (vs B0)":-0.0037
@@ -27,7 +27,7 @@
     "Model":"E_instr",
     "GSM8K (EM %)":15.0,
     "MBPP (Pass@1 %)":0.0,
-    "IFEval (Strict %)":25.0,
+    "IFEval (Strict %)":38.0,
     "Raw Pref Win %":60.0,
     "DPO Margin (vs B0)":-1.1456
   },
