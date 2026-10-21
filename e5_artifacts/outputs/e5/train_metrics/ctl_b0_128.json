@@ -1,0 +1,47 @@
+{
+ "tag": "ctl_b0_128",
+ "start_model": "Qwen/Qwen2.5-0.5B-Instruct",
+ "data": "outputs/e5/data/subsets/ctl_b0_128.jsonl",
+ "pairs": 128,
+ "optimizer_steps": 16,
+ "tokens": 102735,
+ "epochs": 1,
+ "train_seconds": 132.90195202827454,
+ "total_seconds_incl_load": 136.23226761817932,
+ "sec_per_step": 8.306372001767159,
+ "peak_mem_gb": 8.655781376,
+ "gpu": "Tesla T4",
+ "beta": 0.1,
+ "lr": 5e-05,
+ "log": [
+  {
+   "step": 1,
+   "loss": 0.685546875,
+   "acc": 0.125,
+   "margin": 0.125,
+   "lr": 1e-05,
+   "elapsed_s": 5.502943992614746
+  },
+  {
+   "step": 10,
+   "loss": 0.6396484375,
+   "acc": 0.625,
+   "margin": 1.59375,
+   "lr": 2.8557870956832132e-05,
+   "elapsed_s": 78.85216665267944
+  },
+  {
+   "step": 16,
+   "loss": 0.67236328125,
+   "acc": 0.625,
+   "margin": 2.375,
+   "lr": 0.0,
+   "elapsed_s": 132.90186476707458
+  }
+ ],
+ "bake_seconds": 7.214618921279907,
+ "job_wall_seconds": 152.11964654922485,
+ "budget": 128,
+ "ref_model": "B0",
+ "seed": 42
+}

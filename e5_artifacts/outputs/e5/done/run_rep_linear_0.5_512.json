@@ -1,0 +1,6 @@
+{
+  "pairs": 512,
+  "optimizer_steps": 64,
+  "tokens": 398559,
+  "train_seconds": 536.372377872467
+}

@@ -1,0 +1,23 @@
+{
+ "budgets": [
+  128,
+  512,
+  2000
+ ],
+ "cases": [
+  "worst",
+  "median"
+ ],
+ "ref_modes": [
+  "pre_dpo"
+ ],
+ "controls": true,
+ "full_eval": false,
+ "pool_path": "outputs/datasets/e_pref_train.jsonl",
+ "seed": 42,
+ "thresholds": [
+  0.9,
+  0.95
+ ],
+ "reuse_e4_anchors": true
+}

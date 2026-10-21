@@ -1,0 +1,47 @@
+{
+ "tag": "rep_linear_0.1_128",
+ "start_model": "outputs/checkpoints/e5/pre_linear_0.1",
+ "data": "outputs/e5/data/subsets/rep_linear_0.1_128.jsonl",
+ "pairs": 128,
+ "optimizer_steps": 16,
+ "tokens": 102735,
+ "epochs": 1,
+ "train_seconds": 139.18002939224243,
+ "total_seconds_incl_load": 142.25174140930176,
+ "sec_per_step": 8.698751837015152,
+ "peak_mem_gb": 8.655781376,
+ "gpu": "Tesla T4",
+ "beta": 0.1,
+ "lr": 5e-05,
+ "log": [
+  {
+   "step": 1,
+   "loss": 0.6982421875,
+   "acc": 0.0,
+   "margin": -0.125,
+   "lr": 1e-05,
+   "elapsed_s": 5.894696235656738
+  },
+  {
+   "step": 10,
+   "loss": 0.68505859375,
+   "acc": 0.5,
+   "margin": 0.234375,
+   "lr": 2.8557870956832132e-05,
+   "elapsed_s": 83.25199747085571
+  },
+  {
+   "step": 16,
+   "loss": 0.69970703125,
+   "acc": 0.375,
+   "margin": 0.40625,
+   "lr": 0.0,
+   "elapsed_s": 139.17993092536926
+  }
+ ],
+ "bake_seconds": 6.432030439376831,
+ "job_wall_seconds": 157.52563953399658,
+ "budget": 128,
+ "ref_model": "pre-DPO start",
+ "seed": 42
+}
