@@ -1,0 +1,17 @@
+{
+  "model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+  "torch_dtype": "float16",
+  "max_seq_length": 1024,
+  "lora": {
+    "rank": 16,
+    "alpha": 32,
+    "dropout": 0.05,
+    "bias": "none"
+  },
+  "experts": {
+    "e_math": "/kaggle/working/qwen2.5-1.5b-experts/outputs/adapters/e_math",
+    "e_code": "/kaggle/working/qwen2.5-1.5b-experts/outputs/adapters/e_code",
+    "e_instr": "/kaggle/working/qwen2.5-1.5b-experts/outputs/adapters/e_instr",
+    "e_pref": "/kaggle/working/qwen2.5-1.5b-experts/outputs/adapters/e_pref"
+  }
+}
