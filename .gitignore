@@ -16,9 +16,48 @@ outputs/adapters/**/checkpoint-*/
 *.pt
 *.pth
 
-# Ignore all safetensors EXCEPT the small LoRA adapters (<35MB)
+# Ignore all model weights except the canonical adapters used by E2/E4/E5.
 *.safetensors
-!outputs/adapters/*/adapter_model.safetensors
+
+# Keep only the four base adapters consumed by E2, E4, and E5.
+outputs/adapters/*
+!outputs/adapters/e_code/
+!outputs/adapters/e_instr/
+!outputs/adapters/e_math/
+!outputs/adapters/e_pref/
+outputs/adapters/e_code/*
+!outputs/adapters/e_code/adapter_config.json
+!outputs/adapters/e_code/adapter_model.safetensors
+!outputs/adapters/e_code/chat_template.jinja
+!outputs/adapters/e_code/README.md
+!outputs/adapters/e_code/tokenizer_config.json
+!outputs/adapters/e_code/tokenizer.json
+outputs/adapters/e_instr/*
+!outputs/adapters/e_instr/adapter_config.json
+!outputs/adapters/e_instr/adapter_model.safetensors
+!outputs/adapters/e_instr/chat_template.jinja
+!outputs/adapters/e_instr/README.md
+!outputs/adapters/e_instr/tokenizer_config.json
+!outputs/adapters/e_instr/tokenizer.json
+outputs/adapters/e_math/*
+!outputs/adapters/e_math/adapter_config.json
+!outputs/adapters/e_math/adapter_model.safetensors
+!outputs/adapters/e_math/chat_template.jinja
+!outputs/adapters/e_math/README.md
+!outputs/adapters/e_math/tokenizer_config.json
+!outputs/adapters/e_math/tokenizer.json
+outputs/adapters/e_pref/*
+!outputs/adapters/e_pref/adapter_config.json
+!outputs/adapters/e_pref/adapter_model.safetensors
+!outputs/adapters/e_pref/chat_template.jinja
+!outputs/adapters/e_pref/README.md
+!outputs/adapters/e_pref/tokenizer_config.json
+!outputs/adapters/e_pref/tokenizer.json
+
+# Training checkpoints and experiment-specific adapters are generated locally.
+consortium_experts/outputs/adapters/
+e4_artifacts/outputs/e4/adapters/
+e5_artifacts/outputs/e5/adapters/
 
 
 # Large Archives and Zip bundles
