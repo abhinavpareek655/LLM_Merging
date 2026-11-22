@@ -81,6 +81,9 @@ cd CS769
 pip install -r requirements.txt
 ```
 
+### Training all experts on Kaggle
+Use [`run_train_experts_kaggle.ipynb`](./run_train_experts_kaggle.ipynb) to prepare the datasets and train the three SFT experts (`e_math`, `e_code`, `e_instr`) plus the DPO preference expert (`e_pref`) from one shared base. The notebook shallow-clones this public repository from GitHub, so enable Internet and a GPU in Kaggle. The selected model, precision, LoRA settings, sequence length, and output directory are configured in [`configs/model_config.yaml`](./configs/model_config.yaml). The Kaggle notebook uses the lower-memory [`configs/sft_kaggle_config.yaml`](./configs/sft_kaggle_config.yaml); existing local training defaults remain in `configs/sft_config.yaml`. Push any config/code changes to GitHub before running the Kaggle notebook so the clone includes them.
+
 ### 2. Working with the 4 Pre-Trained Adapters
 All 4 specialized adapters are pre-trained and saved in `outputs/adapters/`:
 - `outputs/adapters/e_math` (Math Reasoning)

@@ -1,0 +1,29 @@
+# Kaggle expert-training run. Change model_id or output_root for another run.
+model_id: Qwen/Qwen2.5-1.5B-Instruct
+output_root: /kaggle/working/qwen2.5-1.5b-experts
+
+# Kaggle T4 GPUs do not provide native bfloat16 support; use fp16 there.
+# Use bfloat16 on supported GPUs if desired.
+torch_dtype: float16
+attention_implementation: sdpa
+
+max_seq_length: 1024
+lora:
+  rank: 16
+  alpha: 32
+  dropout: 0.05
+  bias: none
+
+experts:
+  math:
+    dataset: e_math.jsonl
+    adapter: e_math
+  code:
+    dataset: e_code.jsonl
+    adapter: e_code
+  instruction:
+    dataset: e_instr.jsonl
+    adapter: e_instr
+  preference:
+    dataset: e_pref_train_with_ref.jsonl
+    adapter: e_pref

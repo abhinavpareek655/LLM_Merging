@@ -1,6 +1,6 @@
 """
 SFT Training Pipeline for Consortium Domain Experts (E_math, E_code, E_instr).
-Utilizes PEFT LoRA on all 7 linear projections with native PyTorch SDPA in bfloat16.
+Utilizes PEFT LoRA on all 7 linear projections with a configurable attention backend and precision.
 """
 import os
 import sys
@@ -8,11 +8,8 @@ import argparse
 import yaml
 import torch
 from datasets import load_dataset
-from transformers import (
-    AutoModelForCausalLM,
-    AutoTokenizer,
-    TrainingArguments
-)
+from transformers import AutoModelForCausalLM, AutoTokenizer
+from transformers.trainer_utils import get_last_checkpoint
 from peft import LoraConfig, get_peft_model
 from trl import SFTTrainer, SFTConfig
 
@@ -36,6 +33,7 @@ def train_sft(dataset_path: str, output_adapter_dir: str, config_path: str = Non
     epochs = 3
     batch_size = 2
     grad_accum = 8
+    gradient_checkpointing = False
     seed = 42
 
     if config_path and os.path.exists(config_path):
@@ -45,6 +43,7 @@ def train_sft(dataset_path: str, output_adapter_dir: str, config_path: str = Non
             epochs = int(cfg.get("num_train_epochs", epochs))
             batch_size = int(cfg.get("per_device_train_batch_size", batch_size))
             grad_accum = int(cfg.get("gradient_accumulation_steps", grad_accum))
+            gradient_checkpointing = bool(cfg.get("gradient_checkpointing", gradient_checkpointing))
             seed = int(cfg.get("seed", seed))
 
     print(f"Loading dataset from: {dataset_path}")
@@ -76,6 +75,8 @@ def train_sft(dataset_path: str, output_adapter_dir: str, config_path: str = Non
     )
 
     model = get_peft_model(model, lora_config)
+    if gradient_checkpointing:
+        model.enable_input_require_grads()
     model.print_trainable_parameters()
 
     sft_config = SFTConfig(
@@ -89,10 +90,11 @@ def train_sft(dataset_path: str, output_adapter_dir: str, config_path: str = Non
         weight_decay=0.01,
         logging_steps=10,
         save_strategy="epoch",
-        bf16=True,
+        bf16=TORCH_DTYPE == torch.bfloat16,
+        fp16=TORCH_DTYPE == torch.float16,
         max_length=MAX_SEQ_LENGTH,
         dataset_text_field="text",
-        gradient_checkpointing=False,
+        gradient_checkpointing=gradient_checkpointing,
         seed=seed,
         report_to="none"
     )
@@ -105,7 +107,8 @@ def train_sft(dataset_path: str, output_adapter_dir: str, config_path: str = Non
     )
 
     print("Starting SFT training...")
-    trainer.train()
+    resume_checkpoint = get_last_checkpoint(output_adapter_dir)
+    trainer.train(resume_from_checkpoint=resume_checkpoint)
 
     print(f"Saving trained LoRA adapter to: {output_adapter_dir}...")
     os.makedirs(output_adapter_dir, exist_ok=True)

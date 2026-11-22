@@ -1,10 +1,10 @@
 """
-Rock-Solid DPO Training Pipeline with Precomputed Reference Log-Probabilities.
+Stable DPO Training Pipeline with Precomputed Reference Log-Probabilities.
 Uses a pure, standard PyTorch training loop:
 1. Zero dynamic adapter toggling (ref logps are read from precomputed JSONL).
 2. Zero Accelerate dispatch hooks.
 3. Clean PyTorch autograd with AdamW and cosine schedule.
-Peak VRAM is strictly ~2.2 GB on an 8 GB GPU with 100% hardware stability.
+Uses the configured model precision and optional gradient checkpointing.
 """
 import os
 os.environ["OMP_NUM_THREADS"] = "2"
@@ -49,7 +49,7 @@ def compute_logp_for_completion(model, tokenizer, prompt: str, completion: str, 
     outputs = model(input_ids)
     logits = outputs.logits
 
-    shift_logits = logits[0, :-1, :]
+    shift_logits = logits[0, :-1, :].float()
     shift_labels = input_ids[0, 1:]
     loss_fct = torch.nn.CrossEntropyLoss(reduction="none")
     loss_per_token = loss_fct(shift_logits, shift_labels)
@@ -71,6 +71,7 @@ def train_dpo_stable(
     epochs = 1
     grad_accum = 8
     max_seq_len = 1024
+    gradient_checkpointing = True
     seed = 42
 
     if config_path and os.path.exists(config_path):
@@ -81,6 +82,7 @@ def train_dpo_stable(
             epochs = int(cfg.get("num_train_epochs", epochs))
             grad_accum = int(cfg.get("gradient_accumulation_steps", grad_accum))
             max_seq_len = int(cfg.get("max_length", max_seq_len))
+            gradient_checkpointing = bool(cfg.get("gradient_checkpointing", gradient_checkpointing))
             seed = int(cfg.get("seed", seed))
 
     print(f"Configuration: lr={lr}, epochs={epochs}, grad_accum={grad_accum}, beta={beta}, max_seq_len={max_seq_len}")
@@ -112,10 +114,15 @@ def train_dpo_stable(
     )
 
     model = get_peft_model(model, lora_config)
+    if gradient_checkpointing:
+        model.gradient_checkpointing_enable(gradient_checkpointing_kwargs={"use_reentrant": False})
+        model.enable_input_require_grads()
+        model.config.use_cache = False
     model.print_trainable_parameters()
     model.train()
 
     optimizer = torch.optim.AdamW(model.parameters(), lr=lr, weight_decay=0.01)
+    scaler = torch.amp.GradScaler("cuda", enabled=TORCH_DTYPE == torch.float16)
 
     total_pairs = len(dataset) * epochs
     total_optimizer_steps = total_pairs // grad_accum
@@ -151,15 +158,18 @@ def train_dpo_stable(
             ref_r = float(item["ref_rejected_logp"])
 
             # Compute policy logps on active model
-            pi_c = compute_logp_for_completion(model, tokenizer, prompt, chosen, max_seq_len=max_seq_len)
-            pi_r = compute_logp_for_completion(model, tokenizer, prompt, rejected, max_seq_len=max_seq_len)
+            with torch.autocast(
+                "cuda",
+                dtype=TORCH_DTYPE,
+                enabled=TORCH_DTYPE != torch.float32,
+            ):
+                pi_c = compute_logp_for_completion(model, tokenizer, prompt, chosen, max_seq_len=max_seq_len)
+                pi_r = compute_logp_for_completion(model, tokenizer, prompt, rejected, max_seq_len=max_seq_len)
 
-            # Compute DPO loss
-            pi_diff = pi_c - pi_r
-            ref_diff = ref_c - ref_r
-            logits = beta * (pi_diff - ref_diff)
-
-            loss = F.softplus(-logits)
+                pi_diff = pi_c - pi_r
+                ref_diff = ref_c - ref_r
+                logits = beta * (pi_diff - ref_diff)
+                loss = F.softplus(-logits.float())
 
             # Metrics
             with torch.no_grad():
@@ -170,13 +180,15 @@ def train_dpo_stable(
 
             # Backward pass
             scaled_loss = loss / grad_accum
-            scaled_loss.backward()
+            scaler.scale(scaled_loss).backward()
             accumulated_loss += loss.item()
             sub_step += 1
 
             if sub_step % grad_accum == 0:
+                scaler.unscale_(optimizer)
                 torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
-                optimizer.step()
+                scaler.step(optimizer)
+                scaler.update()
                 scheduler.step()
                 optimizer.zero_grad()
 

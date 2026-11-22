@@ -27,7 +27,7 @@ def compute_sequence_logp(model, tokenizer, prompt: str, completion: str) -> flo
         outputs = model(input_ids)
         logits = outputs.logits
 
-    shift_logits = logits[0, :-1, :]
+    shift_logits = logits[0, :-1, :].float()
     shift_labels = input_ids[0, 1:]
     loss_fct = torch.nn.CrossEntropyLoss(reduction="none")
     loss_per_token = loss_fct(shift_logits, shift_labels)
